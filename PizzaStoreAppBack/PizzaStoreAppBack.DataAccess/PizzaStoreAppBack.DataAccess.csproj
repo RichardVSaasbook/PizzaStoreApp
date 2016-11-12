@@ -75,6 +75,8 @@
     <Compile Include="PizzaOrder.cs">
       <DependentUpon>PizzaStoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PizzaStoreAppData.cs" />
+    <Compile Include="PizzaStoreAppIngredientData.cs" />
     <Compile Include="PizzaStoreModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
