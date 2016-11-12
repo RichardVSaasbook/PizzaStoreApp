@@ -1,0 +1,1128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PizzaStoreAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressId" />
+          </Key>
+          <Property Name="AddressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Street" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="State" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Zip" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Phone">
+          <Key>
+            <PropertyRef Name="PhoneId" />
+          </Key>
+          <Property Name="PhoneId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="PersonId" />
+          </Key>
+          <Property Name="PersonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="PhoneId" Type="int" />
+          <Property Name="AddressId" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ingredient">
+          <Key>
+            <PropertyRef Name="IngredientId" />
+          </Key>
+          <Property Name="IngredientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pizza">
+          <Key>
+            <PropertyRef Name="PizzaId" />
+          </Key>
+          <Property Name="PizzaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpecialtyPizzaId" Type="int" />
+          <Property Name="SizeId" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PizzaIngredient">
+          <Key>
+            <PropertyRef Name="PizzaId" />
+            <PropertyRef Name="IngredientId" />
+          </Key>
+          <Property Name="PizzaId" Type="int" Nullable="false" />
+          <Property Name="IngredientId" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Size">
+          <Key>
+            <PropertyRef Name="SizeId" />
+          </Key>
+          <Property Name="SizeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dimension" Type="int" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SpecialtyPizza">
+          <Key>
+            <PropertyRef Name="SpecialtyPizzaId" />
+          </Key>
+          <Property Name="SpecialtyPizzaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SpecialtyPizzaIngredient">
+          <Key>
+            <PropertyRef Name="SpecialtyPizzaId" />
+            <PropertyRef Name="IngredientId" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="UpdatedDate" />
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Name="SpecialtyPizzaId" Type="int" Nullable="false" />
+          <Property Name="IngredientId" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="SubTotal" Type="money" Nullable="false" />
+          <Property Name="Tax" Type="money" Nullable="false" />
+          <Property Name="Total" Type="money" Nullable="false" />
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PizzaOrder">
+          <Key>
+            <PropertyRef Name="PizzaId" />
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="PizzaId" Type="int" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="StoreId" />
+          </Key>
+          <Property Name="StoreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OwnerId" Type="int" Nullable="false" />
+          <Property Name="PhoneId" Type="int" Nullable="false" />
+          <Property Name="AddressId" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StoreIngredient">
+          <Key>
+            <PropertyRef Name="StoreId" />
+            <PropertyRef Name="IngredientId" />
+          </Key>
+          <Property Name="StoreId" Type="int" Nullable="false" />
+          <Property Name="IngredientId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Order_CustomerId">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Order_StoreId">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Person_AddressId">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressId" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Person_PhoneId">
+          <End Role="Phone" Type="Self.Phone" Multiplicity="0..1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phone">
+              <PropertyRef Name="PhoneId" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="PhoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pizza_SizeId">
+          <End Role="Size" Type="Self.Size" Multiplicity="1" />
+          <End Role="Pizza" Type="Self.Pizza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Size">
+              <PropertyRef Name="SizeId" />
+            </Principal>
+            <Dependent Role="Pizza">
+              <PropertyRef Name="SizeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pizza_SpecialtyPizzaId">
+          <End Role="SpecialtyPizza" Type="Self.SpecialtyPizza" Multiplicity="0..1" />
+          <End Role="Pizza" Type="Self.Pizza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialtyPizza">
+              <PropertyRef Name="SpecialtyPizzaId" />
+            </Principal>
+            <Dependent Role="Pizza">
+              <PropertyRef Name="SpecialtyPizzaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PizzaIngredient_IngredientId">
+          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
+          <End Role="PizzaIngredient" Type="Self.PizzaIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient">
+              <PropertyRef Name="IngredientId" />
+            </Principal>
+            <Dependent Role="PizzaIngredient">
+              <PropertyRef Name="IngredientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PizzaIngredient_PizzaId">
+          <End Role="Pizza" Type="Self.Pizza" Multiplicity="1" />
+          <End Role="PizzaIngredient" Type="Self.PizzaIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pizza">
+              <PropertyRef Name="PizzaId" />
+            </Principal>
+            <Dependent Role="PizzaIngredient">
+              <PropertyRef Name="PizzaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PizzaOrder_OrderId">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="PizzaOrder" Type="Self.PizzaOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="PizzaOrder">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PizzaOrder_PizzaId">
+          <End Role="Pizza" Type="Self.Pizza" Multiplicity="1" />
+          <End Role="PizzaOrder" Type="Self.PizzaOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pizza">
+              <PropertyRef Name="PizzaId" />
+            </Principal>
+            <Dependent Role="PizzaOrder">
+              <PropertyRef Name="PizzaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SpecialtyPizzaIngredient_IngredientId">
+          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
+          <End Role="SpecialtyPizzaIngredient" Type="Self.SpecialtyPizzaIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient">
+              <PropertyRef Name="IngredientId" />
+            </Principal>
+            <Dependent Role="SpecialtyPizzaIngredient">
+              <PropertyRef Name="IngredientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SpecialtyPizzaIngredient_SpecialtyPizzaId">
+          <End Role="SpecialtyPizza" Type="Self.SpecialtyPizza" Multiplicity="1" />
+          <End Role="SpecialtyPizzaIngredient" Type="Self.SpecialtyPizzaIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialtyPizza">
+              <PropertyRef Name="SpecialtyPizzaId" />
+            </Principal>
+            <Dependent Role="SpecialtyPizzaIngredient">
+              <PropertyRef Name="SpecialtyPizzaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Store_AddressId">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="Store" Type="Self.Store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressId" />
+            </Principal>
+            <Dependent Role="Store">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Store_OwnerId">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Store" Type="Self.Store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonId" />
+            </Principal>
+            <Dependent Role="Store">
+              <PropertyRef Name="OwnerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Store_PhoneId">
+          <End Role="Phone" Type="Self.Phone" Multiplicity="1" />
+          <End Role="Store" Type="Self.Store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phone">
+              <PropertyRef Name="PhoneId" />
+            </Principal>
+            <Dependent Role="Store">
+              <PropertyRef Name="PhoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_StoreIngredient_IngredientId">
+          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
+          <End Role="StoreIngredient" Type="Self.StoreIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient">
+              <PropertyRef Name="IngredientId" />
+            </Principal>
+            <Dependent Role="StoreIngredient">
+              <PropertyRef Name="IngredientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_StoreIngredient_StoreId">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="StoreIngredient" Type="Self.StoreIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="StoreIngredient">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PizzaStoreAppModelStoreContainer">
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="Information" store:Type="Tables" />
+          <EntitySet Name="Phone" EntityType="Self.Phone" Schema="Information" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="People" store:Type="Tables" />
+          <EntitySet Name="Ingredient" EntityType="Self.Ingredient" Schema="Pizza" store:Type="Tables" />
+          <EntitySet Name="Pizza" EntityType="Self.Pizza" Schema="Pizza" store:Type="Tables" />
+          <EntitySet Name="PizzaIngredient" EntityType="Self.PizzaIngredient" Schema="Pizza" store:Type="Tables" />
+          <EntitySet Name="Size" EntityType="Self.Size" Schema="Pizza" store:Type="Tables" />
+          <EntitySet Name="SpecialtyPizza" EntityType="Self.SpecialtyPizza" Schema="Pizza" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="Store" store:Type="Tables" />
+          <EntitySet Name="PizzaOrder" EntityType="Self.PizzaOrder" Schema="Store" store:Type="Tables" />
+          <EntitySet Name="Store" EntityType="Self.Store" Schema="Store" store:Type="Tables" />
+          <EntitySet Name="StoreIngredient" EntityType="Self.StoreIngredient" Schema="Store" store:Type="Tables" />
+          <EntitySet Name="SpecialtyPizzaIngredient" EntityType="Self.SpecialtyPizzaIngredient" store:Type="Tables" store:Schema="Pizza">
+            <DefiningQuery>SELECT 
+    [SpecialtyPizzaIngredient].[SpecialtyPizzaId] AS [SpecialtyPizzaId], 
+    [SpecialtyPizzaIngredient].[IngredientId] AS [IngredientId], 
+    [SpecialtyPizzaIngredient].[CreatedDate] AS [CreatedDate], 
+    [SpecialtyPizzaIngredient].[UpdatedDate] AS [UpdatedDate], 
+    [SpecialtyPizzaIngredient].[Active] AS [Active]
+    FROM [Pizza].[SpecialtyPizzaIngredient] AS [SpecialtyPizzaIngredient]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_Order_CustomerId" Association="Self.fk_Order_CustomerId">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Order_StoreId" Association="Self.fk_Order_StoreId">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Person_AddressId" Association="Self.fk_Person_AddressId">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Person_PhoneId" Association="Self.fk_Person_PhoneId">
+            <End Role="Phone" EntitySet="Phone" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pizza_SizeId" Association="Self.fk_Pizza_SizeId">
+            <End Role="Size" EntitySet="Size" />
+            <End Role="Pizza" EntitySet="Pizza" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pizza_SpecialtyPizzaId" Association="Self.fk_Pizza_SpecialtyPizzaId">
+            <End Role="SpecialtyPizza" EntitySet="SpecialtyPizza" />
+            <End Role="Pizza" EntitySet="Pizza" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PizzaIngredient_IngredientId" Association="Self.fk_PizzaIngredient_IngredientId">
+            <End Role="Ingredient" EntitySet="Ingredient" />
+            <End Role="PizzaIngredient" EntitySet="PizzaIngredient" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PizzaIngredient_PizzaId" Association="Self.fk_PizzaIngredient_PizzaId">
+            <End Role="Pizza" EntitySet="Pizza" />
+            <End Role="PizzaIngredient" EntitySet="PizzaIngredient" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PizzaOrder_OrderId" Association="Self.fk_PizzaOrder_OrderId">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="PizzaOrder" EntitySet="PizzaOrder" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PizzaOrder_PizzaId" Association="Self.fk_PizzaOrder_PizzaId">
+            <End Role="Pizza" EntitySet="Pizza" />
+            <End Role="PizzaOrder" EntitySet="PizzaOrder" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SpecialtyPizzaIngredient_IngredientId" Association="Self.fk_SpecialtyPizzaIngredient_IngredientId">
+            <End Role="Ingredient" EntitySet="Ingredient" />
+            <End Role="SpecialtyPizzaIngredient" EntitySet="SpecialtyPizzaIngredient" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SpecialtyPizzaIngredient_SpecialtyPizzaId" Association="Self.fk_SpecialtyPizzaIngredient_SpecialtyPizzaId">
+            <End Role="SpecialtyPizza" EntitySet="SpecialtyPizza" />
+            <End Role="SpecialtyPizzaIngredient" EntitySet="SpecialtyPizzaIngredient" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Store_AddressId" Association="Self.fk_Store_AddressId">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Store" EntitySet="Store" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Store_OwnerId" Association="Self.fk_Store_OwnerId">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Store" EntitySet="Store" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Store_PhoneId" Association="Self.fk_Store_PhoneId">
+            <End Role="Phone" EntitySet="Phone" />
+            <End Role="Store" EntitySet="Store" />
+          </AssociationSet>
+          <AssociationSet Name="fk_StoreIngredient_IngredientId" Association="Self.fk_StoreIngredient_IngredientId">
+            <End Role="Ingredient" EntitySet="Ingredient" />
+            <End Role="StoreIngredient" EntitySet="StoreIngredient" />
+          </AssociationSet>
+          <AssociationSet Name="fk_StoreIngredient_StoreId" Association="Self.fk_StoreIngredient_StoreId">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="StoreIngredient" EntitySet="StoreIngredient" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PizzaStoreAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressId" />
+          </Key>
+          <Property Name="AddressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Street" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Zip" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="People" Relationship="Self.fk_Person_AddressId" FromRole="Address" ToRole="Person" />
+          <NavigationProperty Name="Stores" Relationship="Self.fk_Store_AddressId" FromRole="Address" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="Phone">
+          <Key>
+            <PropertyRef Name="PhoneId" />
+          </Key>
+          <Property Name="PhoneId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="People" Relationship="Self.fk_Person_PhoneId" FromRole="Phone" ToRole="Person" />
+          <NavigationProperty Name="Stores" Relationship="Self.fk_Store_PhoneId" FromRole="Phone" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="PersonId" />
+          </Key>
+          <Property Name="PersonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhoneId" Type="Int32" />
+          <Property Name="AddressId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="Self.fk_Person_AddressId" FromRole="Person" ToRole="Address" />
+          <NavigationProperty Name="Phone" Relationship="Self.fk_Person_PhoneId" FromRole="Person" ToRole="Phone" />
+          <NavigationProperty Name="Orders" Relationship="Self.fk_Order_CustomerId" FromRole="Person" ToRole="Order" />
+          <NavigationProperty Name="Stores" Relationship="Self.fk_Store_OwnerId" FromRole="Person" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="Ingredient">
+          <Key>
+            <PropertyRef Name="IngredientId" />
+          </Key>
+          <Property Name="IngredientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PizzaIngredients" Relationship="Self.fk_PizzaIngredient_IngredientId" FromRole="Ingredient" ToRole="PizzaIngredient" />
+          <NavigationProperty Name="SpecialtyPizzaIngredients" Relationship="Self.fk_SpecialtyPizzaIngredient_IngredientId" FromRole="Ingredient" ToRole="SpecialtyPizzaIngredient" />
+          <NavigationProperty Name="StoreIngredients" Relationship="Self.fk_StoreIngredient_IngredientId" FromRole="Ingredient" ToRole="StoreIngredient" />
+        </EntityType>
+        <EntityType Name="Pizza">
+          <Key>
+            <PropertyRef Name="PizzaId" />
+          </Key>
+          <Property Name="PizzaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpecialtyPizzaId" Type="Int32" />
+          <Property Name="SizeId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Size" Relationship="Self.fk_Pizza_SizeId" FromRole="Pizza" ToRole="Size" />
+          <NavigationProperty Name="SpecialtyPizza" Relationship="Self.fk_Pizza_SpecialtyPizzaId" FromRole="Pizza" ToRole="SpecialtyPizza" />
+          <NavigationProperty Name="PizzaIngredients" Relationship="Self.fk_PizzaIngredient_PizzaId" FromRole="Pizza" ToRole="PizzaIngredient" />
+          <NavigationProperty Name="PizzaOrders" Relationship="Self.fk_PizzaOrder_PizzaId" FromRole="Pizza" ToRole="PizzaOrder" />
+        </EntityType>
+        <EntityType Name="PizzaIngredient">
+          <Key>
+            <PropertyRef Name="PizzaId" />
+            <PropertyRef Name="IngredientId" />
+          </Key>
+          <Property Name="PizzaId" Type="Int32" Nullable="false" />
+          <Property Name="IngredientId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Ingredient" Relationship="Self.fk_PizzaIngredient_IngredientId" FromRole="PizzaIngredient" ToRole="Ingredient" />
+          <NavigationProperty Name="Pizza" Relationship="Self.fk_PizzaIngredient_PizzaId" FromRole="PizzaIngredient" ToRole="Pizza" />
+        </EntityType>
+        <EntityType Name="Size">
+          <Key>
+            <PropertyRef Name="SizeId" />
+          </Key>
+          <Property Name="SizeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dimension" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Pizzas" Relationship="Self.fk_Pizza_SizeId" FromRole="Size" ToRole="Pizza" />
+        </EntityType>
+        <EntityType Name="SpecialtyPizza">
+          <Key>
+            <PropertyRef Name="SpecialtyPizzaId" />
+          </Key>
+          <Property Name="SpecialtyPizzaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Pizzas" Relationship="Self.fk_Pizza_SpecialtyPizzaId" FromRole="SpecialtyPizza" ToRole="Pizza" />
+          <NavigationProperty Name="SpecialtyPizzaIngredients" Relationship="Self.fk_SpecialtyPizzaIngredient_SpecialtyPizzaId" FromRole="SpecialtyPizza" ToRole="SpecialtyPizzaIngredient" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="SubTotal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Tax" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="Self.fk_Order_CustomerId" FromRole="Order" ToRole="Person" />
+          <NavigationProperty Name="Store" Relationship="Self.fk_Order_StoreId" FromRole="Order" ToRole="Store" />
+          <NavigationProperty Name="PizzaOrders" Relationship="Self.fk_PizzaOrder_OrderId" FromRole="Order" ToRole="PizzaOrder" />
+        </EntityType>
+        <EntityType Name="PizzaOrder">
+          <Key>
+            <PropertyRef Name="PizzaId" />
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="PizzaId" Type="Int32" Nullable="false" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Pizza" Relationship="Self.fk_PizzaOrder_PizzaId" FromRole="PizzaOrder" ToRole="Pizza" />
+          <NavigationProperty Name="Order" Relationship="Self.fk_PizzaOrder_OrderId" FromRole="PizzaOrder" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="StoreId" />
+          </Key>
+          <Property Name="StoreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OwnerId" Type="Int32" Nullable="false" />
+          <Property Name="PhoneId" Type="Int32" Nullable="false" />
+          <Property Name="AddressId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="Self.fk_Store_AddressId" FromRole="Store" ToRole="Address" />
+          <NavigationProperty Name="Phone" Relationship="Self.fk_Store_PhoneId" FromRole="Store" ToRole="Phone" />
+          <NavigationProperty Name="Person" Relationship="Self.fk_Store_OwnerId" FromRole="Store" ToRole="Person" />
+          <NavigationProperty Name="Orders" Relationship="Self.fk_Order_StoreId" FromRole="Store" ToRole="Order" />
+          <NavigationProperty Name="StoreIngredients" Relationship="Self.fk_StoreIngredient_StoreId" FromRole="Store" ToRole="StoreIngredient" />
+        </EntityType>
+        <EntityType Name="StoreIngredient">
+          <Key>
+            <PropertyRef Name="StoreId" />
+            <PropertyRef Name="IngredientId" />
+          </Key>
+          <Property Name="StoreId" Type="Int32" Nullable="false" />
+          <Property Name="IngredientId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Ingredient" Relationship="Self.fk_StoreIngredient_IngredientId" FromRole="StoreIngredient" ToRole="Ingredient" />
+          <NavigationProperty Name="Store" Relationship="Self.fk_StoreIngredient_StoreId" FromRole="StoreIngredient" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="SpecialtyPizzaIngredient">
+          <Key>
+            <PropertyRef Name="SpecialtyPizzaId" />
+            <PropertyRef Name="IngredientId" />
+            <PropertyRef Name="CreatedDate" />
+            <PropertyRef Name="UpdatedDate" />
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Name="SpecialtyPizzaId" Type="Int32" Nullable="false" />
+          <Property Name="IngredientId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Ingredient" Relationship="Self.fk_SpecialtyPizzaIngredient_IngredientId" FromRole="SpecialtyPizzaIngredient" ToRole="Ingredient" />
+          <NavigationProperty Name="SpecialtyPizza" Relationship="Self.fk_SpecialtyPizzaIngredient_SpecialtyPizzaId" FromRole="SpecialtyPizzaIngredient" ToRole="SpecialtyPizza" />
+        </EntityType>
+        <Association Name="fk_Person_AddressId">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressId" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Store_AddressId">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="Store" Type="Self.Store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressId" />
+            </Principal>
+            <Dependent Role="Store">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Person_PhoneId">
+          <End Role="Phone" Type="Self.Phone" Multiplicity="0..1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phone">
+              <PropertyRef Name="PhoneId" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="PhoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Store_PhoneId">
+          <End Role="Phone" Type="Self.Phone" Multiplicity="1" />
+          <End Role="Store" Type="Self.Store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phone">
+              <PropertyRef Name="PhoneId" />
+            </Principal>
+            <Dependent Role="Store">
+              <PropertyRef Name="PhoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Order_CustomerId">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Store_OwnerId">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Store" Type="Self.Store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonId" />
+            </Principal>
+            <Dependent Role="Store">
+              <PropertyRef Name="OwnerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PizzaIngredient_IngredientId">
+          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
+          <End Role="PizzaIngredient" Type="Self.PizzaIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient">
+              <PropertyRef Name="IngredientId" />
+            </Principal>
+            <Dependent Role="PizzaIngredient">
+              <PropertyRef Name="IngredientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SpecialtyPizzaIngredient_IngredientId">
+          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
+          <End Role="SpecialtyPizzaIngredient" Type="Self.SpecialtyPizzaIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient">
+              <PropertyRef Name="IngredientId" />
+            </Principal>
+            <Dependent Role="SpecialtyPizzaIngredient">
+              <PropertyRef Name="IngredientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_StoreIngredient_IngredientId">
+          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
+          <End Role="StoreIngredient" Type="Self.StoreIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient">
+              <PropertyRef Name="IngredientId" />
+            </Principal>
+            <Dependent Role="StoreIngredient">
+              <PropertyRef Name="IngredientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pizza_SizeId">
+          <End Role="Size" Type="Self.Size" Multiplicity="1" />
+          <End Role="Pizza" Type="Self.Pizza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Size">
+              <PropertyRef Name="SizeId" />
+            </Principal>
+            <Dependent Role="Pizza">
+              <PropertyRef Name="SizeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pizza_SpecialtyPizzaId">
+          <End Role="SpecialtyPizza" Type="Self.SpecialtyPizza" Multiplicity="0..1" />
+          <End Role="Pizza" Type="Self.Pizza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialtyPizza">
+              <PropertyRef Name="SpecialtyPizzaId" />
+            </Principal>
+            <Dependent Role="Pizza">
+              <PropertyRef Name="SpecialtyPizzaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PizzaIngredient_PizzaId">
+          <End Role="Pizza" Type="Self.Pizza" Multiplicity="1" />
+          <End Role="PizzaIngredient" Type="Self.PizzaIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pizza">
+              <PropertyRef Name="PizzaId" />
+            </Principal>
+            <Dependent Role="PizzaIngredient">
+              <PropertyRef Name="PizzaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PizzaOrder_PizzaId">
+          <End Role="Pizza" Type="Self.Pizza" Multiplicity="1" />
+          <End Role="PizzaOrder" Type="Self.PizzaOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pizza">
+              <PropertyRef Name="PizzaId" />
+            </Principal>
+            <Dependent Role="PizzaOrder">
+              <PropertyRef Name="PizzaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SpecialtyPizzaIngredient_SpecialtyPizzaId">
+          <End Role="SpecialtyPizza" Type="Self.SpecialtyPizza" Multiplicity="1" />
+          <End Role="SpecialtyPizzaIngredient" Type="Self.SpecialtyPizzaIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialtyPizza">
+              <PropertyRef Name="SpecialtyPizzaId" />
+            </Principal>
+            <Dependent Role="SpecialtyPizzaIngredient">
+              <PropertyRef Name="SpecialtyPizzaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Order_StoreId">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PizzaOrder_OrderId">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="PizzaOrder" Type="Self.PizzaOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="PizzaOrder">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_StoreIngredient_StoreId">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="StoreIngredient" Type="Self.StoreIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="StoreIngredient">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PizzaStoreAppEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="Phones" EntityType="Self.Phone" />
+          <EntitySet Name="People" EntityType="Self.Person" />
+          <EntitySet Name="Ingredients" EntityType="Self.Ingredient" />
+          <EntitySet Name="Pizzas" EntityType="Self.Pizza" />
+          <EntitySet Name="PizzaIngredients" EntityType="Self.PizzaIngredient" />
+          <EntitySet Name="Sizes" EntityType="Self.Size" />
+          <EntitySet Name="SpecialtyPizzas" EntityType="Self.SpecialtyPizza" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="PizzaOrders" EntityType="Self.PizzaOrder" />
+          <EntitySet Name="Stores" EntityType="Self.Store" />
+          <EntitySet Name="StoreIngredients" EntityType="Self.StoreIngredient" />
+          <EntitySet Name="SpecialtyPizzaIngredients" EntityType="Self.SpecialtyPizzaIngredient" />
+          <AssociationSet Name="fk_Person_AddressId" Association="Self.fk_Person_AddressId">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Store_AddressId" Association="Self.fk_Store_AddressId">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Store" EntitySet="Stores" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Person_PhoneId" Association="Self.fk_Person_PhoneId">
+            <End Role="Phone" EntitySet="Phones" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Store_PhoneId" Association="Self.fk_Store_PhoneId">
+            <End Role="Phone" EntitySet="Phones" />
+            <End Role="Store" EntitySet="Stores" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Order_CustomerId" Association="Self.fk_Order_CustomerId">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Store_OwnerId" Association="Self.fk_Store_OwnerId">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Store" EntitySet="Stores" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PizzaIngredient_IngredientId" Association="Self.fk_PizzaIngredient_IngredientId">
+            <End Role="Ingredient" EntitySet="Ingredients" />
+            <End Role="PizzaIngredient" EntitySet="PizzaIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SpecialtyPizzaIngredient_IngredientId" Association="Self.fk_SpecialtyPizzaIngredient_IngredientId">
+            <End Role="Ingredient" EntitySet="Ingredients" />
+            <End Role="SpecialtyPizzaIngredient" EntitySet="SpecialtyPizzaIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="fk_StoreIngredient_IngredientId" Association="Self.fk_StoreIngredient_IngredientId">
+            <End Role="Ingredient" EntitySet="Ingredients" />
+            <End Role="StoreIngredient" EntitySet="StoreIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pizza_SizeId" Association="Self.fk_Pizza_SizeId">
+            <End Role="Size" EntitySet="Sizes" />
+            <End Role="Pizza" EntitySet="Pizzas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pizza_SpecialtyPizzaId" Association="Self.fk_Pizza_SpecialtyPizzaId">
+            <End Role="SpecialtyPizza" EntitySet="SpecialtyPizzas" />
+            <End Role="Pizza" EntitySet="Pizzas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PizzaIngredient_PizzaId" Association="Self.fk_PizzaIngredient_PizzaId">
+            <End Role="Pizza" EntitySet="Pizzas" />
+            <End Role="PizzaIngredient" EntitySet="PizzaIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PizzaOrder_PizzaId" Association="Self.fk_PizzaOrder_PizzaId">
+            <End Role="Pizza" EntitySet="Pizzas" />
+            <End Role="PizzaOrder" EntitySet="PizzaOrders" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SpecialtyPizzaIngredient_SpecialtyPizzaId" Association="Self.fk_SpecialtyPizzaIngredient_SpecialtyPizzaId">
+            <End Role="SpecialtyPizza" EntitySet="SpecialtyPizzas" />
+            <End Role="SpecialtyPizzaIngredient" EntitySet="SpecialtyPizzaIngredients" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Order_StoreId" Association="Self.fk_Order_StoreId">
+            <End Role="Store" EntitySet="Stores" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PizzaOrder_OrderId" Association="Self.fk_PizzaOrder_OrderId">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="PizzaOrder" EntitySet="PizzaOrders" />
+          </AssociationSet>
+          <AssociationSet Name="fk_StoreIngredient_StoreId" Association="Self.fk_StoreIngredient_StoreId">
+            <End Role="Store" EntitySet="Stores" />
+            <End Role="StoreIngredient" EntitySet="StoreIngredients" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PizzaStoreAppModelStoreContainer" CdmEntityContainer="PizzaStoreAppEntities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="PizzaStoreAppModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Phones">
+            <EntityTypeMapping TypeName="PizzaStoreAppModel.Phone">
+              <MappingFragment StoreEntitySet="Phone">
+                <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="PizzaStoreAppModel.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingredients">
+            <EntityTypeMapping TypeName="PizzaStoreAppModel.Ingredient">
+              <MappingFragment StoreEntitySet="Ingredient">
+                <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pizzas">
+            <EntityTypeMapping TypeName="PizzaStoreAppModel.Pizza">
+              <MappingFragment StoreEntitySet="Pizza">
+                <ScalarProperty Name="PizzaId" ColumnName="PizzaId" />
+                <ScalarProperty Name="SpecialtyPizzaId" ColumnName="SpecialtyPizzaId" />
+                <ScalarProperty Name="SizeId" ColumnName="SizeId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PizzaIngredients">
+            <EntityTypeMapping TypeName="PizzaStoreAppModel.PizzaIngredient">
+              <MappingFragment StoreEntitySet="PizzaIngredient">
+                <ScalarProperty Name="PizzaId" ColumnName="PizzaId" />
+                <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sizes">
+            <EntityTypeMapping TypeName="PizzaStoreAppModel.Size">
+              <MappingFragment StoreEntitySet="Size">
+                <ScalarProperty Name="SizeId" ColumnName="SizeId" />
+                <ScalarProperty Name="Dimension" ColumnName="Dimension" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SpecialtyPizzas">
+            <EntityTypeMapping TypeName="PizzaStoreAppModel.SpecialtyPizza">
+              <MappingFragment StoreEntitySet="SpecialtyPizza">
+                <ScalarProperty Name="SpecialtyPizzaId" ColumnName="SpecialtyPizzaId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="PizzaStoreAppModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PizzaOrders">
+            <EntityTypeMapping TypeName="PizzaStoreAppModel.PizzaOrder">
+              <MappingFragment StoreEntitySet="PizzaOrder">
+                <ScalarProperty Name="PizzaId" ColumnName="PizzaId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stores">
+            <EntityTypeMapping TypeName="PizzaStoreAppModel.Store">
+              <MappingFragment StoreEntitySet="Store">
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StoreIngredients">
+            <EntityTypeMapping TypeName="PizzaStoreAppModel.StoreIngredient">
+              <MappingFragment StoreEntitySet="StoreIngredient">
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SpecialtyPizzaIngredients">
+            <EntityTypeMapping TypeName="PizzaStoreAppModel.SpecialtyPizzaIngredient">
+              <MappingFragment StoreEntitySet="SpecialtyPizzaIngredient">
+                <ScalarProperty Name="SpecialtyPizzaId" ColumnName="SpecialtyPizzaId" />
+                <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
