@@ -7,6 +7,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PizzaStoreAppBack.Database"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaStoreAppBack.DataAccess", "PizzaStoreAppBack.DataAccess\PizzaStoreAppBack.DataAccess.csproj", "{ADBB1A5A-7E04-4B5D-B961-5B7926B1F83C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaStoreAppBack.DataClient", "PizzaStoreAppBack.DataClient\PizzaStoreAppBack.DataClient.csproj", "{3BF4B104-C1E9-48F9-A25C-F321B6B648BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{ADBB1A5A-7E04-4B5D-B961-5B7926B1F83C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADBB1A5A-7E04-4B5D-B961-5B7926B1F83C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADBB1A5A-7E04-4B5D-B961-5B7926B1F83C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BF4B104-C1E9-48F9-A25C-F321B6B648BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BF4B104-C1E9-48F9-A25C-F321B6B648BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BF4B104-C1E9-48F9-A25C-F321B6B648BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BF4B104-C1E9-48F9-A25C-F321B6B648BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

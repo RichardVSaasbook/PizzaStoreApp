@@ -250,3 +250,5 @@ Web.Config
 Web.config
 web.Config
 web.config
+Web.Debug.config
+Web.Release.config
