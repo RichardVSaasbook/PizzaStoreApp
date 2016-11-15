@@ -45,7 +45,7 @@ GO
 
 CREATE TABLE Pizza.Pizza (
     PizzaId INT NOT NULL IDENTITY PRIMARY KEY,
-    SpecialtyPizzaId INT NULL,
+    OrderId INT NULL,
     SizeId INT NOT NULL,
     CreatedDate DATETIME NOT NULL DEFAULT GETUTCDATE(),
     UpdatedDate DATETIME NOT NULL DEFAULT GETUTCDATE(),
@@ -85,20 +85,21 @@ CREATE TABLE Store.[Order] (
 );
 GO
 
-CREATE TABLE Store.PizzaOrder (
-    PizzaId INT NOT NULL,
-    OrderId INT NOT NULL,
-    CreatedDate DATETIME NOT NULL DEFAULT GETUTCDATE(),
-    UpdatedDate DATETIME NOT NULL DEFAULT GETUTCDATE(),
-    Active BIT NOT NULL DEFAULT 1
-);
-GO
+--CREATE TABLE Store.PizzaOrder (
+--    PizzaId INT NOT NULL,
+--    OrderId INT NOT NULL,
+--    CreatedDate DATETIME NOT NULL DEFAULT GETUTCDATE(),
+--    UpdatedDate DATETIME NOT NULL DEFAULT GETUTCDATE(),
+--    Active BIT NOT NULL DEFAULT 1
+--);
+--GO
 
 CREATE TABLE Store.Store (
     StoreId INT NOT NULL IDENTITY PRIMARY KEY,
     OwnerId INT NOT NULL,
     PhoneId INT NOT NULL,
     AddressId INT NOT NULL,
+    SalesTax DECIMAL NOT NULL,
     CreatedDate DATETIME NOT NULL DEFAULT GETUTCDATE(),
     UpdatedDate DATETIME NOT NULL DEFAULT GETUTCDATE(),
     Active BIT NOT NULL DEFAULT 1
@@ -173,7 +174,7 @@ ALTER TABLE Pizza.SpecialtyPizzaIngredient
 GO
 
 ALTER TABLE Pizza.Pizza
-    ADD CONSTRAINT fk_Pizza_SpecialtyPizzaId FOREIGN KEY (SpecialtyPizzaId) REFERENCES Pizza.SpecialtyPizza(SpecialtyPizzaId);
+    ADD CONSTRAINT fk_Pizza_OrderId FOREIGN KEY (OrderId) REFERENCES Store.[Order](OrderId);
 GO
 
 ALTER TABLE Pizza.Pizza
@@ -188,17 +189,17 @@ ALTER TABLE Store.[Order]
     ADD CONSTRAINT fk_Order_CustomerId FOREIGN KEY (CustomerId) REFERENCES People.Person(PersonId);
 GO
 
-ALTER TABLE Store.PizzaOrder
-    ADD CONSTRAINT pk_PizzaOrderId PRIMARY KEY (PizzaId, OrderId);
-GO
+--ALTER TABLE Store.PizzaOrder
+--    ADD CONSTRAINT pk_PizzaOrderId PRIMARY KEY (PizzaId, OrderId);
+--GO
 
-ALTER TABLE Store.PizzaOrder
-    ADD CONSTRAINT fk_PizzaOrder_PizzaId FOREIGN KEY (PizzaId) REFERENCES Pizza.Pizza(PizzaId);
-GO
+--ALTER TABLE Store.PizzaOrder
+--    ADD CONSTRAINT fk_PizzaOrder_PizzaId FOREIGN KEY (PizzaId) REFERENCES Pizza.Pizza(PizzaId);
+--GO
 
-ALTER TABLE Store.PizzaOrder
-    ADD CONSTRAINT fk_PizzaOrder_OrderId FOREIGN KEY (OrderId) REFERENCES Store.[Order](OrderId);
-GO
+--ALTER TABLE Store.PizzaOrder
+--    ADD CONSTRAINT fk_PizzaOrder_OrderId FOREIGN KEY (OrderId) REFERENCES Store.[Order](OrderId);
+--GO
 
 ALTER TABLE Store.Store
     ADD CONSTRAINT fk_Store_OwnerId FOREIGN KEY (OwnerId) REFERENCES People.Person(PersonId);

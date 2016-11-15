@@ -99,10 +99,10 @@ namespace PizzaStoreAppBack.DataAccess
         /// <param name="pizzaId">The Id of the Pizza to find.</param>
         /// <param name="orderId">The Id of the Order to find.</param>
         /// <returns>The PizzaOrder if found or a new one otherwise.</returns>
-        public PizzaOrder FindPizzaOrder(int pizzaId, int orderId)
-        {
-            return FindEntity(db.PizzaOrders, pizzaId, orderId);
-        }
+        //public PizzaOrder FindPizzaOrder(int pizzaId, int orderId)
+        //{
+        //    return FindEntity(db.PizzaOrders, pizzaId, orderId);
+        //}
 
         /// <summary>
         /// Find a Size entity.

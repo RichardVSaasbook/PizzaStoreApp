@@ -31,8 +31,8 @@ GO
 EXEC dbo.sp_CreateDeleteTrigger N'DeleteOrder', N'OrderId', N'Store.[Order]';
 GO
 
-EXEC dbo.sp_CreateJunctionDeleteTrigger N'DeletePizzaOrder', N'PizzaId', N'OrderId', N'Store.PizzaOrder';
-GO
+--EXEC dbo.sp_CreateJunctionDeleteTrigger N'DeletePizzaOrder', N'PizzaId', N'OrderId', N'Store.PizzaOrder';
+--GO
 
 EXEC dbo.sp_CreateDeleteTrigger N'DeleteStore', N'StoreId', N'Store.Store';
 GO
@@ -67,8 +67,8 @@ GO
 EXEC dbo.sp_CreateUpdateTrigger N'UpdateOrder', N'OrderId', N'Store.[Order]';
 GO
 
-EXEC dbo.sp_CreateJunctionUpdateTrigger N'UpdatePizzaOrder', N'PizzaId', N'OrderId', N'Store.PizzaOrder';
-GO
+--EXEC dbo.sp_CreateJunctionUpdateTrigger N'UpdatePizzaOrder', N'PizzaId', N'OrderId', N'Store.PizzaOrder';
+--GO
 
 EXEC dbo.sp_CreateUpdateTrigger N'UpdateStore', N'StoreId', N'Store.Store';
 GO
@@ -182,12 +182,12 @@ INSERT INTO People.Person (FirstName, LastName, PhoneId, AddressId) VALUES
     (N'Elliot', N'Craig', 5, 5);
 GO
 
-INSERT INTO Store.Store (OwnerId, PhoneId, AddressId) VALUES
-    (1, 1, 1),
-    (2, 2, 2),
-    (3, 3, 3),
-    (4, 4, 4),
-    (5, 5, 5);
+INSERT INTO Store.Store (OwnerId, PhoneId, AddressId, SalesTax) VALUES
+    (1, 1, 1, 0.085),
+    (2, 2, 2, 0.053),
+    (3, 3, 3, 0.0625),
+    (4, 4, 4, 0.056),
+    (5, 5, 5, 0.075);
 GO
 
 INSERT INTO Store.StoreIngredient (StoreId, IngredientId, Quantity) VALUES

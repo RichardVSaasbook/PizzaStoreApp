@@ -25,6 +25,7 @@ namespace PizzaStoreAppBack.DataAccess
         public int OwnerId { get; set; }
         public int PhoneId { get; set; }
         public int AddressId { get; set; }
+        public decimal SalesTax { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public System.DateTime UpdatedDate { get; set; }
         public bool Active { get; set; }

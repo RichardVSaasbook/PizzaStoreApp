@@ -17,7 +17,6 @@ namespace PizzaStoreAppBack.DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SpecialtyPizza()
         {
-            this.Pizzas = new HashSet<Pizza>();
             this.SpecialtyPizzaIngredients = new HashSet<SpecialtyPizzaIngredient>();
         }
     
@@ -27,8 +26,6 @@ namespace PizzaStoreAppBack.DataAccess
         public System.DateTime UpdatedDate { get; set; }
         public bool Active { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pizza> Pizzas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SpecialtyPizzaIngredient> SpecialtyPizzaIngredients { get; set; }
     }

@@ -9,7 +9,13 @@ namespace PizzaStoreAppBack.DataAccess {
     /// Factory for creating Pizzas.
     /// </summary>
     public static class PizzaFactory {
-        public static PizzaData BuildPizza(List<Ingredient> ingredients, Size size, SpecialtyPizza specialtyPizza = null) {
+        /// <summary>
+        /// Build a Pizza.
+        /// </summary>
+        /// <param name="ingredients">The List of Ingredients on the Pizza.</param>
+        /// <param name="size">The Size of the Pizza.</param>
+        /// <returns>The built Pizza and its price.</returns>
+        public static PizzaData BuildPizza(List<Ingredient> ingredients, Size size) {
             bool hasCrust = false,
                 hasSauce = false,
                 hasCheese = false;
@@ -21,11 +27,6 @@ namespace PizzaStoreAppBack.DataAccess {
                 Active = true,
                 Size = size
             };
-
-            if (specialtyPizza != null) {
-                pizza.SpecialtyPizza = specialtyPizza;
-                pizza.SpecialtyPizzaId = specialtyPizza.SpecialtyPizzaId;
-            }
 
             foreach (Ingredient ingredient in ingredients) {
                 if (ingredient.Type == "Crust") {

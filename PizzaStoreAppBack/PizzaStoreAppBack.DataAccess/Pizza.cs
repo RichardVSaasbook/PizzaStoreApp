@@ -18,21 +18,18 @@ namespace PizzaStoreAppBack.DataAccess
         public Pizza()
         {
             this.PizzaIngredients = new HashSet<PizzaIngredient>();
-            this.PizzaOrders = new HashSet<PizzaOrder>();
         }
     
         public int PizzaId { get; set; }
-        public Nullable<int> SpecialtyPizzaId { get; set; }
+        public Nullable<int> OrderId { get; set; }
         public int SizeId { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public System.DateTime UpdatedDate { get; set; }
         public bool Active { get; set; }
     
+        public virtual Order Order { get; set; }
         public virtual Size Size { get; set; }
-        public virtual SpecialtyPizza SpecialtyPizza { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PizzaIngredient> PizzaIngredients { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PizzaOrder> PizzaOrders { get; set; }
     }
 }
