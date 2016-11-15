@@ -127,11 +127,12 @@ namespace PizzaStoreAppBack.DataAccess
         /// <summary>
         /// Find a SpecialtyPizzaIngredient entity.
         /// </summary>
-        /// <param name="specialtyPizzaIngredientId">The Id of the SpecialtyPizzaIngredient to find.</param>
+        /// <param name="specialtyPizzaId">The Id of the SpecialtyPizza to find.</param>
+        /// <param name="ingredientId">The Id of the Ingredient to find.</param>
         /// <returns>The SpecialtyPizzaIngredient if found or a new one otherwise.</returns>
-        public SpecialtyPizzaIngredient FindSpecialtyPizzaIngredient(int specialtyPizzaIngredientId)
+        public SpecialtyPizzaIngredient FindSpecialtyPizzaIngredient(int specialtyPizzaId, int ingredientId)
         {
-            return FindEntity(db.SpecialtyPizzaIngredients, specialtyPizzaIngredientId);
+            return FindEntity(db.SpecialtyPizzaIngredients, specialtyPizzaId, ingredientId);
         }
 
         /// <summary>

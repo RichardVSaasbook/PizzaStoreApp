@@ -51,7 +51,7 @@ namespace PizzaStoreAppBack.DataAccess
         /// <returns>The List of Ingredients.</returns>
         public List<Ingredient> ListIngredients(string type)
         {
-            return db.Ingredients.Where(i => i.Type == type).ToList();
+            return db.Ingredients.Where(i => i.Type == type && i.Active).OrderBy(i => i.Name).ToList();
         }
 
         /// <summary>

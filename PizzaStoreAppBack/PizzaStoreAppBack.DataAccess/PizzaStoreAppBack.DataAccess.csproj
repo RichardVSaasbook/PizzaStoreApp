@@ -54,6 +54,7 @@
     <Compile Include="Address.cs">
       <DependentUpon>PizzaStoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PizzaData.cs" />
     <Compile Include="Ingredient.cs">
       <DependentUpon>PizzaStoreModel.tt</DependentUpon>
     </Compile>
@@ -69,6 +70,7 @@
     <Compile Include="Pizza.cs">
       <DependentUpon>PizzaStoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PizzaFactory.cs" />
     <Compile Include="PizzaIngredient.cs">
       <DependentUpon>PizzaStoreModel.tt</DependentUpon>
     </Compile>
@@ -77,6 +79,8 @@
     </Compile>
     <Compile Include="PizzaStoreAppData.cs" />
     <Compile Include="PizzaStoreAppIngredientData.cs" />
+    <Compile Include="PizzaStoreAppPizzaData.cs" />
+    <Compile Include="PizzaStoreAppStoreData.cs" />
     <Compile Include="PizzaStoreModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
