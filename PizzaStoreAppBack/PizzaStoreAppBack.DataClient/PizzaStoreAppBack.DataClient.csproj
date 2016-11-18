@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IngredientService.svc" />
+    <Content Include="PizzaService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +70,7 @@
     <Compile Include="IngredientService.svc.cs">
       <DependentUpon>IngredientService.svc</DependentUpon>
     </Compile>
+    <Compile Include="IPizzaService.cs" />
     <Compile Include="Mapper\AddressMapper.cs" />
     <Compile Include="Mapper\IngredientMapper.cs" />
     <Compile Include="Mapper\Mapper.cs" />
@@ -96,6 +98,9 @@
     <Compile Include="Models\SpecialtyPizzaIngredientDAO.cs" />
     <Compile Include="Models\StoreDAO.cs" />
     <Compile Include="Models\StoreIngredientDAO.cs" />
+    <Compile Include="PizzaService.svc.cs">
+      <DependentUpon>PizzaService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

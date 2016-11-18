@@ -13,7 +13,7 @@ namespace PizzaStoreAppBack.DataAccess {
         /// <param name="pizzas">The List of the List of Ingredients in each Pizza.</param>
         /// <param name="sizes">The List of Sizes for each Pizza.</param>
         /// <returns>True if the Order was successful.</returns>
-        public bool SubmitOrder(Person customer, List<List<Ingredient>> pizzas, List<Size> sizes) {
+        public bool SubmitOrder(Person customer, List<Pizza> pizzas) {
             decimal subTotal = 0,
                 taxTotal = 0;
 
@@ -28,10 +28,16 @@ namespace PizzaStoreAppBack.DataAccess {
                 Store = store
             };
 
-            var fullPizzas = pizzas.Zip(sizes, (x, y) => new { Ingredients = x, Size = y });
+            //var fullPizzas = pizzas.Zip(sizes, (x, y) => new { Ingredients = x, Size = y });
 
-            foreach (var pizza in fullPizzas) {
-                PizzaData pizzaData = CreatePizza(pizza.Ingredients, pizza.Size);
+            foreach (var pizza in pizzas) {
+                List<Ingredient> ingredients = new List<Ingredient>();
+
+                foreach (PizzaIngredient pizzaIngredient in pizza.PizzaIngredients) {
+                    ingredients.Add(pizzaIngredient.Ingredient);
+                }
+
+                PizzaData pizzaData = CreatePizza(ingredients, pizza.Size);
 
                 if (pizzaData == null) {
                     return false;
