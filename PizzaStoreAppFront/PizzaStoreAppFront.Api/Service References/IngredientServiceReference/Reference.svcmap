@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="af377ee6-4a20-44fa-bc24-1ed8b27ce397" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/pizzastorewcf/IngredientService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="IngredientService.xsd" MetadataType="Schema" ID="a8e874dd-a3f1-485f-a6b1-59fa72e9f936" SourceId="1" SourceUrl="http://localhost/pizzastorewcf/IngredientService.svc?xsd=xsd1" />
+    <MetadataFile FileName="IngredientService.disco" MetadataType="Disco" ID="84611afb-12d5-4951-a7e5-454a4f7ff21f" SourceId="1" SourceUrl="http://localhost/pizzastorewcf/IngredientService.svc?disco" />
+    <MetadataFile FileName="IngredientService1.xsd" MetadataType="Schema" ID="8595ff14-a451-408c-bf1d-6433d709a215" SourceId="1" SourceUrl="http://localhost/pizzastorewcf/IngredientService.svc?xsd=xsd2" />
+    <MetadataFile FileName="IngredientService2.xsd" MetadataType="Schema" ID="f3d64a48-7e59-45b4-ac3e-cced53e938a4" SourceId="1" SourceUrl="http://localhost/pizzastorewcf/IngredientService.svc?xsd=xsd0" />
+    <MetadataFile FileName="IngredientService.wsdl" MetadataType="Wsdl" ID="2ef632c7-cf16-46e4-8845-dc8ae9cbca98" SourceId="1" SourceUrl="http://localhost/pizzastorewcf/IngredientService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

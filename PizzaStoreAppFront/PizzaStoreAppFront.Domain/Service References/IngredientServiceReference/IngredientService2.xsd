@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/pizzastorewcf/IngredientService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" />
+  <xs:element name="ListCrusts">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListCrustsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" minOccurs="0" name="ListCrustsResult" nillable="true" type="q1:ArrayOfIngredientDAO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListSauces">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListSaucesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" minOccurs="0" name="ListSaucesResult" nillable="true" type="q2:ArrayOfIngredientDAO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListCheeses">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListCheesesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" minOccurs="0" name="ListCheesesResult" nillable="true" type="q3:ArrayOfIngredientDAO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListToppings">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListToppingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" minOccurs="0" name="ListToppingsResult" nillable="true" type="q4:ArrayOfIngredientDAO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
