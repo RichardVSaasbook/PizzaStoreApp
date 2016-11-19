@@ -1,4 +1,4 @@
-﻿using PizzaStoreAppBack.DataAccess;
+﻿using PizzaStoreAppBack.DataClient.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +10,15 @@ namespace PizzaStoreAppBack.DataClient {
     [ServiceContract]
     public interface IIngredientService {
         [OperationContract]
-        List<Ingredient> ListCrusts();
+        List<IngredientDAO> ListCrusts();
 
         [OperationContract]
-        List<Ingredient> ListSauces();
+        List<IngredientDAO> ListSauces();
 
         [OperationContract]
-        List<Ingredient> ListCheeses();
+        List<IngredientDAO> ListCheeses();
 
         [OperationContract]
-        List<Ingredient> ListToppings();
+        List<IngredientDAO> ListToppings();
     }
 }

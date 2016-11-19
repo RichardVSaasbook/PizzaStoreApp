@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -41,7 +41,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -63,6 +72,7 @@
   <ItemGroup>
     <Content Include="IngredientService.svc" />
     <Content Include="PizzaService.svc" />
+    <Content Include="Properties\DataSources\PizzaStoreAppBack.DataAccess.Ingredient.datasource" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -79,7 +89,6 @@
     <Compile Include="Mapper\PhoneMapper.cs" />
     <Compile Include="Mapper\PizzaIngredientMapper.cs" />
     <Compile Include="Mapper\PizzaMapper.cs" />
-    <Compile Include="Mapper\PizzaOrderMapper.cs" />
     <Compile Include="Mapper\SizeMapper.cs" />
     <Compile Include="Mapper\SpecialtyPizzaIngredientMapper.cs" />
     <Compile Include="Mapper\SpecialtyPizzaMapper.cs" />
@@ -92,7 +101,6 @@
     <Compile Include="Models\PhoneDAO.cs" />
     <Compile Include="Models\PizzaDAO.cs" />
     <Compile Include="Models\PizzaIngredientDAO.cs" />
-    <Compile Include="Models\PizzaOrderDAO.cs" />
     <Compile Include="Models\SizeDAO.cs" />
     <Compile Include="Models\SpecialtyPizzaDAO.cs" />
     <Compile Include="Models\SpecialtyPizzaIngredientDAO.cs" />
@@ -107,6 +115,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -119,6 +128,9 @@
       <Project>{adbb1a5a-7e04-4b5d-b961-5b7926b1f83c}</Project>
       <Name>PizzaStoreAppBack.DataAccess</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -135,7 +147,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49635</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49635/</IISUrl>
+          <IISUrl>http://localhost/pizzastorewcf</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

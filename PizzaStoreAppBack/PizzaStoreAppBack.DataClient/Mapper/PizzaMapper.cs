@@ -17,7 +17,6 @@ namespace PizzaStoreAppBack.DataClient.Mapper {
                 CreatedDate = pizza.CreatedDate,
                 PizzaId = pizza.PizzaId,
                 Size = MapToSizeDAO(pizza.Size),
-                SpecialtyPizza = MapToSpecialtyPizzaDAO(pizza.SpecialtyPizza),
                 UpdatedDate = pizza.UpdatedDate
             };
         }
@@ -30,19 +29,12 @@ namespace PizzaStoreAppBack.DataClient.Mapper {
         public Pizza MapToPizza(PizzaDAO pizzaDAO) {
             Pizza pizza = data.FindPizza(pizzaDAO.PizzaId);
             Size size = MapToSize(pizzaDAO.Size);
-            SpecialtyPizza specialtyPizza = MapToSpecialtyPizza(pizzaDAO.SpecialtyPizza);
 
             pizza.CreatedDate = pizzaDAO.CreatedDate;
             pizza.PizzaId = pizzaDAO.PizzaId;
             pizza.Size = size;
             pizza.SizeId = size.SizeId;
-
-            if (specialtyPizza != null) {
-                pizza.SpecialtyPizza = specialtyPizza;
-                pizza.SpecialtyPizzaId = specialtyPizza.SpecialtyPizzaId;
-            }
-
-            pizza.UpdatedDate = specialtyPizza.UpdatedDate;
+            pizza.UpdatedDate = pizzaDAO.UpdatedDate;
 
             return pizza;
         }

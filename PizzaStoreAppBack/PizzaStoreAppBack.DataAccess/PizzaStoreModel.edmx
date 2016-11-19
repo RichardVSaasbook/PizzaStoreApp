@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="PizzaStoreAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="PizzaStoreAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="AddressId" />
@@ -413,7 +413,8 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
             <End Role="StoreIngredient" EntitySet="StoreIngredient" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PizzaStoreAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -430,7 +431,7 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
           <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="People" Relationship="Self.fk_Person_AddressId" FromRole="Address" ToRole="Person" />
-          <NavigationProperty Name="Stores" Relationship="PizzaStoreAppModel.fk_Store_AddressId" FromRole="Address" ToRole="Store" />
+          <NavigationProperty Name="Stores" Relationship="Self.fk_Store_AddressId" FromRole="Address" ToRole="Store" />
         </EntityType>
         <EntityType Name="Phone">
           <Key>
@@ -442,7 +443,7 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
           <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="People" Relationship="Self.fk_Person_PhoneId" FromRole="Phone" ToRole="Person" />
-          <NavigationProperty Name="Stores" Relationship="PizzaStoreAppModel.fk_Store_PhoneId" FromRole="Phone" ToRole="Store" />
+          <NavigationProperty Name="Stores" Relationship="Self.fk_Store_PhoneId" FromRole="Phone" ToRole="Store" />
         </EntityType>
         <EntityType Name="Person">
           <Key>
@@ -459,7 +460,7 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
           <NavigationProperty Name="Address" Relationship="Self.fk_Person_AddressId" FromRole="Person" ToRole="Address" />
           <NavigationProperty Name="Phone" Relationship="Self.fk_Person_PhoneId" FromRole="Person" ToRole="Phone" />
           <NavigationProperty Name="Orders" Relationship="Self.fk_Order_CustomerId" FromRole="Person" ToRole="Order" />
-          <NavigationProperty Name="Stores" Relationship="PizzaStoreAppModel.fk_Store_OwnerId" FromRole="Person" ToRole="Store" />
+          <NavigationProperty Name="Stores" Relationship="Self.fk_Store_OwnerId" FromRole="Person" ToRole="Store" />
         </EntityType>
         <EntityType Name="Ingredient">
           <Key>
@@ -476,6 +477,20 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
           <NavigationProperty Name="SpecialtyPizzaIngredients" Relationship="Self.fk_SpecialtyPizzaIngredient_IngredientId" FromRole="Ingredient" ToRole="SpecialtyPizzaIngredient" />
           <NavigationProperty Name="StoreIngredients" Relationship="Self.fk_StoreIngredient_IngredientId" FromRole="Ingredient" ToRole="StoreIngredient" />
         </EntityType>
+        <EntityType Name="Pizza">
+          <Key>
+            <PropertyRef Name="PizzaId" />
+          </Key>
+          <Property Name="PizzaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="SizeId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.fk_Pizza_OrderId" FromRole="Pizza" ToRole="Order" />
+          <NavigationProperty Name="Size" Relationship="Self.fk_Pizza_SizeId" FromRole="Pizza" ToRole="Size" />
+          <NavigationProperty Name="PizzaIngredients" Relationship="Self.fk_PizzaIngredient_PizzaId" FromRole="Pizza" ToRole="PizzaIngredient" />
+        </EntityType>
         <EntityType Name="PizzaIngredient">
           <Key>
             <PropertyRef Name="PizzaId" />
@@ -487,7 +502,7 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
           <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Ingredient" Relationship="Self.fk_PizzaIngredient_IngredientId" FromRole="PizzaIngredient" ToRole="Ingredient" />
-          <NavigationProperty Name="Pizza" Relationship="PizzaStoreAppModel.fk_PizzaIngredient_PizzaId" FromRole="PizzaIngredient" ToRole="Pizza" />
+          <NavigationProperty Name="Pizza" Relationship="Self.fk_PizzaIngredient_PizzaId" FromRole="PizzaIngredient" ToRole="Pizza" />
         </EntityType>
         <EntityType Name="Size">
           <Key>
@@ -499,7 +514,7 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Pizzas" Relationship="PizzaStoreAppModel.fk_Pizza_SizeId" FromRole="Size" ToRole="Pizza" />
+          <NavigationProperty Name="Pizzas" Relationship="Self.fk_Pizza_SizeId" FromRole="Size" ToRole="Pizza" />
         </EntityType>
         <EntityType Name="SpecialtyPizza">
           <Key>
@@ -526,8 +541,26 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
           <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Person" Relationship="Self.fk_Order_CustomerId" FromRole="Order" ToRole="Person" />
-          <NavigationProperty Name="Pizzas" Relationship="PizzaStoreAppModel.fk_Pizza_OrderId" FromRole="Order" ToRole="Pizza" />
-          <NavigationProperty Name="Store" Relationship="PizzaStoreAppModel.fk_Order_StoreId" FromRole="Order" ToRole="Store" />
+          <NavigationProperty Name="Pizzas" Relationship="Self.fk_Pizza_OrderId" FromRole="Order" ToRole="Pizza" />
+          <NavigationProperty Name="Store" Relationship="Self.fk_Order_StoreId" FromRole="Order" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="StoreId" />
+          </Key>
+          <Property Name="StoreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OwnerId" Type="Int32" Nullable="false" />
+          <Property Name="PhoneId" Type="Int32" Nullable="false" />
+          <Property Name="AddressId" Type="Int32" Nullable="false" />
+          <Property Name="SalesTax" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="Self.fk_Store_AddressId" FromRole="Store" ToRole="Address" />
+          <NavigationProperty Name="Phone" Relationship="Self.fk_Store_PhoneId" FromRole="Store" ToRole="Phone" />
+          <NavigationProperty Name="Person" Relationship="Self.fk_Store_OwnerId" FromRole="Store" ToRole="Person" />
+          <NavigationProperty Name="Orders" Relationship="Self.fk_Order_StoreId" FromRole="Store" ToRole="Order" />
+          <NavigationProperty Name="StoreIngredients" Relationship="Self.fk_StoreIngredient_StoreId" FromRole="Store" ToRole="StoreIngredient" />
         </EntityType>
         <EntityType Name="StoreIngredient">
           <Key>
@@ -541,7 +574,7 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
           <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Ingredient" Relationship="Self.fk_StoreIngredient_IngredientId" FromRole="StoreIngredient" ToRole="Ingredient" />
-          <NavigationProperty Name="Store" Relationship="PizzaStoreAppModel.fk_StoreIngredient_StoreId" FromRole="StoreIngredient" ToRole="Store" />
+          <NavigationProperty Name="Store" Relationship="Self.fk_StoreIngredient_StoreId" FromRole="StoreIngredient" ToRole="Store" />
         </EntityType>
         <EntityType Name="SpecialtyPizzaIngredient">
           <Key>
@@ -571,6 +604,18 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_Store_AddressId">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="Store" Type="Self.Store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressId" />
+            </Principal>
+            <Dependent Role="Store">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_Person_PhoneId">
           <End Role="Phone" Type="Self.Phone" Multiplicity="0..1" />
           <End Role="Person" Type="Self.Person" Multiplicity="*" />
@@ -579,6 +624,18 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
               <PropertyRef Name="PhoneId" />
             </Principal>
             <Dependent Role="Person">
+              <PropertyRef Name="PhoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Store_PhoneId">
+          <End Role="Phone" Type="Self.Phone" Multiplicity="1" />
+          <End Role="Store" Type="Self.Store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phone">
+              <PropertyRef Name="PhoneId" />
+            </Principal>
+            <Dependent Role="Store">
               <PropertyRef Name="PhoneId" />
             </Dependent>
           </ReferentialConstraint>
@@ -592,6 +649,18 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
             </Principal>
             <Dependent Role="Order">
               <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Store_OwnerId">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Store" Type="Self.Store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonId" />
+            </Principal>
+            <Dependent Role="Store">
+              <PropertyRef Name="OwnerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -631,6 +700,42 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_Pizza_OrderId">
+          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="Pizza" Type="Self.Pizza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="Pizza">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Pizza_SizeId">
+          <End Role="Size" Type="Self.Size" Multiplicity="1" />
+          <End Role="Pizza" Type="Self.Pizza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Size">
+              <PropertyRef Name="SizeId" />
+            </Principal>
+            <Dependent Role="Pizza">
+              <PropertyRef Name="SizeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PizzaIngredient_PizzaId">
+          <End Role="Pizza" Type="Self.Pizza" Multiplicity="1" />
+          <End Role="PizzaIngredient" Type="Self.PizzaIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pizza">
+              <PropertyRef Name="PizzaId" />
+            </Principal>
+            <Dependent Role="PizzaIngredient">
+              <PropertyRef Name="PizzaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_SpecialtyPizzaIngredient_SpecialtyPizzaId">
           <End Role="SpecialtyPizza" Type="Self.SpecialtyPizza" Multiplicity="1" />
           <End Role="SpecialtyPizzaIngredient" Type="Self.SpecialtyPizzaIngredient" Multiplicity="*" />
@@ -643,28 +748,66 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PizzaStoreAppEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="fk_Order_StoreId">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_StoreIngredient_StoreId">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="StoreIngredient" Type="Self.StoreIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="StoreIngredient">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PizzaStoreAppEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Addresses" EntityType="Self.Address" />
           <EntitySet Name="Phones" EntityType="Self.Phone" />
           <EntitySet Name="People" EntityType="Self.Person" />
           <EntitySet Name="Ingredients" EntityType="Self.Ingredient" />
+          <EntitySet Name="Pizzas" EntityType="Self.Pizza" />
           <EntitySet Name="PizzaIngredients" EntityType="Self.PizzaIngredient" />
           <EntitySet Name="Sizes" EntityType="Self.Size" />
           <EntitySet Name="SpecialtyPizzas" EntityType="Self.SpecialtyPizza" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Stores" EntityType="Self.Store" />
           <EntitySet Name="StoreIngredients" EntityType="Self.StoreIngredient" />
           <EntitySet Name="SpecialtyPizzaIngredients" EntityType="Self.SpecialtyPizzaIngredient" />
           <AssociationSet Name="fk_Person_AddressId" Association="Self.fk_Person_AddressId">
             <End Role="Address" EntitySet="Addresses" />
             <End Role="Person" EntitySet="People" />
           </AssociationSet>
+          <AssociationSet Name="fk_Store_AddressId" Association="Self.fk_Store_AddressId">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Store" EntitySet="Stores" />
+          </AssociationSet>
           <AssociationSet Name="fk_Person_PhoneId" Association="Self.fk_Person_PhoneId">
             <End Role="Phone" EntitySet="Phones" />
             <End Role="Person" EntitySet="People" />
           </AssociationSet>
+          <AssociationSet Name="fk_Store_PhoneId" Association="Self.fk_Store_PhoneId">
+            <End Role="Phone" EntitySet="Phones" />
+            <End Role="Store" EntitySet="Stores" />
+          </AssociationSet>
           <AssociationSet Name="fk_Order_CustomerId" Association="Self.fk_Order_CustomerId">
             <End Role="Person" EntitySet="People" />
             <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Store_OwnerId" Association="Self.fk_Store_OwnerId">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Store" EntitySet="Stores" />
           </AssociationSet>
           <AssociationSet Name="fk_PizzaIngredient_IngredientId" Association="Self.fk_PizzaIngredient_IngredientId">
             <End Role="Ingredient" EntitySet="Ingredients" />
@@ -678,179 +821,37 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
             <End Role="Ingredient" EntitySet="Ingredients" />
             <End Role="StoreIngredient" EntitySet="StoreIngredients" />
           </AssociationSet>
+          <AssociationSet Name="fk_Pizza_OrderId" Association="Self.fk_Pizza_OrderId">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Pizza" EntitySet="Pizzas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Pizza_SizeId" Association="Self.fk_Pizza_SizeId">
+            <End Role="Size" EntitySet="Sizes" />
+            <End Role="Pizza" EntitySet="Pizzas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PizzaIngredient_PizzaId" Association="Self.fk_PizzaIngredient_PizzaId">
+            <End Role="Pizza" EntitySet="Pizzas" />
+            <End Role="PizzaIngredient" EntitySet="PizzaIngredients" />
+          </AssociationSet>
           <AssociationSet Name="fk_SpecialtyPizzaIngredient_SpecialtyPizzaId" Association="Self.fk_SpecialtyPizzaIngredient_SpecialtyPizzaId">
             <End Role="SpecialtyPizza" EntitySet="SpecialtyPizzas" />
             <End Role="SpecialtyPizzaIngredient" EntitySet="SpecialtyPizzaIngredients" />
           </AssociationSet>
-          <EntitySet Name="Pizzas" EntityType="PizzaStoreAppModel.Pizza" />
-          <EntitySet Name="Stores" EntityType="PizzaStoreAppModel.Store" />
-          <AssociationSet Name="fk_Store_AddressId" Association="PizzaStoreAppModel.fk_Store_AddressId">
-            <End Role="Address" EntitySet="Addresses" />
-            <End Role="Store" EntitySet="Stores" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Store_PhoneId" Association="PizzaStoreAppModel.fk_Store_PhoneId">
-            <End Role="Phone" EntitySet="Phones" />
-            <End Role="Store" EntitySet="Stores" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Store_OwnerId" Association="PizzaStoreAppModel.fk_Store_OwnerId">
-            <End Role="Person" EntitySet="People" />
-            <End Role="Store" EntitySet="Stores" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Pizza_OrderId" Association="PizzaStoreAppModel.fk_Pizza_OrderId">
-            <End Role="Order" EntitySet="Orders" />
-            <End Role="Pizza" EntitySet="Pizzas" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Pizza_SizeId" Association="PizzaStoreAppModel.fk_Pizza_SizeId">
-            <End Role="Size" EntitySet="Sizes" />
-            <End Role="Pizza" EntitySet="Pizzas" />
-          </AssociationSet>
-          <AssociationSet Name="fk_PizzaIngredient_PizzaId" Association="PizzaStoreAppModel.fk_PizzaIngredient_PizzaId">
-            <End Role="Pizza" EntitySet="Pizzas" />
-            <End Role="PizzaIngredient" EntitySet="PizzaIngredients" />
-          </AssociationSet>
-          <AssociationSet Name="fk_Order_StoreId" Association="PizzaStoreAppModel.fk_Order_StoreId">
+          <AssociationSet Name="fk_Order_StoreId" Association="Self.fk_Order_StoreId">
             <End Role="Store" EntitySet="Stores" />
             <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="fk_StoreIngredient_StoreId" Association="PizzaStoreAppModel.fk_StoreIngredient_StoreId">
+          <AssociationSet Name="fk_StoreIngredient_StoreId" Association="Self.fk_StoreIngredient_StoreId">
             <End Role="Store" EntitySet="Stores" />
             <End Role="StoreIngredient" EntitySet="StoreIngredients" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Pizza">
-          <Key>
-            <PropertyRef Name="PizzaId" />
-          </Key>
-          <Property Name="PizzaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OrderId" Type="Int32" />
-          <Property Name="SizeId" Type="Int32" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Active" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Order" Relationship="PizzaStoreAppModel.fk_Pizza_OrderId" FromRole="Pizza" ToRole="Order" />
-          <NavigationProperty Name="Size" Relationship="PizzaStoreAppModel.fk_Pizza_SizeId" FromRole="Pizza" ToRole="Size" />
-          <NavigationProperty Name="PizzaIngredients" Relationship="PizzaStoreAppModel.fk_PizzaIngredient_PizzaId" FromRole="Pizza" ToRole="PizzaIngredient" />
-        </EntityType>
-        <EntityType Name="Store">
-          <Key>
-            <PropertyRef Name="StoreId" />
-          </Key>
-          <Property Name="StoreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OwnerId" Type="Int32" Nullable="false" />
-          <Property Name="PhoneId" Type="Int32" Nullable="false" />
-          <Property Name="AddressId" Type="Int32" Nullable="false" />
-          <Property Name="SalesTax" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Active" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Address" Relationship="PizzaStoreAppModel.fk_Store_AddressId" FromRole="Store" ToRole="Address" />
-          <NavigationProperty Name="Phone" Relationship="PizzaStoreAppModel.fk_Store_PhoneId" FromRole="Store" ToRole="Phone" />
-          <NavigationProperty Name="Person" Relationship="PizzaStoreAppModel.fk_Store_OwnerId" FromRole="Store" ToRole="Person" />
-          <NavigationProperty Name="Orders" Relationship="PizzaStoreAppModel.fk_Order_StoreId" FromRole="Store" ToRole="Order" />
-          <NavigationProperty Name="StoreIngredients" Relationship="PizzaStoreAppModel.fk_StoreIngredient_StoreId" FromRole="Store" ToRole="StoreIngredient" />
-        </EntityType>
-        <Association Name="fk_Store_AddressId">
-          <End Type="PizzaStoreAppModel.Address" Role="Address" Multiplicity="1" />
-          <End Type="PizzaStoreAppModel.Store" Role="Store" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Address">
-              <PropertyRef Name="AddressId" />
-            </Principal>
-            <Dependent Role="Store">
-              <PropertyRef Name="AddressId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_Store_PhoneId">
-          <End Type="PizzaStoreAppModel.Phone" Role="Phone" Multiplicity="1" />
-          <End Type="PizzaStoreAppModel.Store" Role="Store" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Phone">
-              <PropertyRef Name="PhoneId" />
-            </Principal>
-            <Dependent Role="Store">
-              <PropertyRef Name="PhoneId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_Store_OwnerId">
-          <End Type="PizzaStoreAppModel.Person" Role="Person" Multiplicity="1" />
-          <End Type="PizzaStoreAppModel.Store" Role="Store" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Person">
-              <PropertyRef Name="PersonId" />
-            </Principal>
-            <Dependent Role="Store">
-              <PropertyRef Name="OwnerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_Pizza_OrderId">
-          <End Type="PizzaStoreAppModel.Order" Role="Order" Multiplicity="0..1" />
-          <End Type="PizzaStoreAppModel.Pizza" Role="Pizza" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Order">
-              <PropertyRef Name="OrderId" />
-            </Principal>
-            <Dependent Role="Pizza">
-              <PropertyRef Name="OrderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_Pizza_SizeId">
-          <End Type="PizzaStoreAppModel.Size" Role="Size" Multiplicity="1" />
-          <End Type="PizzaStoreAppModel.Pizza" Role="Pizza" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Size">
-              <PropertyRef Name="SizeId" />
-            </Principal>
-            <Dependent Role="Pizza">
-              <PropertyRef Name="SizeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_PizzaIngredient_PizzaId">
-          <End Type="PizzaStoreAppModel.Pizza" Role="Pizza" Multiplicity="1" />
-          <End Type="PizzaStoreAppModel.PizzaIngredient" Role="PizzaIngredient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Pizza">
-              <PropertyRef Name="PizzaId" />
-            </Principal>
-            <Dependent Role="PizzaIngredient">
-              <PropertyRef Name="PizzaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_Order_StoreId">
-          <End Type="PizzaStoreAppModel.Store" Role="Store" Multiplicity="1" />
-          <End Type="PizzaStoreAppModel.Order" Role="Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Store">
-              <PropertyRef Name="StoreId" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="StoreId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_StoreIngredient_StoreId">
-          <End Type="PizzaStoreAppModel.Store" Role="Store" Multiplicity="1" />
-          <End Type="PizzaStoreAppModel.StoreIngredient" Role="StoreIngredient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Store">
-              <PropertyRef Name="StoreId" />
-            </Principal>
-            <Dependent Role="StoreIngredient">
-              <PropertyRef Name="StoreId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PizzaStoreAppModelStoreContainer" CdmEntityContainer="PizzaStoreAppEntities">
+        <EntityContainerMapping StorageEntityContainer="PizzaStoreAppModelStoreContainer" CdmEntityContainer="PizzaStoreAppEntities1">
           <EntitySetMapping Name="Addresses">
             <EntityTypeMapping TypeName="PizzaStoreAppModel.Address">
               <MappingFragment StoreEntitySet="Address">
@@ -897,6 +898,18 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pizzas">
+            <EntityTypeMapping TypeName="PizzaStoreAppModel.Pizza">
+              <MappingFragment StoreEntitySet="Pizza">
+                <ScalarProperty Name="PizzaId" ColumnName="PizzaId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="SizeId" ColumnName="SizeId" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
@@ -952,6 +965,20 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Stores">
+            <EntityTypeMapping TypeName="PizzaStoreAppModel.Store">
+              <MappingFragment StoreEntitySet="Store">
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="SalesTax" ColumnName="SalesTax" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="StoreIngredients">
             <EntityTypeMapping TypeName="PizzaStoreAppModel.StoreIngredient">
               <MappingFragment StoreEntitySet="StoreIngredient">
@@ -972,32 +999,6 @@ warning 6002: The table/view 'PizzaStoreApp.Pizza.SpecialtyPizzaIngredient' does
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Pizzas">
-            <EntityTypeMapping TypeName="PizzaStoreAppModel.Pizza">
-              <MappingFragment StoreEntitySet="Pizza">
-                <ScalarProperty Name="Active" ColumnName="Active" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="SizeId" ColumnName="SizeId" />
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-                <ScalarProperty Name="PizzaId" ColumnName="PizzaId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Stores">
-            <EntityTypeMapping TypeName="PizzaStoreAppModel.Store">
-              <MappingFragment StoreEntitySet="Store">
-                <ScalarProperty Name="Active" ColumnName="Active" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="SalesTax" ColumnName="SalesTax" />
-                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
-                <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
-                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
-                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

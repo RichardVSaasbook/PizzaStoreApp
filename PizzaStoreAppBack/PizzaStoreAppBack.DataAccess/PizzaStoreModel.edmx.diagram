@@ -4,34 +4,34 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a016f9fd14bc420a9fcbd38720b04008" Name="Diagram1">
+      <Diagram DiagramId="9c0c49965b714191820c2ae727736384" Name="Diagram1">
         <EntityTypeShape EntityType="PizzaStoreAppModel.Address" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PizzaStoreAppModel.Phone" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="PizzaStoreAppModel.Person" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaStoreAppModel.Ingredient" Width="1.5" PointX="11.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaStoreAppModel.PizzaIngredient" Width="1.5" PointX="13.5" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaStoreAppModel.Size" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaStoreAppModel.SpecialtyPizza" Width="1.5" PointX="6" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaStoreAppModel.Ingredient" Width="1.5" PointX="13.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaStoreAppModel.Pizza" Width="1.5" PointX="10.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaStoreAppModel.PizzaIngredient" Width="1.5" PointX="15.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaStoreAppModel.Size" Width="1.5" PointX="8.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaStoreAppModel.SpecialtyPizza" Width="1.5" PointX="13.5" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PizzaStoreAppModel.Order" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaStoreAppModel.Store" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PizzaStoreAppModel.StoreIngredient" Width="1.5" PointX="13.5" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaStoreAppModel.SpecialtyPizzaIngredient" Width="1.5" PointX="16.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaStoreAppModel.SpecialtyPizzaIngredient" Width="1.5" PointX="15.75" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_Person_AddressId" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaStoreAppModel.fk_Store_AddressId" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_Person_PhoneId" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaStoreAppModel.fk_Store_PhoneId" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_Order_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaStoreAppModel.fk_Store_OwnerId" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_PizzaIngredient_IngredientId" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_SpecialtyPizzaIngredient_IngredientId" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_StoreIngredient_IngredientId" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaStoreAppModel.fk_Pizza_OrderId" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaStoreAppModel.fk_Pizza_SizeId" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaStoreAppModel.fk_PizzaIngredient_PizzaId" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_SpecialtyPizzaIngredient_SpecialtyPizzaId" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="PizzaStoreAppModel.Pizza" Width="1.5" PointX="8.25" PointY="7.875" />
-        <EntityTypeShape EntityType="PizzaStoreAppModel.Store" Width="1.5" PointX="5.25" PointY="0.75" />
-        <AssociationConnector Association="PizzaStoreAppModel.fk_Store_AddressId" />
-        <AssociationConnector Association="PizzaStoreAppModel.fk_Store_PhoneId" />
-        <AssociationConnector Association="PizzaStoreAppModel.fk_Store_OwnerId" />
-        <AssociationConnector Association="PizzaStoreAppModel.fk_Pizza_OrderId" />
-        <AssociationConnector Association="PizzaStoreAppModel.fk_Pizza_SizeId" />
-        <AssociationConnector Association="PizzaStoreAppModel.fk_PizzaIngredient_PizzaId" />
-        <AssociationConnector Association="PizzaStoreAppModel.fk_Order_StoreId" />
-        <AssociationConnector Association="PizzaStoreAppModel.fk_StoreIngredient_StoreId" />
+        <AssociationConnector Association="PizzaStoreAppModel.fk_Order_StoreId" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaStoreAppModel.fk_StoreIngredient_StoreId" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

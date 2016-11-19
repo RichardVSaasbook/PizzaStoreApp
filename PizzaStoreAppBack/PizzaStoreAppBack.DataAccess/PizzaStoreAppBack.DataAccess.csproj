@@ -54,10 +54,6 @@
     <Compile Include="Address.cs">
       <DependentUpon>PizzaStoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pizza.cs">
-      <DependentUpon>PizzaStoreModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PizzaData.cs" />
     <Compile Include="Ingredient.cs">
       <DependentUpon>PizzaStoreModel.tt</DependentUpon>
     </Compile>
@@ -70,6 +66,10 @@
     <Compile Include="Phone.cs">
       <DependentUpon>PizzaStoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pizza.cs">
+      <DependentUpon>PizzaStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PizzaData.cs" />
     <Compile Include="PizzaFactory.cs" />
     <Compile Include="PizzaIngredient.cs">
       <DependentUpon>PizzaStoreModel.tt</DependentUpon>
@@ -111,17 +111,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
     <EntityDeploy Include="PizzaStoreModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PizzaStoreModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="packages.config" />
     <None Include="PizzaStoreModel.edmx.diagram">
       <DependentUpon>PizzaStoreModel.edmx</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="PizzaStoreModel.Context.tt">
@@ -134,9 +135,6 @@
       <DependentUpon>PizzaStoreModel.edmx</DependentUpon>
       <LastGenOutput>PizzaStoreModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
