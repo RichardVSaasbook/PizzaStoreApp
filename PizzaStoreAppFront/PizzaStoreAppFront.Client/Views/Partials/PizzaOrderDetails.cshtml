@@ -1,0 +1,48 @@
+﻿@model PizzaStoreAppFront.Client.Models.OrderDetailsViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Order Details</h2>
+
+        @if (Model.Pizzas.Count == 0) {
+            <i>No pizzas in this Order.</i>
+        }
+
+        @foreach (var pizza in Model.Pizzas) {
+            <p>
+                <b>@pizza.Name</b> <span class="pull-right">@pizza.Price</span> 
+            </p>
+
+            <ul>
+                @foreach (var ingredient in pizza.Ingredients) {
+                    <li>@ingredient</li>
+                }
+                @*<li><b>Crust:</b> @pizza.Crust</li>
+                <li><b>Sauce:</b> @pizza.Sauce</li>
+                <li><b>Cheese:</b> @pizza.Cheese</li>
+                <li><b>Toppings:</b></li>
+                <ul>
+                    @foreach (var topping in pizza.Toppings) {
+                        <li>@topping</li>
+                    }
+                </ul>*@
+            </ul>
+        }
+
+        <hr />
+
+        <p>
+            <b>Sub Total:</b> <span class="pull-right">@Model.SubTotal</span>
+        </p>
+
+        <p>
+            <b>Tax Total:</b> <span class="pull-right">@Model.TaxTotal</span>
+        </p>
+
+        <hr />
+
+        <p>
+            <b>Total Price:</b> <span class="pull-right">@Model.Total</span>
+        </p>
+    </div>
+</div>

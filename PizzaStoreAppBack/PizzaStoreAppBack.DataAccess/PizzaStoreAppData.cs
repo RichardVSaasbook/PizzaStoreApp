@@ -163,7 +163,7 @@ namespace PizzaStoreAppBack.DataAccess
         /// <param name="entities">The DbSet containing the type of entities.</param>
         /// <param name="entityIds">The Id(s) for the entity.</param>
         /// <returns>The found entity, or a blank one if it was not found.</returns>
-        private T FindEntity<T>(DbSet<T> entities, params int[] entityIds) where T : class, new()
+        private T FindEntity<T>(DbSet<T> entities, params object[] entityIds) where T : class, new()
         {
             T entity = entities.Find(entityIds);
 

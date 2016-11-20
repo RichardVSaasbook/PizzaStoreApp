@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>@ViewBag.Title - Pizza Store</title>
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    </head>
+
+    <body class="container-fluid" data-ng-app="ngPizzaStore">
+        <header>
+            <nav class="navbar navbar-default">
+                <a class="navbar-brand" href="/pizzastore">Pizza Store</a>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="/customer">Customer</a></li>
+                    <li><a href="/store">Store</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="row">
+            <div class="col-md-12">
+                @RenderBody()
+            </div>
+        </main>
+
+        <footer>
+            <small>Copyright &copy; 2016 Richard Voelker.</small>
+        </footer>
+    </body>
+</html>

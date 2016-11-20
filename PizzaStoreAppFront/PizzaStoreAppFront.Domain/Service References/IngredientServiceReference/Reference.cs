@@ -165,6 +165,12 @@ namespace PizzaStoreAppFront.Domain.IngredientServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIngredientService/ListToppings", ReplyAction="http://tempuri.org/IIngredientService/ListToppingsResponse")]
         System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[]> ListToppingsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIngredientService/GetIngredient", ReplyAction="http://tempuri.org/IIngredientService/GetIngredientResponse")]
+        PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO GetIngredient(int ingredientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIngredientService/GetIngredient", ReplyAction="http://tempuri.org/IIngredientService/GetIngredientResponse")]
+        System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO> GetIngredientAsync(int ingredientId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -224,6 +230,14 @@ namespace PizzaStoreAppFront.Domain.IngredientServiceReference {
         
         public System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[]> ListToppingsAsync() {
             return base.Channel.ListToppingsAsync();
+        }
+        
+        public PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO GetIngredient(int ingredientId) {
+            return base.Channel.GetIngredient(ingredientId);
+        }
+        
+        public System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO> GetIngredientAsync(int ingredientId) {
+            return base.Channel.GetIngredientAsync(ingredientId);
         }
     }
 }

@@ -73,6 +73,7 @@
     <Content Include="IngredientService.svc" />
     <Content Include="PizzaService.svc" />
     <Content Include="Properties\DataSources\PizzaStoreAppBack.DataAccess.Ingredient.datasource" />
+    <Content Include="SizeService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +82,7 @@
       <DependentUpon>IngredientService.svc</DependentUpon>
     </Compile>
     <Compile Include="IPizzaService.cs" />
+    <Compile Include="ISizeService.cs" />
     <Compile Include="Mapper\AddressMapper.cs" />
     <Compile Include="Mapper\IngredientMapper.cs" />
     <Compile Include="Mapper\Mapper.cs" />
@@ -110,6 +112,9 @@
       <DependentUpon>PizzaService.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SizeService.svc.cs">
+      <DependentUpon>SizeService.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -31,6 +31,12 @@
   <wsdl:message name="IIngredientService_ListToppings_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListToppingsResponse" />
   </wsdl:message>
+  <wsdl:message name="IIngredientService_GetIngredient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIngredient" />
+  </wsdl:message>
+  <wsdl:message name="IIngredientService_GetIngredient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIngredientResponse" />
+  </wsdl:message>
   <wsdl:portType name="IIngredientService">
     <wsdl:operation name="ListCrusts">
       <wsdl:input wsaw:Action="http://tempuri.org/IIngredientService/ListCrusts" message="tns:IIngredientService_ListCrusts_InputMessage" />
@@ -47,6 +53,10 @@
     <wsdl:operation name="ListToppings">
       <wsdl:input wsaw:Action="http://tempuri.org/IIngredientService/ListToppings" message="tns:IIngredientService_ListToppings_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IIngredientService/ListToppingsResponse" message="tns:IIngredientService_ListToppings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIngredient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIngredientService/GetIngredient" message="tns:IIngredientService_GetIngredient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIngredientService/GetIngredientResponse" message="tns:IIngredientService_GetIngredient_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IIngredientService" type="tns:IIngredientService">
@@ -80,6 +90,15 @@
     </wsdl:operation>
     <wsdl:operation name="ListToppings">
       <soap:operation soapAction="http://tempuri.org/IIngredientService/ListToppings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIngredient">
+      <soap:operation soapAction="http://tempuri.org/IIngredientService/GetIngredient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

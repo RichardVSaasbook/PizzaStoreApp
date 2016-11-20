@@ -72,5 +72,14 @@ namespace PizzaStoreAppBack.DataClient {
 
             return toppings;
         }
+
+        /// <summary>
+        /// Gets a single Ingredient.
+        /// </summary>
+        /// <param name="ingredientId">The Ingredient to get.</param>
+        /// <returns>The Ingredient which will contain no data if not found.</returns>
+        public IngredientDAO GetIngredient(int ingredientId) {
+            return mapper.MapToIngredientDAO(data.FindIngredient(ingredientId));
+        }
     }
 }

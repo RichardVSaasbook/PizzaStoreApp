@@ -17,7 +17,8 @@ namespace PizzaStoreAppFront.Api.Controllers
             ingredientService = new IngredientServiceClient();
         }
 
-        public HttpResponseMessage Get(string name) {
+        [HttpGet]
+        public HttpResponseMessage List(string name) {
             name = name.ToLowerInvariant();
             object response;
 
@@ -38,6 +39,10 @@ namespace PizzaStoreAppFront.Api.Controllers
             }
 
             return Request.CreateResponse(HttpStatusCode.OK, response, "application/json");
+        }
+
+        public HttpResponseMessage Get(int id) {
+            return Request.CreateResponse(HttpStatusCode.OK, Ingredient.FromDAO(ingredientService.GetIngredient(id)), "application/json");
         }
 
         private List<Ingredient> ListIngredients(IEnumerable<IngredientDAO> ingredientDAOs) {

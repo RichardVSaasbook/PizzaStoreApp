@@ -1,0 +1,94 @@
+﻿@model PizzaStoreAppFront.Client.Models.OrderViewModel
+
+@{
+    ViewBag.Title = "Order Pizza";
+}
+
+<div class="row">
+    <div class="col-md-9">
+        @using (Html.BeginRouteForm("AddPizzaToCurrentOrder")) {
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Pizza Base</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        @Html.Label("size", "Size")
+                        @Html.DropDownList("size", Model.Ingredients.Sizes, new { @class = "form-control", data_ng_model = "size" })
+                    </p>
+
+                    <p>
+                        @Html.Label("cheese", "Cheese")
+                        @Html.DropDownList("cheese", Model.Ingredients.Cheeses, new { @class = "form-control", data_ng_model = "cheese" })
+                    </p>
+                </div>
+
+                <div class="col-md-6">
+                    <p>
+                        @Html.Label("crust", "Crust")
+                        @Html.DropDownList("crust", Model.Ingredients.Crusts, new { @class = "form-control", data_ng_model = "crust" })
+                    </p>
+
+                    <p>
+                        @Html.Label("sauce", "Sauce")
+                        @Html.DropDownList("sauce", Model.Ingredients.Sauces, new { @class = "form-control", data_ng_model = "sauce" })
+                    </p>
+                </div>
+            </div>
+            
+            <h2>Pizza Toppings</h2>
+
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.CheckboxColumns(Model.Ingredients.Toppings, 3)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-success">Add Pizza</button>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="col-md-3">
+        @*<div class="row">
+            <div class="col-md-12">
+                <h2>Order Details</h2>
+
+                <p>
+                    <b>Sub Total:</b> <span class="pull-right">$0.00</span>
+                </p>
+
+                <p>
+                    <b>Tax Total:</b> <span class="pull-right">$0.00</span>
+                </p>
+
+                <hr />
+
+                <p>
+                    <b>Total Price:</b> <span class="pull-right">$0.00</span>
+                </p>
+            </div>
+        </div>*@
+        @Html.Partial("~/Views/Partials/PizzaOrderDetails.cshtml", Model.OrderDetails)
+
+        <div class="row">
+            <div class="col-md-6">
+                @using (Html.BeginForm()) {
+                    <button type="submit" class="btn btn-success">Order Pizzas</button>
+                }
+            </div>
+
+            <div class="col-md-6">
+                @using (Html.BeginForm()) {
+                    <button type="submit" class="btn btn-danger">Clear Order</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>

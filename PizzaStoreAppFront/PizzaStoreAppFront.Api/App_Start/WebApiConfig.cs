@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace PizzaStoreAppFront.Api
-{
-    public static class WebApiConfig
-    {
-        public static void Register(HttpConfiguration config)
-        {
+namespace PizzaStoreAppFront.Api {
+    public static class WebApiConfig {
+        public static void Register(HttpConfiguration config) {
             // Web API configuration and services
 
             // Web API routes
@@ -16,8 +13,26 @@ namespace PizzaStoreAppFront.Api
 
             config.Routes.MapHttpRoute(
                 "",
-                "api/ingredient/{name}",
-                new { controller = "Ingredient", name = "crust" }
+                "ingredients/{name}",
+                new { controller = "Ingredient", Action = "List", name = "crust" }
+            );
+
+            config.Routes.MapHttpRoute(
+                "",
+                "ingredient/{id}",
+                new { controller = "Ingredient" }
+            );
+
+            config.Routes.MapHttpRoute(
+                "",
+                "size",
+                new { controller = "Size", Action = "List" }
+            );
+
+            config.Routes.MapHttpRoute(
+                "",
+                "size/{id}",
+                new { controller = "Size" }
             );
 
             //config.Routes.MapHttpRoute(

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SizeService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/pizzastorewcf/SizeService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/pizzastorewcf/SizeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/pizzastorewcf/SizeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISizeService_ListSizes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListSizes" />
+  </wsdl:message>
+  <wsdl:message name="ISizeService_ListSizes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListSizesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISizeService_GetSize_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSize" />
+  </wsdl:message>
+  <wsdl:message name="ISizeService_GetSize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSizeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISizeService">
+    <wsdl:operation name="ListSizes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISizeService/ListSizes" message="tns:ISizeService_ListSizes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISizeService/ListSizesResponse" message="tns:ISizeService_ListSizes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSize">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISizeService/GetSize" message="tns:ISizeService_GetSize_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISizeService/GetSizeResponse" message="tns:ISizeService_GetSize_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISizeService" type="tns:ISizeService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListSizes">
+      <soap:operation soapAction="http://tempuri.org/ISizeService/ListSizes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSize">
+      <soap:operation soapAction="http://tempuri.org/ISizeService/GetSize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SizeService">
+    <wsdl:port name="BasicHttpBinding_ISizeService" binding="tns:BasicHttpBinding_ISizeService">
+      <soap:address location="http://localhost/pizzastorewcf/SizeService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

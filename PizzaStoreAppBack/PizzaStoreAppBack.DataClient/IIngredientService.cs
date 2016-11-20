@@ -20,5 +20,8 @@ namespace PizzaStoreAppBack.DataClient {
 
         [OperationContract]
         List<IngredientDAO> ListToppings();
+
+        [OperationContract]
+        IngredientDAO GetIngredient(int ingredientId);
     }
 }

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="PizzaStoreAppBack.DataClient.SizeService" CodeBehind="SizeService.svc.cs" %>

@@ -9,162 +9,41 @@
 //------------------------------------------------------------------------------
 
 namespace PizzaStoreAppFront.Api.IngredientServiceReference {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="IngredientDAO", Namespace="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models")]
-    [System.SerializableAttribute()]
-    public partial class IngredientDAO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime CreatedDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IngredientIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal PriceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime UpdatedDateField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CreatedDate {
-            get {
-                return this.CreatedDateField;
-            }
-            set {
-                if ((this.CreatedDateField.Equals(value) != true)) {
-                    this.CreatedDateField = value;
-                    this.RaisePropertyChanged("CreatedDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IngredientId {
-            get {
-                return this.IngredientIdField;
-            }
-            set {
-                if ((this.IngredientIdField.Equals(value) != true)) {
-                    this.IngredientIdField = value;
-                    this.RaisePropertyChanged("IngredientId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Price {
-            get {
-                return this.PriceField;
-            }
-            set {
-                if ((this.PriceField.Equals(value) != true)) {
-                    this.PriceField = value;
-                    this.RaisePropertyChanged("Price");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Type {
-            get {
-                return this.TypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
-                    this.TypeField = value;
-                    this.RaisePropertyChanged("Type");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime UpdatedDate {
-            get {
-                return this.UpdatedDateField;
-            }
-            set {
-                if ((this.UpdatedDateField.Equals(value) != true)) {
-                    this.UpdatedDateField = value;
-                    this.RaisePropertyChanged("UpdatedDate");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="IngredientServiceReference.IIngredientService")]
     public interface IIngredientService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIngredientService/ListCrusts", ReplyAction="http://tempuri.org/IIngredientService/ListCrustsResponse")]
-        PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO[] ListCrusts();
+        PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[] ListCrusts();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIngredientService/ListCrusts", ReplyAction="http://tempuri.org/IIngredientService/ListCrustsResponse")]
-        System.Threading.Tasks.Task<PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO[]> ListCrustsAsync();
+        System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[]> ListCrustsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIngredientService/ListSauces", ReplyAction="http://tempuri.org/IIngredientService/ListSaucesResponse")]
-        PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO[] ListSauces();
+        PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[] ListSauces();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIngredientService/ListSauces", ReplyAction="http://tempuri.org/IIngredientService/ListSaucesResponse")]
-        System.Threading.Tasks.Task<PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO[]> ListSaucesAsync();
+        System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[]> ListSaucesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIngredientService/ListCheeses", ReplyAction="http://tempuri.org/IIngredientService/ListCheesesResponse")]
-        PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO[] ListCheeses();
+        PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[] ListCheeses();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIngredientService/ListCheeses", ReplyAction="http://tempuri.org/IIngredientService/ListCheesesResponse")]
-        System.Threading.Tasks.Task<PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO[]> ListCheesesAsync();
+        System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[]> ListCheesesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIngredientService/ListToppings", ReplyAction="http://tempuri.org/IIngredientService/ListToppingsResponse")]
-        PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO[] ListToppings();
+        PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[] ListToppings();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIngredientService/ListToppings", ReplyAction="http://tempuri.org/IIngredientService/ListToppingsResponse")]
-        System.Threading.Tasks.Task<PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO[]> ListToppingsAsync();
+        System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[]> ListToppingsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIngredientService/GetIngredient", ReplyAction="http://tempuri.org/IIngredientService/GetIngredientResponse")]
+        PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO GetIngredient(int ingredientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIngredientService/GetIngredient", ReplyAction="http://tempuri.org/IIngredientService/GetIngredientResponse")]
+        System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO> GetIngredientAsync(int ingredientId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -194,36 +73,44 @@ namespace PizzaStoreAppFront.Api.IngredientServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO[] ListCrusts() {
+        public PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[] ListCrusts() {
             return base.Channel.ListCrusts();
         }
         
-        public System.Threading.Tasks.Task<PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO[]> ListCrustsAsync() {
+        public System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[]> ListCrustsAsync() {
             return base.Channel.ListCrustsAsync();
         }
         
-        public PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO[] ListSauces() {
+        public PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[] ListSauces() {
             return base.Channel.ListSauces();
         }
         
-        public System.Threading.Tasks.Task<PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO[]> ListSaucesAsync() {
+        public System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[]> ListSaucesAsync() {
             return base.Channel.ListSaucesAsync();
         }
         
-        public PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO[] ListCheeses() {
+        public PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[] ListCheeses() {
             return base.Channel.ListCheeses();
         }
         
-        public System.Threading.Tasks.Task<PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO[]> ListCheesesAsync() {
+        public System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[]> ListCheesesAsync() {
             return base.Channel.ListCheesesAsync();
         }
         
-        public PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO[] ListToppings() {
+        public PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[] ListToppings() {
             return base.Channel.ListToppings();
         }
         
-        public System.Threading.Tasks.Task<PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO[]> ListToppingsAsync() {
+        public System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO[]> ListToppingsAsync() {
             return base.Channel.ListToppingsAsync();
+        }
+        
+        public PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO GetIngredient(int ingredientId) {
+            return base.Channel.GetIngredient(ingredientId);
+        }
+        
+        public System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO> GetIngredientAsync(int ingredientId) {
+            return base.Channel.GetIngredientAsync(ingredientId);
         }
     }
 }

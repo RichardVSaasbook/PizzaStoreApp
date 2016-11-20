@@ -84,13 +84,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Properties\DataSources\PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO.datasource" />
     <None Include="Service References\IngredientServiceReference\IngredientService.disco" />
     <None Include="Service References\IngredientServiceReference\configuration91.svcinfo" />
     <None Include="Service References\IngredientServiceReference\configuration.svcinfo" />
-    <Content Include="Service References\IngredientServiceReference\PizzaStoreAppFront.Api.IngredientServiceReference.IngredientDAO.datasource">
+    <None Include="Service References\IngredientServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\SizeServiceReference\PizzaStoreAppFront.Api.SizeServiceReference.SizeDAO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\IngredientServiceReference\Reference.svcmap">
+    <None Include="Service References\SizeServiceReference\SizeService.disco" />
+    <None Include="Service References\SizeServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\SizeServiceReference\configuration.svcinfo" />
+    <None Include="Service References\SizeServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -99,11 +107,17 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\IngredientController.cs" />
+    <Compile Include="Controllers\SizeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\IngredientServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SizeServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -119,6 +133,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\IngredientServiceReference\IngredientService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SizeServiceReference\SizeService.wsdl" />
+    <None Include="Service References\SizeServiceReference\SizeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SizeServiceReference\SizeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SizeServiceReference\SizeService2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Web.Debug.config">
@@ -137,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\IngredientServiceReference\" />
+    <WCFMetadataStorage Include="Service References\SizeServiceReference\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PizzaStoreAppFront.Domain\PizzaStoreAppFront.Domain.csproj">
@@ -159,7 +184,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61176</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/pizzastore</IISUrl>
+          <IISUrl>http://localhost/pizzastore/api</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
