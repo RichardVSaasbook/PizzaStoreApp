@@ -1,0 +1,12 @@
+﻿@model PizzaStoreAppFront.Client.Models.StoreViewModel
+
+<ul class="nav nav-pills nav-stacked">
+    @foreach (var store in Model.Stores) {
+        if (store.StoreId == Model.CurrentStoreId) {
+            <li class="active"><a href="/pizzastore/store/@store.StoreId">@store.Address.ToString()</a></li>
+        }
+        else {
+            <li><a href="/pizzastore/store/@store.StoreId">@store.Address.ToString()</a></li>
+        }
+    }
+</ul>

@@ -37,11 +37,17 @@ namespace PizzaStoreAppFront.Client
                 new { controller = "Order", action= "AddPizzaToCurrentOrder" }
             );
 
-            //routes.MapRoute(
-            //    name: "Default",
-            //    url: "{controller}/{action}/{id}",
-            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            //);
+            routes.MapRoute(
+                null,
+                "store",
+                new { controller = "Store", action = "Index" }
+            );
+
+            routes.MapRoute(
+                null,
+                "store/{storeId}",
+                new { controller = "Store", action = "Show" }
+            );
         }
     }
 }

@@ -1,0 +1,73 @@
+﻿@model PizzaStoreAppFront.Client.Models.StoreOrdersViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        @Html.Partial("~/Views/Partials/StoreNavigation.cshtml", Model.StoreViewModel)
+    </div>
+
+    <div class="col-md-9">
+        @if (Model.Orders.Count == 0) {
+            <p><i>There are no orders for this store.</i></p>
+        }
+
+        @foreach (var order in Model.Orders) {
+            <div class="row">
+                <div class="col-md-6">
+                    <b>Ordered By</b>
+                </div>
+
+                <div class="col-md-6">
+                    @order.Customer.FirstName @order.Customer.LastName
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <b>Ordered On</b>
+                </div>
+
+                <div class="col-md-6">
+                    @order.OrderDate.ToString("MM/dd/yyyy hh:mm tt")
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <b>Sub Total</b>
+                </div>
+
+                <div class="col-md-6">
+                    @order.SubTotal.ToString("C")
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <b>Tax Total</b>
+                </div>
+
+                <div class="col-md-6">
+                    @order.TaxTotal.ToString("C")
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <b>Total</b>
+                </div>
+
+                <div class="col-md-6">
+                    @order.Total.ToString("C")
+                </div>
+            </div>
+            
+            @Html.PizzaColumns(order.Pizzas, 3)
+
+            <hr />
+        }
+    </div>
+</div>

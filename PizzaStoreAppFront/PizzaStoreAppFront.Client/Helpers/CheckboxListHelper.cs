@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PizzaStoreAppFront.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,48 @@ namespace PizzaStoreAppFront.Client.Helpers {
                     @"<div class=""checkbox""><label><input type=""checkbox"" name=""toppings"" value=""{0}"" />{1}</label></div>",
                     item.Value,
                     item.Text
+                );
+
+                columns[i % totalColumns].InnerHtml += element;
+
+                i++;
+            }
+
+            foreach (TagBuilder column in columns) {
+                builder.Append(column.ToString());
+            }
+
+            builder.Append("</div>");
+
+            return MvcHtmlString.Create(builder.ToString());
+        }
+
+        public static MvcHtmlString PizzaColumns(this HtmlHelper html, IEnumerable<Pizza> pizzas, int totalColumns) {
+            StringBuilder builder = new StringBuilder(@"<div class=""row"">");
+
+            List<TagBuilder> columns = new List<TagBuilder>();
+            for (int c = 0; c < totalColumns; c++) {
+                TagBuilder column = new TagBuilder("div");
+                column.AddCssClass("col-md-" + (12 / totalColumns));
+                columns.Add(column);
+            }
+
+            int i = 0;
+
+            foreach (var pizza in pizzas) {
+                StringBuilder ingredientList = new StringBuilder("<ul>");
+
+                foreach (Ingredient ingredient in pizza.Ingredients) {
+                    ingredientList.Append("<li>" + ingredient.Name + "</li>");
+                }
+
+                ingredientList.Append("</ul>");
+
+                string element = string.Format(
+                    @"<p><b>{0}</b></p><p><b>Price</b><span class=""pull-right"">{1}</span></p><p><b>Ingredients</b>{2}",
+                    pizza.Size.Dimension + " Inch Custom Pizza",
+                    pizza.Price.ToString("C"),
+                    ingredientList.ToString()
                 );
 
                 columns[i % totalColumns].InnerHtml += element;

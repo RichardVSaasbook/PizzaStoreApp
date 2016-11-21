@@ -14,11 +14,13 @@ namespace PizzaStoreAppFront.Domain.Models {
         public decimal TaxTotal { get; set; }
         public decimal Total { get; set; }
         public DateTime OrderDate { get; set; }
+        public Person Customer { get; set; }
 
         public static Order FromDAO(OrderDAO orderDAO) {
             PizzaStoreRepository repository = new PizzaStoreRepository();
             
             return new Order {
+                Customer = Person.FromDAO(orderDAO.Customer),
                 OrderId = orderDAO.OrderId,
                 OrderDate = orderDAO.CreatedDate,
                 Pizzas = repository.ListPizzasInOrder(orderDAO.OrderId),

@@ -43,15 +43,15 @@ namespace PizzaStoreAppFront.Api {
 
             config.Routes.MapHttpRoute(
                 "",
+                "store/{storeId}/orders",
+                new { controller = "Store", action = "ListOrders" }
+            );
+
+            config.Routes.MapHttpRoute(
+                "",
                 "people",
                 new { controller = "People", action = "List" }
             );
-
-            //config.Routes.MapHttpRoute(
-            //    name: "DefaultApi",
-            //    routeTemplate: "api/{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
         }
     }
 }

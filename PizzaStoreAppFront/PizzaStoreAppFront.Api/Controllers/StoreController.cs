@@ -25,5 +25,16 @@ namespace PizzaStoreAppFront.Api.Controllers {
 
             return Request.CreateResponse(HttpStatusCode.OK, stores, "application/json");
         }
+
+        [HttpGet]
+        public HttpResponseMessage ListOrders(int storeId) {
+            List<Order> orders = new List<Order>();
+
+            foreach (OrderDAO orderDAO in pizzaDataService.ListStoreOrders(storeId)) {
+                orders.Add(Order.FromDAO(orderDAO));
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, orders, "application/json");
+        }
     }
 }

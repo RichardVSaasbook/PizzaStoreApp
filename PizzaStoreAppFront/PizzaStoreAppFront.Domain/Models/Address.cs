@@ -12,6 +12,10 @@ namespace PizzaStoreAppFront.Domain.Models {
         public string State { get; set; }
         public string Zip { get; set; }
 
+        public string ToString() {
+            return Street + ", " + City + ", " + State + " " + Zip;
+        }
+
         public static Address FromDAO(AddressDAO addressDAO) {
             return new Address {
                 City = addressDAO.City,

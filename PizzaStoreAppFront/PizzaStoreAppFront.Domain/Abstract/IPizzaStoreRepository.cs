@@ -15,5 +15,6 @@ namespace PizzaStoreAppFront.Domain.Abstract {
         Store GetNearestStore(Address address);
         List<Store> ListStores();
         List<Person> ListPeople();
+        List<Order> ListStoreOrders(int storeId);
     }
 }

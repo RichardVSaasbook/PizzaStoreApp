@@ -93,6 +93,10 @@ namespace PizzaStoreAppFront.Domain.Concrete {
             return GetObject<List<Person>>(BASE_URL + "people");
         }
 
+        public List<Order> ListStoreOrders(int storeId) {
+            return GetObject<List<Order>>(BASE_URL + "store/" + storeId + "/orders");
+        }
+
         private string FormatAddress(Address address) {
             string addressString = string.Format(
                 "{0}+{1}+{2}+{3}",
