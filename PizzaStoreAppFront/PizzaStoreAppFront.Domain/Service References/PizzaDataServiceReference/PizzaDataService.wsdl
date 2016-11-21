@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PizzaDataService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/pizzastorewcf/PizzaDataService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/pizzastorewcf/PizzaDataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/pizzastorewcf/PizzaDataService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPizzaDataService_GetAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddress" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_GetAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_GetPhone_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhone" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_GetPhone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_GetStore_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStore" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_GetStore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_GetPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPerson" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_GetPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListStores_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListStores" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListStores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListStoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListStoreOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListStoreOrders" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListStoreOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListStoreOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListPeople_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListPeople" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListPeople_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListPeopleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPizzaDataService">
+    <wsdl:operation name="GetAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/GetAddress" message="tns:IPizzaDataService_GetAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/GetAddressResponse" message="tns:IPizzaDataService_GetAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/GetPhone" message="tns:IPizzaDataService_GetPhone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/GetPhoneResponse" message="tns:IPizzaDataService_GetPhone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStore">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/GetStore" message="tns:IPizzaDataService_GetStore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/GetStoreResponse" message="tns:IPizzaDataService_GetStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPerson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/GetPerson" message="tns:IPizzaDataService_GetPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/GetPersonResponse" message="tns:IPizzaDataService_GetPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListStores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/ListStores" message="tns:IPizzaDataService_ListStores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/ListStoresResponse" message="tns:IPizzaDataService_ListStores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListStoreOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/ListStoreOrders" message="tns:IPizzaDataService_ListStoreOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/ListStoreOrdersResponse" message="tns:IPizzaDataService_ListStoreOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListPeople">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/ListPeople" message="tns:IPizzaDataService_ListPeople_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/ListPeopleResponse" message="tns:IPizzaDataService_ListPeople_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPizzaDataService" type="tns:IPizzaDataService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAddress">
+      <soap:operation soapAction="http://tempuri.org/IPizzaDataService/GetAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhone">
+      <soap:operation soapAction="http://tempuri.org/IPizzaDataService/GetPhone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStore">
+      <soap:operation soapAction="http://tempuri.org/IPizzaDataService/GetStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPerson">
+      <soap:operation soapAction="http://tempuri.org/IPizzaDataService/GetPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListStores">
+      <soap:operation soapAction="http://tempuri.org/IPizzaDataService/ListStores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListStoreOrders">
+      <soap:operation soapAction="http://tempuri.org/IPizzaDataService/ListStoreOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListPeople">
+      <soap:operation soapAction="http://tempuri.org/IPizzaDataService/ListPeople" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PizzaDataService">
+    <wsdl:port name="BasicHttpBinding_IPizzaDataService" binding="tns:BasicHttpBinding_IPizzaDataService">
+      <soap:address location="http://localhost/pizzastorewcf/PizzaDataService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

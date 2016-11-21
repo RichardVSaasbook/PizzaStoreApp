@@ -1,4 +1,5 @@
-﻿using PizzaStoreAppFront.Client.Models;
+﻿using PizzaStoreAppFront.Client.Infrastructure;
+using PizzaStoreAppFront.Client.Models;
 using PizzaStoreAppFront.Domain.Abstract;
 using PizzaStoreAppFront.Domain.Models;
 using System;
@@ -18,16 +19,25 @@ namespace PizzaStoreAppFront.Client.Controllers {
         }
 
         [HttpGet]
-        public ActionResult Index() {
+        public ActionResult Index(int personId) {
+            CustomerSetup.SetupCustomersIfNeeded(repository, Session);
+
+            if ((Session["CustomerOrderId"] as int?) != personId) {
+                Session["CustomerOrderId"] = null;
+                Session["Order"] = null;
+            }
+
             return View(new OrderViewModel {
+                CustomerId = personId,
                 Ingredients = GetOrderIngredientsVM(),
                 OrderDetails = GetOrderDetailsVM()
             });
         }
 
         [HttpPost]
-        public RedirectResult AddPizzaToCurrentOrder(int size, int crust, int cheese, int sauce, int[] toppings) {
+        public RedirectResult AddPizzaToCurrentOrder(int personId, int size, int crust, int cheese, int sauce, int[] toppings) {
             if (Session["Order"] == null) {
+                Session["CustomerOrderId"] = personId;
                 Session["Order"] = new Order {
                     Pizzas = new List<Pizza>(),
                     SubTotal = 0,
@@ -62,8 +72,10 @@ namespace PizzaStoreAppFront.Client.Controllers {
                 }
             }
 
+            Store currentStore = (Session["CustomerNearestStores"] as Dictionary<int, Store>)[personId];
+
             (Session["Order"] as Order).SubTotal += price;
-            (Session["Order"] as Order).TaxTotal += 0;
+            (Session["Order"] as Order).TaxTotal += price * currentStore.SalesTax;
             (Session["Order"] as Order).Total = (Session["Order"] as Order).SubTotal + (Session["Order"] as Order).TaxTotal;
 
             (Session["Order"] as Order).Pizzas.Add(new Pizza {
@@ -72,7 +84,7 @@ namespace PizzaStoreAppFront.Client.Controllers {
                 Price = price
             });
 
-            return new RedirectResult("/pizzastore/person/order");
+            return new RedirectResult("/pizzastore/person/" + personId + "/order");
         }
 
         /// <summary>

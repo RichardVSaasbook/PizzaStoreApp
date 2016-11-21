@@ -85,6 +85,11 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Properties\DataSources\PizzaStoreAppFront.Domain.IngredientServiceReference.IngredientDAO.datasource" />
+    <Content Include="Properties\DataSources\PizzaStoreAppFront.Domain.PizzaDataServiceReference.AddressDAO.datasource" />
+    <Content Include="Properties\DataSources\PizzaStoreAppFront.Domain.PizzaDataServiceReference.OrderDAO.datasource" />
+    <Content Include="Properties\DataSources\PizzaStoreAppFront.Domain.PizzaDataServiceReference.PersonDAO.datasource" />
+    <Content Include="Properties\DataSources\PizzaStoreAppFront.Domain.PizzaDataServiceReference.PhoneDAO.datasource" />
+    <Content Include="Properties\DataSources\PizzaStoreAppFront.Domain.PizzaDataServiceReference.StoreDAO.datasource" />
     <None Include="Service References\IngredientServiceReference\IngredientService.disco" />
     <None Include="Service References\IngredientServiceReference\configuration91.svcinfo" />
     <None Include="Service References\IngredientServiceReference\configuration.svcinfo" />
@@ -92,9 +97,46 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\PizzaDataServiceReference\PizzaDataService.disco" />
+    <None Include="Service References\PizzaDataServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\PizzaDataServiceReference\configuration.svcinfo" />
+    <None Include="Service References\PizzaDataServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PizzaServiceReference\PizzaService.disco" />
+    <None Include="Service References\PizzaServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\PizzaServiceReference\configuration.svcinfo" />
+    <Content Include="Service References\PizzaServiceReference\PizzaStoreAppFront.Api.PizzaServiceReference.PizzaDAO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\PizzaServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Service References\SizeServiceReference\PizzaStoreAppFront.Api.SizeServiceReference.SizeDAO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Service References\PizzaDataServiceReference\PizzaDataService.wsdl" />
+    <None Include="Service References\PizzaDataServiceReference\PizzaDataService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PizzaDataServiceReference\PizzaDataService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PizzaDataServiceReference\PizzaDataService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PizzaServiceReference\PizzaService.wsdl" />
+    <None Include="Service References\PizzaServiceReference\PizzaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PizzaServiceReference\PizzaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PizzaServiceReference\PizzaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\SizeServiceReference\SizeService.disco" />
     <None Include="Service References\SizeServiceReference\configuration91.svcinfo" />
     <None Include="Service References\SizeServiceReference\configuration.svcinfo" />
@@ -107,12 +149,24 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\IngredientController.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\SizeController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\IngredientServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PizzaDataServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PizzaServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -161,6 +215,8 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\IngredientServiceReference\" />
+    <WCFMetadataStorage Include="Service References\PizzaDataServiceReference\" />
+    <WCFMetadataStorage Include="Service References\PizzaServiceReference\" />
     <WCFMetadataStorage Include="Service References\SizeServiceReference\" />
   </ItemGroup>
   <ItemGroup>

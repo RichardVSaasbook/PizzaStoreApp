@@ -74,6 +74,15 @@ namespace PizzaStoreAppBack.DataAccess {
         }
 
         /// <summary>
+        /// List the Pizzas within an Order.
+        /// </summary>
+        /// <param name="orderId">The Id of the Order to grab Pizzas from.</param>
+        /// <returns>The List of Pizzas.</returns>
+        public List<Pizza> ListPizzasInOrder(int orderId) {
+            return db.Pizzas.Where(p => p.Active && p.OrderId == orderId).ToList();
+        }
+
+        /// <summary>
         /// Creates a Pizza and returns that Pizza along with its price.
         /// </summary>
         /// <param name="ingredients">The List of Ingredients for the Pizza.</param>

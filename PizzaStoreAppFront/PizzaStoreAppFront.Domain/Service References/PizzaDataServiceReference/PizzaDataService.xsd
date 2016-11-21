@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="AddressDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressId" type="xs:int" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddressDAO" nillable="true" type="tns:AddressDAO" />
+  <xs:complexType name="PhoneDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneId" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PhoneDAO" nillable="true" type="tns:PhoneDAO" />
+  <xs:complexType name="StoreDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="tns:AddressDAO" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Owner" nillable="true" type="tns:PersonDAO" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="tns:PhoneDAO" />
+      <xs:element minOccurs="0" name="SalesTax" type="xs:decimal" />
+      <xs:element minOccurs="0" name="StoreId" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StoreDAO" nillable="true" type="tns:StoreDAO" />
+  <xs:complexType name="PersonDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="tns:AddressDAO" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonId" type="xs:int" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="tns:PhoneDAO" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonDAO" nillable="true" type="tns:PersonDAO" />
+  <xs:complexType name="ArrayOfStoreDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StoreDAO" nillable="true" type="tns:StoreDAO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStoreDAO" nillable="true" type="tns:ArrayOfStoreDAO" />
+  <xs:complexType name="ArrayOfOrderDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderDAO" nillable="true" type="tns:OrderDAO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderDAO" nillable="true" type="tns:ArrayOfOrderDAO" />
+  <xs:complexType name="OrderDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Customer" nillable="true" type="tns:PersonDAO" />
+      <xs:element minOccurs="0" name="OrderId" type="xs:int" />
+      <xs:element minOccurs="0" name="Store" nillable="true" type="tns:StoreDAO" />
+      <xs:element minOccurs="0" name="SubTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tax" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Total" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderDAO" nillable="true" type="tns:OrderDAO" />
+  <xs:complexType name="ArrayOfPersonDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PersonDAO" nillable="true" type="tns:PersonDAO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPersonDAO" nillable="true" type="tns:ArrayOfPersonDAO" />
+</xs:schema>

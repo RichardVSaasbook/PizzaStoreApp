@@ -70,5 +70,13 @@ namespace PizzaStoreAppBack.DataAccess {
 
             return store;
         }
+
+        public List<Store> ListStores() {
+            return db.Stores.Where(s => s.Active).ToList();
+        }
+
+        public List<Person> ListPeople() {
+            return db.People.Where(p => p.Active).ToList();
+        }
     }
 }

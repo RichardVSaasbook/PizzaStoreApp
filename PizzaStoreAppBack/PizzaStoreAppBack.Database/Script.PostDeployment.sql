@@ -163,7 +163,9 @@ INSERT INTO Information.[Address] (Street, City, [State], Zip) VALUES
     (N'11642 Plaza America Dr', N'Reston', 'VA', '20190'),
     (N'10123 Louetta Rd', N'Houston', 'TX', '77070'),
     (N'4280 E Indian School Rd', N'Phoenix', 'AZ', '85018'),
-    (N'8985 Venice Blvd', N'Los Angeles', 'CA', '90034');
+    (N'8985 Venice Blvd', N'Los Angeles', 'CA', '90034'),
+    (N'11730 Plaza America Dr', N'Reston', 'VA', '20190'),
+    (N'9201 University City Blvd', N'Charlotte', 'NC', '28223');
 GO
 
 INSERT INTO Information.Phone (Number) VALUES
@@ -179,7 +181,9 @@ INSERT INTO People.Person (FirstName, LastName, PhoneId, AddressId) VALUES
     (N'Rean', N'Schwarzer', 2, 2),
     (N'Emma', N'Millstein', 3, 3),
     (N'Laura', N'Arseid', 4, 4),
-    (N'Elliot', N'Craig', 5, 5);
+    (N'Elliot', N'Craig', 5, 5),
+    (N'Jusis', N'Albarea', NULL, 6),
+    (N'Fie', N'Claussell', NULL, 7);
 GO
 
 INSERT INTO Store.Store (OwnerId, PhoneId, AddressId, SalesTax) VALUES

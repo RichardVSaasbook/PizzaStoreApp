@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="16e4adcf-981f-479d-a07a-6bd7fb064a0f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/pizzastorewcf/PizzaDataService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PizzaDataService.xsd" MetadataType="Schema" ID="e03ea026-1c04-4370-bd95-de5bf11a4654" SourceId="1" SourceUrl="http://localhost/pizzastorewcf/PizzaDataService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PizzaDataService.disco" MetadataType="Disco" ID="7ddf6139-3df7-4ae8-9179-a62ed89d5ae7" SourceId="1" SourceUrl="http://localhost/pizzastorewcf/PizzaDataService.svc?disco" />
+    <MetadataFile FileName="PizzaDataService1.xsd" MetadataType="Schema" ID="f0c371f5-7f31-460c-907f-933d276383d6" SourceId="1" SourceUrl="http://localhost/pizzastorewcf/PizzaDataService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PizzaDataService2.xsd" MetadataType="Schema" ID="77203368-d9da-42c7-be3a-abce202dc069" SourceId="1" SourceUrl="http://localhost/pizzastorewcf/PizzaDataService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PizzaDataService.wsdl" MetadataType="Wsdl" ID="98a58e5e-560f-4f2e-8ef0-bebcee4dceec" SourceId="1" SourceUrl="http://localhost/pizzastorewcf/PizzaDataService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

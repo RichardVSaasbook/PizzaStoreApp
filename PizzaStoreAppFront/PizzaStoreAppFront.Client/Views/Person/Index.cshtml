@@ -1,0 +1,17 @@
+﻿@model IEnumerable<PizzaStoreAppFront.Domain.Models.Person>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>Select a Customer:</p>
+
+<nav>
+    <ul class="nav nav-pills nav-stacked">
+        @foreach (var p in Model) {
+            <li>
+                <a href="/pizzastore/person/@p.PersonId/order">@p.FirstName @p.LastName</a>
+            </li>
+        }
+    </ul>
+</nav>

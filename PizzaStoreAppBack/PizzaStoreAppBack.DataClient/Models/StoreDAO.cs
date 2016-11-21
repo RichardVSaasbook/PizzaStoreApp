@@ -20,6 +20,9 @@ namespace PizzaStoreAppBack.DataClient.Models {
         public AddressDAO Address { get; set; }
 
         [DataMember]
+        public decimal SalesTax { get; set; }
+
+        [DataMember]
         public DateTime CreatedDate { get; set; }
 
         [DataMember]

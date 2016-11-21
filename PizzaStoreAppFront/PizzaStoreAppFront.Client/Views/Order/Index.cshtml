@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-md-9">
-        @using (Html.BeginRouteForm("AddPizzaToCurrentOrder")) {
+        @using (Html.BeginRouteForm("AddPizzaToCurrentOrder", new { id = Model.CustomerId })) {
             <div class="row">
                 <div class="col-md-12">
                     <h2>Pizza Base</h2>
@@ -56,37 +56,16 @@
     </div>
 
     <div class="col-md-3">
-        @*<div class="row">
-            <div class="col-md-12">
-                <h2>Order Details</h2>
-
-                <p>
-                    <b>Sub Total:</b> <span class="pull-right">$0.00</span>
-                </p>
-
-                <p>
-                    <b>Tax Total:</b> <span class="pull-right">$0.00</span>
-                </p>
-
-                <hr />
-
-                <p>
-                    <b>Total Price:</b> <span class="pull-right">$0.00</span>
-                </p>
-            </div>
-        </div>*@
         @Html.Partial("~/Views/Partials/PizzaOrderDetails.cshtml", Model.OrderDetails)
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 @using (Html.BeginForm()) {
-                    <button type="submit" class="btn btn-success">Order Pizzas</button>
+                    <button type="submit" class="btn btn-success pull-left">Order Pizzas</button>
                 }
-            </div>
 
-            <div class="col-md-6">
                 @using (Html.BeginForm()) {
-                    <button type="submit" class="btn btn-danger">Clear Order</button>
+                    <button type="submit" class="btn btn-danger pull-right">Clear Order</button>
                 }
             </div>
         </div>

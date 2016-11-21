@@ -14,7 +14,7 @@ namespace PizzaStoreAppFront.Api {
             config.Routes.MapHttpRoute(
                 "",
                 "ingredients/{name}",
-                new { controller = "Ingredient", Action = "List", name = "crust" }
+                new { controller = "Ingredient", action = "List", name = "crust" }
             );
 
             config.Routes.MapHttpRoute(
@@ -26,13 +26,25 @@ namespace PizzaStoreAppFront.Api {
             config.Routes.MapHttpRoute(
                 "",
                 "size",
-                new { controller = "Size", Action = "List" }
+                new { controller = "Size", action = "List" }
             );
 
             config.Routes.MapHttpRoute(
                 "",
                 "size/{id}",
                 new { controller = "Size" }
+            );
+
+            config.Routes.MapHttpRoute(
+                "",
+                "store",
+                new { controller = "Store", action = "List" }
+            );
+
+            config.Routes.MapHttpRoute(
+                "",
+                "people",
+                new { controller = "People", action = "List" }
             );
 
             //config.Routes.MapHttpRoute(

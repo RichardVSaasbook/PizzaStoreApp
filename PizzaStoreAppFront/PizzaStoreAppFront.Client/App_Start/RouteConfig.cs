@@ -14,14 +14,26 @@ namespace PizzaStoreAppFront.Client
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                null,
                 "",
-                "person/order",
+                new { controller = "Home", action = "Index" }
+            );
+
+            routes.MapRoute(
+                null,
+                "person",
+                new { controller = "Person", action = "Index" }
+            );
+
+            routes.MapRoute(
+                null,
+                "person/{personId}/order",
                 new { controller = "Order", action = "Index" }
             );
 
             routes.MapRoute(
                 "AddPizzaToCurrentOrder",
-                "person/order/add-pizza",
+                "person/{personId}/order/add-pizza",
                 new { controller = "Order", action= "AddPizzaToCurrentOrder" }
             );
 

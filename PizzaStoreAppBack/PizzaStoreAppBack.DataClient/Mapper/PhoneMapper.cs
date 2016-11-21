@@ -13,6 +13,10 @@ namespace PizzaStoreAppBack.DataClient.Mapper {
         /// <param name="phone">The Phone to map from.</param>
         /// <returns>The mapped PhoneDAO.</returns>
         public PhoneDAO MapToPhoneDAO(Phone phone) {
+            if (phone == null) {
+                return new PhoneDAO();
+            }
+
             return new PhoneDAO {
                 CreatedDate = phone.CreatedDate,
                 Number = phone.Number,

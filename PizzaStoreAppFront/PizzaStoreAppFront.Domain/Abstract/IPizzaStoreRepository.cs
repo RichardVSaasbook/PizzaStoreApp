@@ -11,5 +11,9 @@ namespace PizzaStoreAppFront.Domain.Abstract {
         Ingredient GetIngredient(int ingredientId);
         IEnumerable<Size> ListSizes();
         Size GetSize(int sizeId);
+        List<Pizza> ListPizzasInOrder(int orderId);
+        Store GetNearestStore(Address address);
+        List<Store> ListStores();
+        List<Person> ListPeople();
     }
 }

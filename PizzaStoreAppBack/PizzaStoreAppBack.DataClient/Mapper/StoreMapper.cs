@@ -18,6 +18,7 @@ namespace PizzaStoreAppBack.DataClient.Mapper {
                 CreatedDate = store.CreatedDate,
                 Owner = MapToPersonDAO(store.Person),
                 Phone = MapToPhoneDAO(store.Phone),
+                SalesTax = store.SalesTax,
                 StoreId = store.StoreId,
                 UpdatedDate = store.UpdatedDate
             };
@@ -41,6 +42,7 @@ namespace PizzaStoreAppBack.DataClient.Mapper {
             store.Person = owner;
             store.Phone = phone;
             store.PhoneId = phone.PhoneId;
+            store.SalesTax = storeDAO.SalesTax;
             store.StoreId = storeDAO.StoreId;
             store.UpdatedDate = storeDAO.UpdatedDate;
 

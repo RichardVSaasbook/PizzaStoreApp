@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IngredientService.svc" />
+    <Content Include="PizzaDataService.svc" />
     <Content Include="PizzaService.svc" />
     <Content Include="Properties\DataSources\PizzaStoreAppBack.DataAccess.Ingredient.datasource" />
     <Content Include="SizeService.svc" />
@@ -81,6 +82,7 @@
     <Compile Include="IngredientService.svc.cs">
       <DependentUpon>IngredientService.svc</DependentUpon>
     </Compile>
+    <Compile Include="IPizzaDataService.cs" />
     <Compile Include="IPizzaService.cs" />
     <Compile Include="ISizeService.cs" />
     <Compile Include="Mapper\AddressMapper.cs" />
@@ -108,6 +110,9 @@
     <Compile Include="Models\SpecialtyPizzaIngredientDAO.cs" />
     <Compile Include="Models\StoreDAO.cs" />
     <Compile Include="Models\StoreIngredientDAO.cs" />
+    <Compile Include="PizzaDataService.svc.cs">
+      <DependentUpon>PizzaDataService.svc</DependentUpon>
+    </Compile>
     <Compile Include="PizzaService.svc.cs">
       <DependentUpon>PizzaService.svc</DependentUpon>
     </Compile>

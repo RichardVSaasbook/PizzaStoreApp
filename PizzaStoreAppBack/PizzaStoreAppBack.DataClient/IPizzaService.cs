@@ -11,5 +11,8 @@ namespace PizzaStoreAppBack.DataClient {
     public interface IPizzaService {
         [OperationContract]
         bool CreateOrder(int customerId, List<PizzaDAO> pizzaDAOs);
+
+        [OperationContract]
+        List<PizzaDAO> ListPizzasInOrder(int orderId);
     }
 }

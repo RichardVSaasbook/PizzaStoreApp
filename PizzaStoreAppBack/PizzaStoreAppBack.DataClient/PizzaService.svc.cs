@@ -32,5 +32,15 @@ namespace PizzaStoreAppBack.DataClient {
 
             return data.SubmitOrder(data.FindPerson(customerId), pizzas);
         }
+
+        public List<PizzaDAO> ListPizzasInOrder(int orderId) {
+            List<PizzaDAO> pizzaDAOs = new List<PizzaDAO>();
+
+            foreach (Pizza pizza in data.ListPizzasInOrder(orderId)) {
+                pizzaDAOs.Add(mapper.MapToPizzaDAO(pizza));
+            }
+
+            return pizzaDAOs;
+        }
     }
 }
