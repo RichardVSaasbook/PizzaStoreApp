@@ -16,5 +16,6 @@ namespace PizzaStoreAppFront.Domain.Abstract {
         List<Store> ListStores();
         List<Person> ListPeople();
         List<Order> ListStoreOrders(int storeId);
+        bool SubmitOrder(int customerId, int storeId, List<Pizza> pizzas, decimal subTotal, decimal taxTotal, decimal total);
     }
 }

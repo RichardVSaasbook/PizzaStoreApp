@@ -95,4 +95,125 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ListCrusts">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListCrustsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" minOccurs="0" name="ListCrustsResult" nillable="true" type="q8:ArrayOfIngredientDAO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListSauces">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListSaucesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" minOccurs="0" name="ListSaucesResult" nillable="true" type="q9:ArrayOfIngredientDAO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListCheeses">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListCheesesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" minOccurs="0" name="ListCheesesResult" nillable="true" type="q10:ArrayOfIngredientDAO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListToppings">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListToppingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" minOccurs="0" name="ListToppingsResult" nillable="true" type="q11:ArrayOfIngredientDAO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIngredient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ingredientId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIngredientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" minOccurs="0" name="GetIngredientResult" nillable="true" type="q12:IngredientDAO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="storeId" type="xs:int" />
+        <xs:element minOccurs="0" name="customerId" type="xs:int" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" minOccurs="0" name="pizzasDAOs" nillable="true" type="q13:ArrayOfPizzaDAO" />
+        <xs:element minOccurs="0" name="subTotal" type="xs:decimal" />
+        <xs:element minOccurs="0" name="taxTotal" type="xs:decimal" />
+        <xs:element minOccurs="0" name="total" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateOrderResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListPizzasInOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListPizzasInOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" minOccurs="0" name="ListPizzasInOrderResult" nillable="true" type="q14:ArrayOfPizzaDAO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListSizes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListSizesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" minOccurs="0" name="ListSizesResult" nillable="true" type="q15:ArrayOfSizeDAO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSize">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sizeId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSizeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" minOccurs="0" name="GetSizeResult" nillable="true" type="q16:SizeDAO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

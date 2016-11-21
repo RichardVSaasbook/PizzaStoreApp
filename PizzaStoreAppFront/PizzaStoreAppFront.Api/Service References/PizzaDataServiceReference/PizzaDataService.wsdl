@@ -49,6 +49,60 @@
   <wsdl:message name="IPizzaDataService_ListPeople_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListPeopleResponse" />
   </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListCrusts_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListCrusts" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListCrusts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListCrustsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListSauces_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListSauces" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListSauces_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListSaucesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListCheeses_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListCheeses" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListCheeses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListCheesesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListToppings_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListToppings" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListToppings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListToppingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_GetIngredient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIngredient" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_GetIngredient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIngredientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_CreateOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrder" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_CreateOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListPizzasInOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListPizzasInOrder" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListPizzasInOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListPizzasInOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListSizes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListSizes" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_ListSizes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListSizesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_GetSize_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSize" />
+  </wsdl:message>
+  <wsdl:message name="IPizzaDataService_GetSize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSizeResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPizzaDataService">
     <wsdl:operation name="GetAddress">
       <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/GetAddress" message="tns:IPizzaDataService_GetAddress_InputMessage" />
@@ -77,6 +131,42 @@
     <wsdl:operation name="ListPeople">
       <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/ListPeople" message="tns:IPizzaDataService_ListPeople_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/ListPeopleResponse" message="tns:IPizzaDataService_ListPeople_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListCrusts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/ListCrusts" message="tns:IPizzaDataService_ListCrusts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/ListCrustsResponse" message="tns:IPizzaDataService_ListCrusts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListSauces">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/ListSauces" message="tns:IPizzaDataService_ListSauces_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/ListSaucesResponse" message="tns:IPizzaDataService_ListSauces_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListCheeses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/ListCheeses" message="tns:IPizzaDataService_ListCheeses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/ListCheesesResponse" message="tns:IPizzaDataService_ListCheeses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListToppings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/ListToppings" message="tns:IPizzaDataService_ListToppings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/ListToppingsResponse" message="tns:IPizzaDataService_ListToppings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIngredient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/GetIngredient" message="tns:IPizzaDataService_GetIngredient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/GetIngredientResponse" message="tns:IPizzaDataService_GetIngredient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/CreateOrder" message="tns:IPizzaDataService_CreateOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/CreateOrderResponse" message="tns:IPizzaDataService_CreateOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListPizzasInOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/ListPizzasInOrder" message="tns:IPizzaDataService_ListPizzasInOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/ListPizzasInOrderResponse" message="tns:IPizzaDataService_ListPizzasInOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListSizes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/ListSizes" message="tns:IPizzaDataService_ListSizes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/ListSizesResponse" message="tns:IPizzaDataService_ListSizes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSize">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPizzaDataService/GetSize" message="tns:IPizzaDataService_GetSize_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPizzaDataService/GetSizeResponse" message="tns:IPizzaDataService_GetSize_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPizzaDataService" type="tns:IPizzaDataService">
@@ -137,6 +227,87 @@
     </wsdl:operation>
     <wsdl:operation name="ListPeople">
       <soap:operation soapAction="http://tempuri.org/IPizzaDataService/ListPeople" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListCrusts">
+      <soap:operation soapAction="http://tempuri.org/IPizzaDataService/ListCrusts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListSauces">
+      <soap:operation soapAction="http://tempuri.org/IPizzaDataService/ListSauces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListCheeses">
+      <soap:operation soapAction="http://tempuri.org/IPizzaDataService/ListCheeses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListToppings">
+      <soap:operation soapAction="http://tempuri.org/IPizzaDataService/ListToppings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIngredient">
+      <soap:operation soapAction="http://tempuri.org/IPizzaDataService/GetIngredient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <soap:operation soapAction="http://tempuri.org/IPizzaDataService/CreateOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListPizzasInOrder">
+      <soap:operation soapAction="http://tempuri.org/IPizzaDataService/ListPizzasInOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListSizes">
+      <soap:operation soapAction="http://tempuri.org/IPizzaDataService/ListSizes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSize">
+      <soap:operation soapAction="http://tempuri.org/IPizzaDataService/GetSize" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

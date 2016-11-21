@@ -73,7 +73,7 @@ CREATE TABLE Pizza.SpecialtyPizza (
 GO
 
 CREATE TABLE Store.[Order] (
-    OrderId INT NOT NULL PRIMARY KEY,
+    OrderId INT NOT NULL IDENTITY PRIMARY KEY,
     SubTotal MONEY NOT NULL,
     Tax MONEY NOT NULL,
     Total MONEY NOT NULL,

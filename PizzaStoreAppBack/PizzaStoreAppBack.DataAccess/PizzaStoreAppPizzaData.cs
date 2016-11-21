@@ -20,8 +20,16 @@ namespace PizzaStoreAppBack.DataAccess {
                 Active = true,
                 Person = customer,
                 CustomerId = customer.PersonId,
-                Store = store
+                Store = store,
+                SubTotal = subTotal,
+                Tax = taxTotal,
+                Total = total
             };
+
+            int orderId = db.Orders.OrderByDescending(o => o.OrderId).FirstOrDefault().OrderId + 1;
+
+            db.Orders.Add(order);
+            db.SaveChanges();
 
             foreach (var pizza in pizzas) {
                 List<Ingredient> ingredients = new List<Ingredient>();
@@ -30,21 +38,17 @@ namespace PizzaStoreAppBack.DataAccess {
                     ingredients.Add(pizzaIngredient.Ingredient);
                 }
 
-                PizzaData pizzaData = CreatePizza(ingredients, pizza.Size);
+                PizzaData pizzaData = CreatePizza(orderId, ingredients, pizza.Size);
 
                 if (pizzaData == null) {
                     return false;
                 }
-
+                
                 pizzaData.Pizza.Order = order;
             }
 
-            order.SubTotal = subTotal;
-            order.Tax = taxTotal;
-            order.Total = total;
-
-            db.Orders.Add(order);
-            return db.SaveChanges() > 0;
+            //return db.SaveChanges() > 0;
+            return true;
         }
 
         /// <summary>
@@ -78,11 +82,23 @@ namespace PizzaStoreAppBack.DataAccess {
         /// <param name="ingredients">The List of Ingredients for the Pizza.</param>
         /// <param name="size">The Size of the Pizza.</param>
         /// <returns>The Pizza and Price of that Pizza.</returns>
-        private PizzaData CreatePizza(List<Ingredient> ingredients, Size size) {
+        private PizzaData CreatePizza(int orderId, List<Ingredient> ingredients, Size size) {
             PizzaData pizzaData = PizzaFactory.BuildPizza(ingredients, size);
+            pizzaData.Pizza.OrderId = orderId;
 
             if (pizzaData != null) {
                 db.Pizzas.Add(pizzaData.Pizza);
+
+                foreach (Ingredient ingredient in ingredients) {
+                    db.PizzaIngredients.Add(new PizzaIngredient {
+                        Active = true,
+                        CreatedDate = DateTime.Now,
+                        PizzaId = pizzaData.Pizza.PizzaId,
+                        IngredientId = ingredient.IngredientId,
+                        UpdatedDate = DateTime.Now
+                    });
+                }
+
                 db.SaveChanges();
             }
 

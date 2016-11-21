@@ -29,5 +29,32 @@ namespace PizzaStoreAppBack.DataClient {
 
         [OperationContract]
         List<PersonDAO> ListPeople();
+
+        [OperationContract]
+        List<IngredientDAO> ListCrusts();
+
+        [OperationContract]
+        List<IngredientDAO> ListSauces();
+
+        [OperationContract]
+        List<IngredientDAO> ListCheeses();
+
+        [OperationContract]
+        List<IngredientDAO> ListToppings();
+
+        [OperationContract]
+        IngredientDAO GetIngredient(int ingredientId);
+
+        [OperationContract]
+        bool CreateOrder(int storeId, int customerId, List<PizzaDAO> pizzasDAOs, decimal subTotal, decimal taxTotal, decimal total);
+
+        [OperationContract]
+        List<PizzaDAO> ListPizzasInOrder(int orderId);
+
+        [OperationContract]
+        List<SizeDAO> ListSizes();
+
+        [OperationContract]
+        SizeDAO GetSize(int sizeId);
     }
 }

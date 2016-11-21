@@ -60,7 +60,22 @@
 
         <div class="row">
             <div class="col-md-12">
-                @using (Html.BeginForm()) {
+                @using (Html.BeginRouteForm("SubmitOrder", new { personId = Model.CustomerId })) {
+                    <input type="hidden" name="customerId" value="@Model.CustomerId" />
+                    <input type="hidden" name="storeId" value="@Model.StoreId" />
+                    <input type="hidden" name="subTotal" value="@Model.OrderDetails.SubTotal" />
+                    <input type="hidden" name="taxTotal" value="@Model.OrderDetails.TaxTotal" />
+                    <input type="hidden" name="total" value="@Model.OrderDetails.Total" />
+
+                    for (int p = 0; p < Model.OrderDetails.Pizzas.Count(); p++) {
+                        <input type="hidden" name="pizzas[@p].Size.SizeId" value="@Model.OrderDetails.Pizzas[p].Size.SizeId" />
+                        <input type="hidden" name="pizzas[@p].Price" value="@Model.OrderDetails.Pizzas[p].Price" />
+
+                        for (int i = 0; i < Model.OrderDetails.Pizzas[p].Ingredients.Count(); i++) {
+                            <input type="hidden" name="pizzas[@p].Ingredients[@i].IngredientId" value="@Model.OrderDetails.Pizzas[p].Ingredients[i].IngredientId" />
+                        }
+                    }
+
                     <button type="submit" class="btn btn-success pull-left">Order Pizzas</button>
                 }
 

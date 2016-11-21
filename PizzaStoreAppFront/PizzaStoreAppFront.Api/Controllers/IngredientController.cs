@@ -1,5 +1,5 @@
-﻿using PizzaStoreAppFront.Domain.IngredientServiceReference;
-using PizzaStoreAppFront.Domain.Models;
+﻿using PizzaStoreAppFront.Domain.Models;
+using PizzaStoreAppFront.Domain.PizzaDataServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +11,10 @@ namespace PizzaStoreAppFront.Api.Controllers
 {
     public class IngredientController : ApiController
     {
-        private IngredientServiceClient ingredientService;
+        private PizzaDataServiceClient pizzaDataService;
 
         public IngredientController() : base() {
-            ingredientService = new IngredientServiceClient();
+            pizzaDataService = new PizzaDataServiceClient();
         }
 
         [HttpGet]
@@ -23,16 +23,16 @@ namespace PizzaStoreAppFront.Api.Controllers
             object response;
 
             if (name == "cheese") {
-                response = ListIngredients(ingredientService.ListCheeses());
+                response = ListIngredients(pizzaDataService.ListCheeses());
             }
             else if (name == "crust") {
-                response = ListIngredients(ingredientService.ListCrusts());
+                response = ListIngredients(pizzaDataService.ListCrusts());
             }
             else if (name == "sauce") {
-                response = ListIngredients(ingredientService.ListSauces());
+                response = ListIngredients(pizzaDataService.ListSauces());
             }
             else if (name == "topping") {
-                response = ListIngredients(ingredientService.ListToppings());
+                response = ListIngredients(pizzaDataService.ListToppings());
             }
             else {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
@@ -42,7 +42,7 @@ namespace PizzaStoreAppFront.Api.Controllers
         }
 
         public HttpResponseMessage Get(int id) {
-            return Request.CreateResponse(HttpStatusCode.OK, Ingredient.FromDAO(ingredientService.GetIngredient(id)), "application/json");
+            return Request.CreateResponse(HttpStatusCode.OK, Ingredient.FromDAO(pizzaDataService.GetIngredient(id)), "application/json");
         }
 
         private List<Ingredient> ListIngredients(IEnumerable<IngredientDAO> ingredientDAOs) {

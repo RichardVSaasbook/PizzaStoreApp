@@ -14,6 +14,9 @@ namespace PizzaStoreAppBack.DataClient.Models {
         public SizeDAO Size { get; set; }
 
         [DataMember]
+        public List<IngredientDAO> Ingredients { get; set; }
+
+        [DataMember]
         public DateTime CreatedDate { get; set; }
 
         [DataMember]

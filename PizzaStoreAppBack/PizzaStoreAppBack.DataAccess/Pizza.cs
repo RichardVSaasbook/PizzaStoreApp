@@ -27,9 +27,9 @@ namespace PizzaStoreAppBack.DataAccess
         public System.DateTime UpdatedDate { get; set; }
         public bool Active { get; set; }
     
-        public virtual Order Order { get; set; }
         public virtual Size Size { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PizzaIngredient> PizzaIngredients { get; set; }
+        public virtual Order Order { get; set; }
     }
 }

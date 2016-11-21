@@ -17,8 +17,8 @@ namespace PizzaStoreAppBack.DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Store()
         {
-            this.Orders = new HashSet<Order>();
             this.StoreIngredients = new HashSet<StoreIngredient>();
+            this.Orders = new HashSet<Order>();
         }
     
         public int StoreId { get; set; }
@@ -34,8 +34,8 @@ namespace PizzaStoreAppBack.DataAccess
         public virtual Phone Phone { get; set; }
         public virtual Person Person { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StoreIngredient> StoreIngredients { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

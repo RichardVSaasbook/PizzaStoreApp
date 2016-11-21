@@ -1,5 +1,6 @@
 ﻿using PizzaStoreAppFront.Client.Models;
 using PizzaStoreAppFront.Domain.Abstract;
+using PizzaStoreAppFront.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -76,4 +76,53 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfPersonDAO" nillable="true" type="tns:ArrayOfPersonDAO" />
+  <xs:complexType name="ArrayOfIngredientDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IngredientDAO" nillable="true" type="tns:IngredientDAO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIngredientDAO" nillable="true" type="tns:ArrayOfIngredientDAO" />
+  <xs:complexType name="IngredientDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IngredientId" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IngredientDAO" nillable="true" type="tns:IngredientDAO" />
+  <xs:complexType name="ArrayOfPizzaDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PizzaDAO" nillable="true" type="tns:PizzaDAO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPizzaDAO" nillable="true" type="tns:ArrayOfPizzaDAO" />
+  <xs:complexType name="PizzaDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Ingredients" nillable="true" type="tns:ArrayOfIngredientDAO" />
+      <xs:element minOccurs="0" name="PizzaId" type="xs:int" />
+      <xs:element minOccurs="0" name="Size" nillable="true" type="tns:SizeDAO" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PizzaDAO" nillable="true" type="tns:PizzaDAO" />
+  <xs:complexType name="SizeDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Dimension" type="xs:int" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SizeId" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SizeDAO" nillable="true" type="tns:SizeDAO" />
+  <xs:complexType name="ArrayOfSizeDAO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SizeDAO" nillable="true" type="tns:SizeDAO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSizeDAO" nillable="true" type="tns:ArrayOfSizeDAO" />
 </xs:schema>

@@ -33,9 +33,9 @@ namespace PizzaStoreAppBack.DataAccess
         public virtual DbSet<PizzaIngredient> PizzaIngredients { get; set; }
         public virtual DbSet<Size> Sizes { get; set; }
         public virtual DbSet<SpecialtyPizza> SpecialtyPizzas { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Store> Stores { get; set; }
         public virtual DbSet<StoreIngredient> StoreIngredients { get; set; }
         public virtual DbSet<SpecialtyPizzaIngredient> SpecialtyPizzaIngredients { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
     }
 }

@@ -10,6 +10,8 @@ using System.Runtime.Serialization.Json;
 using PizzaStoreAppFront.Domain.Models.DistanceMatrix;
 using PizzaStoreAppFront.Domain.PizzaDataServiceReference;
 using System.Web.Configuration;
+using System.IO;
+using System.Web.Script.Serialization;
 
 namespace PizzaStoreAppFront.Domain.Concrete {
     public class PizzaStoreRepository : IPizzaStoreRepository {
@@ -40,9 +42,9 @@ namespace PizzaStoreAppFront.Domain.Concrete {
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             if (response.IsSuccessStatusCode) {
-                var stream = response.Content.ReadAsStreamAsync().Result;
-                var serializer = new DataContractJsonSerializer(typeof(T));
-                return serializer.ReadObject(stream) as T;
+                var stream = response.Content.ReadAsStringAsync().Result;
+                var serializer = new JavaScriptSerializer();
+                return serializer.Deserialize<T>(stream);
             }
 
             return new T();
@@ -95,6 +97,48 @@ namespace PizzaStoreAppFront.Domain.Concrete {
 
         public List<Order> ListStoreOrders(int storeId) {
             return GetObject<List<Order>>(BASE_URL + "store/" + storeId + "/orders");
+        }
+
+        public bool SubmitOrder(int customerId, int storeId, List<Pizza> pizzas, decimal subTotal, decimal taxTotal, decimal total) {
+            if (pizzas.Count > 0) {
+                List<KeyValuePair<string, string>> keyValuePairs = new List<KeyValuePair<string, string>> {
+                    new KeyValuePair<string, string>("customerId", customerId.ToString()),
+                    new KeyValuePair<string, string>("storeId", storeId.ToString()),
+                    new KeyValuePair<string, string>("subTotal", subTotal.ToString()),
+                    new KeyValuePair<string, string>("taxTotal", taxTotal.ToString()),
+                    new KeyValuePair<string, string>("total", total.ToString())
+                };
+
+
+                for (int p = 0; p < pizzas.Count(); p++) {
+                    keyValuePairs.Add(new KeyValuePair<string, string>("pizzas[" + p + "].Size.SizeId", pizzas[p].Size.SizeId.ToString()));
+                    keyValuePairs.Add(new KeyValuePair<string, string>("pizzas[" + p + "].Price", pizzas[p].Price.ToString()));
+
+                    for (int i = 0; i < pizzas[p].Ingredients.Count(); i++) {
+                        keyValuePairs.Add(new KeyValuePair<string, string>("pizzas[" + p + "].Ingredients[" + i + "].IngredientId", pizzas[p].Ingredients[i].IngredientId.ToString()));
+                    }
+                }
+
+
+                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(OrderData));
+                MemoryStream stream = new MemoryStream();
+                serializer.WriteObject(stream, new OrderData {
+                    customerId = customerId,
+                    pizzas = pizzas,
+                    storeId = storeId,
+                    subTotal = subTotal,
+                    taxTotal = taxTotal,
+                    total = total
+                });
+                stream.Position = 0;
+                StreamReader reader = new StreamReader(stream);
+                StringContent content = new StringContent(reader.ReadToEnd(), Encoding.UTF8, "application/json");
+                HttpResponseMessage response = client.PostAsync(BASE_URL + "order", content).Result;
+
+                return response.IsSuccessStatusCode;
+            }
+
+            return false;
         }
 
         private string FormatAddress(Address address) {

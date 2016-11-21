@@ -10,39 +10,30 @@
 
         @foreach (var pizza in Model.Pizzas) {
             <p>
-                <b>@pizza.Name</b> <span class="pull-right">@pizza.Price</span> 
+                <b>@pizza.Name</b> <span class="pull-right">@pizza.Price.ToString("C")</span> 
             </p>
 
             <ul>
                 @foreach (var ingredient in pizza.Ingredients) {
-                    <li>@ingredient</li>
+                    <li>@ingredient.Name</li>
                 }
-                @*<li><b>Crust:</b> @pizza.Crust</li>
-                <li><b>Sauce:</b> @pizza.Sauce</li>
-                <li><b>Cheese:</b> @pizza.Cheese</li>
-                <li><b>Toppings:</b></li>
-                <ul>
-                    @foreach (var topping in pizza.Toppings) {
-                        <li>@topping</li>
-                    }
-                </ul>*@
             </ul>
         }
 
         <hr />
 
         <p>
-            <b>Sub Total:</b> <span class="pull-right">@Model.SubTotal</span>
+            <b>Sub Total:</b> <span class="pull-right">@Model.SubTotal.ToString("C")</span>
         </p>
 
         <p>
-            <b>Tax Total:</b> <span class="pull-right">@Model.TaxTotal</span>
+            <b>Tax Total:</b> <span class="pull-right">@Model.TaxTotal.ToString("C")</span>
         </p>
 
         <hr />
 
         <p>
-            <b>Total Price:</b> <span class="pull-right">@Model.Total</span>
+            <b>Total Price:</b> <span class="pull-right">@Model.Total.ToString("C")</span>
         </p>
     </div>
 </div>

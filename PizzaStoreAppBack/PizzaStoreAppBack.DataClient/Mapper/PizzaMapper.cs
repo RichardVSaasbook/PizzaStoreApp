@@ -13,8 +13,15 @@ namespace PizzaStoreAppBack.DataClient.Mapper {
         /// <param name="pizza">The Pizza to map from.</param>
         /// <returns>The mapped PizzaDAO.</returns>
         public PizzaDAO MapToPizzaDAO(Pizza pizza) {
+            List<IngredientDAO> ingredientDAOs = new List<IngredientDAO>();
+
+            foreach (PizzaIngredient pizzaIngredient in pizza.PizzaIngredients) {
+                ingredientDAOs.Add(MapToIngredientDAO(pizzaIngredient.Ingredient));
+            }
+
             return new PizzaDAO {
                 CreatedDate = pizza.CreatedDate,
+                Ingredients = ingredientDAOs,
                 PizzaId = pizza.PizzaId,
                 Size = MapToSizeDAO(pizza.Size),
                 UpdatedDate = pizza.UpdatedDate

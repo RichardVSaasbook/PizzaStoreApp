@@ -29,9 +29,15 @@ namespace PizzaStoreAppFront.Client.Controllers {
 
             return View(new OrderViewModel {
                 CustomerId = personId,
+                StoreId = (Session["CustomerNearestStores"] as Dictionary<int, Store>)[personId].StoreId,
                 Ingredients = GetOrderIngredientsVM(),
                 OrderDetails = GetOrderDetailsVM()
             });
+        }
+
+        [HttpGet]
+        public ActionResult Success() {
+            return View();
         }
 
         [HttpPost]
@@ -95,6 +101,19 @@ namespace PizzaStoreAppFront.Client.Controllers {
             return new RedirectResult("/pizzastore/person/" + personId + "/order");
         }
 
+        [HttpPost]
+        public RedirectResult SubmitOrder(int customerId, int storeId, decimal subTotal, decimal taxTotal, decimal total, List<Pizza> pizzas) {
+            if (repository.SubmitOrder(customerId, storeId, pizzas, subTotal, taxTotal, total)) {
+                Session["Order"] = null;
+                Session["CustomerOrderId"] = null;
+
+                return new RedirectResult("/pizzastore/order-finish");
+            }
+            else {
+                return new RedirectResult("/pizzastore/person/" + customerId + "/order");
+            }
+        }
+
         /// <summary>
         /// Create and return the OrderIngredientsViewModel.
         /// </summary>
@@ -135,17 +154,18 @@ namespace PizzaStoreAppFront.Client.Controllers {
 
                     pizzaViewModels.Add(new PizzaViewModel {
                         Name = pizza.Size.Dimension + " Inch Custom Pizza",
-                        Ingredients = ingredientNames,
-                        Price = pizza.Price.ToString("C")
+                        Size = pizza.Size,
+                        Ingredients = pizza.Ingredients,
+                        Price = pizza.Price
                     });
                 }
             }
 
             return new OrderDetailsViewModel {
                 Pizzas = pizzaViewModels,
-                SubTotal = subTotal.ToString("C"),
-                TaxTotal = taxTotal.ToString("C"),
-                Total = total.ToString("C")
+                SubTotal = subTotal,
+                TaxTotal = taxTotal,
+                Total = total
             };
         }
 

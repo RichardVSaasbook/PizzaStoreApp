@@ -27,6 +27,14 @@ namespace PizzaStoreAppBack.DataClient {
             List<Pizza> pizzas = new List<Pizza>();
 
             foreach (PizzaDAO pizzaDAO in pizzasDAOs) {
+                pizzaDAO.Size = mapper.MapToSizeDAO(data.FindSize(pizzaDAO.Size.SizeId));
+
+                List<IngredientDAO> ingredientDAOs = new List<IngredientDAO>();
+                foreach (IngredientDAO ingredientDAO in pizzaDAO.Ingredients) {
+                    ingredientDAOs.Add(mapper.MapToIngredientDAO(data.FindIngredient(ingredientDAO.IngredientId)));
+                }
+
+                pizzaDAO.Ingredients = ingredientDAOs;
                 pizzas.Add(mapper.MapToPizza(pizzaDAO));
             }
 

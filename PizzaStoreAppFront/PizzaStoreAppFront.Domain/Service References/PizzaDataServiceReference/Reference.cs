@@ -686,6 +686,349 @@ namespace PizzaStoreAppFront.Domain.PizzaDataServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IngredientDAO", Namespace="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models")]
+    [System.SerializableAttribute()]
+    public partial class IngredientDAO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreatedDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IngredientIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime UpdatedDateField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreatedDate {
+            get {
+                return this.CreatedDateField;
+            }
+            set {
+                if ((this.CreatedDateField.Equals(value) != true)) {
+                    this.CreatedDateField = value;
+                    this.RaisePropertyChanged("CreatedDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IngredientId {
+            get {
+                return this.IngredientIdField;
+            }
+            set {
+                if ((this.IngredientIdField.Equals(value) != true)) {
+                    this.IngredientIdField = value;
+                    this.RaisePropertyChanged("IngredientId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime UpdatedDate {
+            get {
+                return this.UpdatedDateField;
+            }
+            set {
+                if ((this.UpdatedDateField.Equals(value) != true)) {
+                    this.UpdatedDateField = value;
+                    this.RaisePropertyChanged("UpdatedDate");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PizzaDAO", Namespace="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models")]
+    [System.SerializableAttribute()]
+    public partial class PizzaDAO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreatedDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[] IngredientsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PizzaIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private PizzaStoreAppFront.Domain.PizzaDataServiceReference.SizeDAO SizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime UpdatedDateField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreatedDate {
+            get {
+                return this.CreatedDateField;
+            }
+            set {
+                if ((this.CreatedDateField.Equals(value) != true)) {
+                    this.CreatedDateField = value;
+                    this.RaisePropertyChanged("CreatedDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[] Ingredients {
+            get {
+                return this.IngredientsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IngredientsField, value) != true)) {
+                    this.IngredientsField = value;
+                    this.RaisePropertyChanged("Ingredients");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PizzaId {
+            get {
+                return this.PizzaIdField;
+            }
+            set {
+                if ((this.PizzaIdField.Equals(value) != true)) {
+                    this.PizzaIdField = value;
+                    this.RaisePropertyChanged("PizzaId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public PizzaStoreAppFront.Domain.PizzaDataServiceReference.SizeDAO Size {
+            get {
+                return this.SizeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SizeField, value) != true)) {
+                    this.SizeField = value;
+                    this.RaisePropertyChanged("Size");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime UpdatedDate {
+            get {
+                return this.UpdatedDateField;
+            }
+            set {
+                if ((this.UpdatedDateField.Equals(value) != true)) {
+                    this.UpdatedDateField = value;
+                    this.RaisePropertyChanged("UpdatedDate");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SizeDAO", Namespace="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models")]
+    [System.SerializableAttribute()]
+    public partial class SizeDAO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreatedDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DimensionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SizeIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime UpdatedDateField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreatedDate {
+            get {
+                return this.CreatedDateField;
+            }
+            set {
+                if ((this.CreatedDateField.Equals(value) != true)) {
+                    this.CreatedDateField = value;
+                    this.RaisePropertyChanged("CreatedDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Dimension {
+            get {
+                return this.DimensionField;
+            }
+            set {
+                if ((this.DimensionField.Equals(value) != true)) {
+                    this.DimensionField = value;
+                    this.RaisePropertyChanged("Dimension");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SizeId {
+            get {
+                return this.SizeIdField;
+            }
+            set {
+                if ((this.SizeIdField.Equals(value) != true)) {
+                    this.SizeIdField = value;
+                    this.RaisePropertyChanged("SizeId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime UpdatedDate {
+            get {
+                return this.UpdatedDateField;
+            }
+            set {
+                if ((this.UpdatedDateField.Equals(value) != true)) {
+                    this.UpdatedDateField = value;
+                    this.RaisePropertyChanged("UpdatedDate");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PizzaDataServiceReference.IPizzaDataService")]
     public interface IPizzaDataService {
@@ -731,6 +1074,60 @@ namespace PizzaStoreAppFront.Domain.PizzaDataServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/ListPeople", ReplyAction="http://tempuri.org/IPizzaDataService/ListPeopleResponse")]
         System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.PersonDAO[]> ListPeopleAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/ListCrusts", ReplyAction="http://tempuri.org/IPizzaDataService/ListCrustsResponse")]
+        PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[] ListCrusts();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/ListCrusts", ReplyAction="http://tempuri.org/IPizzaDataService/ListCrustsResponse")]
+        System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[]> ListCrustsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/ListSauces", ReplyAction="http://tempuri.org/IPizzaDataService/ListSaucesResponse")]
+        PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[] ListSauces();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/ListSauces", ReplyAction="http://tempuri.org/IPizzaDataService/ListSaucesResponse")]
+        System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[]> ListSaucesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/ListCheeses", ReplyAction="http://tempuri.org/IPizzaDataService/ListCheesesResponse")]
+        PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[] ListCheeses();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/ListCheeses", ReplyAction="http://tempuri.org/IPizzaDataService/ListCheesesResponse")]
+        System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[]> ListCheesesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/ListToppings", ReplyAction="http://tempuri.org/IPizzaDataService/ListToppingsResponse")]
+        PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[] ListToppings();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/ListToppings", ReplyAction="http://tempuri.org/IPizzaDataService/ListToppingsResponse")]
+        System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[]> ListToppingsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/GetIngredient", ReplyAction="http://tempuri.org/IPizzaDataService/GetIngredientResponse")]
+        PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO GetIngredient(int ingredientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/GetIngredient", ReplyAction="http://tempuri.org/IPizzaDataService/GetIngredientResponse")]
+        System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO> GetIngredientAsync(int ingredientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/CreateOrder", ReplyAction="http://tempuri.org/IPizzaDataService/CreateOrderResponse")]
+        bool CreateOrder(int storeId, int customerId, PizzaStoreAppFront.Domain.PizzaDataServiceReference.PizzaDAO[] pizzasDAOs, decimal subTotal, decimal taxTotal, decimal total);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/CreateOrder", ReplyAction="http://tempuri.org/IPizzaDataService/CreateOrderResponse")]
+        System.Threading.Tasks.Task<bool> CreateOrderAsync(int storeId, int customerId, PizzaStoreAppFront.Domain.PizzaDataServiceReference.PizzaDAO[] pizzasDAOs, decimal subTotal, decimal taxTotal, decimal total);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/ListPizzasInOrder", ReplyAction="http://tempuri.org/IPizzaDataService/ListPizzasInOrderResponse")]
+        PizzaStoreAppFront.Domain.PizzaDataServiceReference.PizzaDAO[] ListPizzasInOrder(int orderId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/ListPizzasInOrder", ReplyAction="http://tempuri.org/IPizzaDataService/ListPizzasInOrderResponse")]
+        System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.PizzaDAO[]> ListPizzasInOrderAsync(int orderId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/ListSizes", ReplyAction="http://tempuri.org/IPizzaDataService/ListSizesResponse")]
+        PizzaStoreAppFront.Domain.PizzaDataServiceReference.SizeDAO[] ListSizes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/ListSizes", ReplyAction="http://tempuri.org/IPizzaDataService/ListSizesResponse")]
+        System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.SizeDAO[]> ListSizesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/GetSize", ReplyAction="http://tempuri.org/IPizzaDataService/GetSizeResponse")]
+        PizzaStoreAppFront.Domain.PizzaDataServiceReference.SizeDAO GetSize(int sizeId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaDataService/GetSize", ReplyAction="http://tempuri.org/IPizzaDataService/GetSizeResponse")]
+        System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.SizeDAO> GetSizeAsync(int sizeId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -814,6 +1211,78 @@ namespace PizzaStoreAppFront.Domain.PizzaDataServiceReference {
         
         public System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.PersonDAO[]> ListPeopleAsync() {
             return base.Channel.ListPeopleAsync();
+        }
+        
+        public PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[] ListCrusts() {
+            return base.Channel.ListCrusts();
+        }
+        
+        public System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[]> ListCrustsAsync() {
+            return base.Channel.ListCrustsAsync();
+        }
+        
+        public PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[] ListSauces() {
+            return base.Channel.ListSauces();
+        }
+        
+        public System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[]> ListSaucesAsync() {
+            return base.Channel.ListSaucesAsync();
+        }
+        
+        public PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[] ListCheeses() {
+            return base.Channel.ListCheeses();
+        }
+        
+        public System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[]> ListCheesesAsync() {
+            return base.Channel.ListCheesesAsync();
+        }
+        
+        public PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[] ListToppings() {
+            return base.Channel.ListToppings();
+        }
+        
+        public System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO[]> ListToppingsAsync() {
+            return base.Channel.ListToppingsAsync();
+        }
+        
+        public PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO GetIngredient(int ingredientId) {
+            return base.Channel.GetIngredient(ingredientId);
+        }
+        
+        public System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO> GetIngredientAsync(int ingredientId) {
+            return base.Channel.GetIngredientAsync(ingredientId);
+        }
+        
+        public bool CreateOrder(int storeId, int customerId, PizzaStoreAppFront.Domain.PizzaDataServiceReference.PizzaDAO[] pizzasDAOs, decimal subTotal, decimal taxTotal, decimal total) {
+            return base.Channel.CreateOrder(storeId, customerId, pizzasDAOs, subTotal, taxTotal, total);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CreateOrderAsync(int storeId, int customerId, PizzaStoreAppFront.Domain.PizzaDataServiceReference.PizzaDAO[] pizzasDAOs, decimal subTotal, decimal taxTotal, decimal total) {
+            return base.Channel.CreateOrderAsync(storeId, customerId, pizzasDAOs, subTotal, taxTotal, total);
+        }
+        
+        public PizzaStoreAppFront.Domain.PizzaDataServiceReference.PizzaDAO[] ListPizzasInOrder(int orderId) {
+            return base.Channel.ListPizzasInOrder(orderId);
+        }
+        
+        public System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.PizzaDAO[]> ListPizzasInOrderAsync(int orderId) {
+            return base.Channel.ListPizzasInOrderAsync(orderId);
+        }
+        
+        public PizzaStoreAppFront.Domain.PizzaDataServiceReference.SizeDAO[] ListSizes() {
+            return base.Channel.ListSizes();
+        }
+        
+        public System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.SizeDAO[]> ListSizesAsync() {
+            return base.Channel.ListSizesAsync();
+        }
+        
+        public PizzaStoreAppFront.Domain.PizzaDataServiceReference.SizeDAO GetSize(int sizeId) {
+            return base.Channel.GetSize(sizeId);
+        }
+        
+        public System.Threading.Tasks.Task<PizzaStoreAppFront.Domain.PizzaDataServiceReference.SizeDAO> GetSizeAsync(int sizeId) {
+            return base.Channel.GetSizeAsync(sizeId);
         }
     }
 }

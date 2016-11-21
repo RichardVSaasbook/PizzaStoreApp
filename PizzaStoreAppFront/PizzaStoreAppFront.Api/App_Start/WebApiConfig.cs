@@ -52,6 +52,18 @@ namespace PizzaStoreAppFront.Api {
                 "people",
                 new { controller = "People", action = "List" }
             );
+
+            config.Routes.MapHttpRoute(
+                "",
+                "order",
+                new { controller = "Order" }
+            );
+
+            config.Routes.MapHttpRoute(
+                null,
+                "order/{orderId}/pizzas",
+                new { controller = "Order", action = "ListPizzas" }
+            );
         }
     }
 }

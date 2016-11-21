@@ -13,7 +13,6 @@
         <EntityTypeShape EntityType="PizzaStoreAppModel.PizzaIngredient" Width="1.5" PointX="15.75" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="PizzaStoreAppModel.Size" Width="1.5" PointX="8.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="PizzaStoreAppModel.SpecialtyPizza" Width="1.5" PointX="13.5" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaStoreAppModel.Order" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PizzaStoreAppModel.Store" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PizzaStoreAppModel.StoreIngredient" Width="1.5" PointX="13.5" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="PizzaStoreAppModel.SpecialtyPizzaIngredient" Width="1.5" PointX="15.75" PointY="1" IsExpanded="true" />
@@ -21,17 +20,18 @@
         <AssociationConnector Association="PizzaStoreAppModel.fk_Store_AddressId" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_Person_PhoneId" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_Store_PhoneId" ManuallyRouted="false" />
-        <AssociationConnector Association="PizzaStoreAppModel.fk_Order_CustomerId" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_Store_OwnerId" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_PizzaIngredient_IngredientId" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_SpecialtyPizzaIngredient_IngredientId" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_StoreIngredient_IngredientId" ManuallyRouted="false" />
-        <AssociationConnector Association="PizzaStoreAppModel.fk_Pizza_OrderId" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_Pizza_SizeId" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_PizzaIngredient_PizzaId" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_SpecialtyPizzaIngredient_SpecialtyPizzaId" ManuallyRouted="false" />
-        <AssociationConnector Association="PizzaStoreAppModel.fk_Order_StoreId" ManuallyRouted="false" />
         <AssociationConnector Association="PizzaStoreAppModel.fk_StoreIngredient_StoreId" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PizzaStoreAppModel.Order" Width="1.5" PointX="5.75" PointY="4.25" />
+        <AssociationConnector Association="PizzaStoreAppModel.fk_Order_CustomerId" />
+        <AssociationConnector Association="PizzaStoreAppModel.fk_Pizza_OrderId" />
+        <AssociationConnector Association="PizzaStoreAppModel.fk_Order_StoreId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
