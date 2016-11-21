@@ -94,6 +94,20 @@ namespace PizzaStoreAppFront.Client.Controllers {
         }
 
         [HttpPost]
+        public RedirectResult RemovePizzaFromCurrentOrder(int personId, int pizzaIndex) {
+            if (Session["Order"] != null) {
+                Store currentStore = (Session["CustomerNearestStores"] as Dictionary<int, Store>)[personId];
+
+                (Session["Order"] as Order).SubTotal -= (Session["Order"] as Order).Pizzas[pizzaIndex].Price;
+                (Session["Order"] as Order).TaxTotal -= (Session["Order"] as Order).Pizzas[pizzaIndex].Price * currentStore.SalesTax;
+                (Session["Order"] as Order).Total = (Session["Order"] as Order).SubTotal + (Session["Order"] as Order).TaxTotal;
+                (Session["Order"] as Order).Pizzas.RemoveAt(pizzaIndex);
+            }
+
+            return new RedirectResult("/pizzastore/person/" + personId + "/order");
+        }
+
+        [HttpPost]
         public RedirectResult ClearOrder(int personId) {
             Session["Order"] = null;
             Session["CustomerOrderId"] = null;

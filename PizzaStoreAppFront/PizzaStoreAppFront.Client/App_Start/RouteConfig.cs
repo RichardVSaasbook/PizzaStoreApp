@@ -44,6 +44,12 @@ namespace PizzaStoreAppFront.Client
             );
 
             routes.MapRoute(
+                "RemovePizzaFromCurrentOrder",
+                "person/{personId}/order/{pizzaIndex}/remove",
+                new { controller = "Order", action = "RemovePizzaFromCurrentOrder" }
+            );
+
+            routes.MapRoute(
                 "ClearOrder",
                 "person/{personId}/order/clear",
                 new { controller = "Order", action = "ClearOrder" }

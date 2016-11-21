@@ -1,39 +1,45 @@
-﻿@model PizzaStoreAppFront.Client.Models.OrderDetailsViewModel
+﻿@model PizzaStoreAppFront.Client.Models.OrderViewModel
 
 <div class="row">
     <div class="col-md-12">
         <h2>Order Details</h2>
 
-        @if (Model.Pizzas.Count == 0) {
+        @if (Model.OrderDetails.Pizzas.Count == 0) {
             <i>No pizzas in this Order.</i>
         }
 
-        @foreach (var pizza in Model.Pizzas) {
+        @for (int p = 0; p < Model.OrderDetails.Pizzas.Count; p++) {
             <p>
-                <b>@pizza.Name</b> <span class="pull-right">@pizza.Price.ToString("C")</span> 
+                <b>@Model.OrderDetails.Pizzas[p].Name</b> <span class="pull-right">
+                    @Model.OrderDetails.Pizzas[p].Price.ToString("C")
+
+                    @using (Html.BeginRouteForm("RemovePizzaFromCurrentOrder", new { personId = Model.CustomerId, pizzaIndex = p })) {
+                        <button type="submit" class="btn btn-warning pull-right"><span class="glyphicon glyphicon-remove"></span></button>
+                    }
+                </span> 
             </p>
 
             <ul>
-                @foreach (var ingredient in pizza.Ingredients) {
+                @foreach (var ingredient in Model.OrderDetails.Pizzas[p].Ingredients) {
                     <li>@ingredient.Name</li>
                 }
             </ul>
-        }
+                    }
 
         <hr />
 
         <p>
-            <b>Sub Total:</b> <span class="pull-right">@Model.SubTotal.ToString("C")</span>
+            <b>Sub Total:</b> <span class="pull-right">@Model.OrderDetails.SubTotal.ToString("C")</span>
         </p>
 
         <p>
-            <b>Tax Total:</b> <span class="pull-right">@Model.TaxTotal.ToString("C")</span>
+            <b>Tax Total:</b> <span class="pull-right">@Model.OrderDetails.TaxTotal.ToString("C")</span>
         </p>
 
         <hr />
 
         <p>
-            <b>Total Price:</b> <span class="pull-right">@Model.Total.ToString("C")</span>
+            <b>Total Price:</b> <span class="pull-right">@Model.OrderDetails.Total.ToString("C")</span>
         </p>
     </div>
 </div>

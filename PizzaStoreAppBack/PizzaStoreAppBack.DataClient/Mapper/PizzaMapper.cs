@@ -37,11 +37,21 @@ namespace PizzaStoreAppBack.DataClient.Mapper {
             Pizza pizza = data.FindPizza(pizzaDAO.PizzaId);
             Size size = MapToSize(pizzaDAO.Size);
 
+            //List<PizzaIngredient> pizzaIngredients = new List<PizzaIngredient>();
+
+            //foreach (IngredientDAO ingredient in pizzaDAO.Ingredients) {
+            //    pizzaIngredients.Add(new PizzaIngredient {
+            //        Ingredient = MapToIngredient(ingredient),
+            //        Pizza = pizza
+            //    });
+            //}
+
             pizza.CreatedDate = pizzaDAO.CreatedDate;
             pizza.PizzaId = pizzaDAO.PizzaId;
             pizza.Size = size;
             pizza.SizeId = size.SizeId;
             pizza.UpdatedDate = pizzaDAO.UpdatedDate;
+            //pizza.PizzaIngredients = pizzaIngredients;
 
             return pizza;
         }

@@ -23,7 +23,8 @@ namespace PizzaStoreAppFront.Domain.Models {
                 Customer = Person.FromDAO(orderDAO.Customer),
                 OrderId = orderDAO.OrderId,
                 OrderDate = orderDAO.CreatedDate,
-                Pizzas = repository.ListPizzasInOrder(orderDAO.OrderId),
+                //Pizzas = repository.ListPizzasInOrder(orderDAO.OrderId),
+                Pizzas = new List<Pizza>(),
                 SubTotal = orderDAO.SubTotal,
                 TaxTotal = orderDAO.Tax,
                 Total = orderDAO.Total
