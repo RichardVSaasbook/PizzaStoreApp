@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-md-9">
-        @using (Html.BeginRouteForm("AddPizzaToCurrentOrder", new { id = Model.CustomerId })) {
+        @using (Html.BeginRouteForm("AddPizzaToCurrentOrder", new { personId = Model.CustomerId })) {
             <div class="row">
                 <div class="col-md-12">
                     <h2>Pizza Base</h2>
@@ -64,7 +64,7 @@
                     <button type="submit" class="btn btn-success pull-left">Order Pizzas</button>
                 }
 
-                @using (Html.BeginForm()) {
+                @using (Html.BeginRouteForm("ClearOrder", new { personId = Model.CustomerId })) {
                     <button type="submit" class="btn btn-danger pull-right">Clear Order</button>
                 }
             </div>

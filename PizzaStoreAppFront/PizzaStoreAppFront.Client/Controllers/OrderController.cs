@@ -87,6 +87,14 @@ namespace PizzaStoreAppFront.Client.Controllers {
             return new RedirectResult("/pizzastore/person/" + personId + "/order");
         }
 
+        [HttpPost]
+        public RedirectResult ClearOrder(int personId) {
+            Session["Order"] = null;
+            Session["CustomerOrderId"] = null;
+            
+            return new RedirectResult("/pizzastore/person/" + personId + "/order");
+        }
+
         /// <summary>
         /// Create and return the OrderIngredientsViewModel.
         /// </summary>
@@ -142,52 +150,11 @@ namespace PizzaStoreAppFront.Client.Controllers {
         }
 
         /// <summary>
-        /// Gets a List of Ingredients of a specified type.
-        /// </summary>
-        /// <param name="type">The type of Ingredients to get.</param>
-        /// <returns>The List of Ingredients.</returns>
-        //private List<Ingredient> GetListOfIngredients(string type) {
-        //    HttpClient request = new HttpClient();
-        //    HttpResponseMessage response = request.GetAsync("http://localhost/pizzastore/api/ingredients/" + type).Result;
-
-        //    if (response.IsSuccessStatusCode) {
-        //        var stream = response.Content.ReadAsStreamAsync().Result;
-        //        var serializer = new DataContractJsonSerializer(typeof(List<Ingredient>));
-        //        return serializer.ReadObject(stream) as List<Ingredient>;
-        //    }
-
-        //    return new List<Ingredient>();
-        //}
-
-        //private Ingredient GetIngredient(int id) {
-        //    HttpClient request = new HttpClient();
-        //    HttpResponseMessage response = request.GetAsync("http://localhost/pizzastore/api/ingredient/" + id).Result;
-
-        //    if (response.IsSuccessStatusCode) {
-        //        var stream = response.Content.ReadAsStreamAsync().Result;
-        //        var serializer = new DataContractJsonSerializer(typeof(Ingredient));
-        //        return serializer.ReadObject(stream) as Ingredient;
-        //    }
-
-        //    return new Ingredient();
-        //}
-
-        /// <summary>
         /// Create a List of SelectListItems from a List of Ingredients.
         /// </summary>
         /// <param name="ingredients">The List of Ingredients.</param>
         /// <returns>The List of SelectListItems.</returns>
         private List<SelectListItem> IngredientSelectListItems(IEnumerable<Ingredient> ingredients) {
-            //List<SelectListItem> selectListItems = new List<SelectListItem>();
-
-            //foreach (Ingredient ingredient in ingredients) {
-            //    selectListItems.Add(new SelectListItem {
-            //        Value = ingredient.IngredientId.ToString(),
-            //        Text = ingredient.Name + " (" + ingredient.Price.ToString("C") + ")"
-            //    });
-            //}
-
-            //return selectListItems;
             return SelectListItems(
                 ingredients,
                 i => i.IngredientId.ToString(),

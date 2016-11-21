@@ -34,7 +34,19 @@ namespace PizzaStoreAppFront.Client
             routes.MapRoute(
                 "AddPizzaToCurrentOrder",
                 "person/{personId}/order/add-pizza",
-                new { controller = "Order", action= "AddPizzaToCurrentOrder" }
+                new { controller = "Order", action = "AddPizzaToCurrentOrder" }
+            );
+
+            routes.MapRoute(
+                "ClearOrder",
+                "person/{personId}/order/clear",
+                new { controller = "Order", action = "ClearOrder" }
+            );
+
+            routes.MapRoute(
+                "SubmitOrder",
+                "person/{personId}/order/submit",
+                new { controller = "Order", action = "SubmitOrder" }
             );
 
             routes.MapRoute(

@@ -23,14 +23,14 @@ namespace PizzaStoreAppBack.DataClient {
         /// <param name="customerId">The Id of the customer Person.</param>
         /// <param name="pizzasDAOs">The List of Pizzas in the Order.</param>
         /// <returns>True if the Order was created successfully.</returns>
-        public bool CreateOrder(int customerId, List<PizzaDAO> pizzasDAOs) {
+        public bool CreateOrder(int storeId, int customerId, List<PizzaDAO> pizzasDAOs, decimal subTotal, decimal taxTotal, decimal total) {
             List<Pizza> pizzas = new List<Pizza>();
 
             foreach (PizzaDAO pizzaDAO in pizzasDAOs) {
                 pizzas.Add(mapper.MapToPizza(pizzaDAO));
             }
 
-            return data.SubmitOrder(data.FindPerson(customerId), pizzas);
+            return data.SubmitOrder(data.FindStore(storeId), data.FindPerson(customerId), pizzas, subTotal, taxTotal, total);
         }
 
         public List<PizzaDAO> ListPizzasInOrder(int orderId) {

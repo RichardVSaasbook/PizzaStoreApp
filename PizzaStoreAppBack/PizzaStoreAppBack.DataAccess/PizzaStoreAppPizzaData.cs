@@ -13,12 +13,7 @@ namespace PizzaStoreAppBack.DataAccess {
         /// <param name="pizzas">The List of the List of Ingredients in each Pizza.</param>
         /// <param name="sizes">The List of Sizes for each Pizza.</param>
         /// <returns>True if the Order was successful.</returns>
-        public bool SubmitOrder(Person customer, List<Pizza> pizzas) {
-            decimal subTotal = 0,
-                taxTotal = 0;
-
-            Store store = FindClosestStore(customer.Address);
-
+        public bool SubmitOrder(Store store, Person customer, List<Pizza> pizzas, decimal subTotal, decimal taxTotal, decimal total) {
             Order order = new Order {
                 CreatedDate = DateTime.UtcNow,
                 UpdatedDate = DateTime.UtcNow,
@@ -27,8 +22,6 @@ namespace PizzaStoreAppBack.DataAccess {
                 CustomerId = customer.PersonId,
                 Store = store
             };
-
-            //var fullPizzas = pizzas.Zip(sizes, (x, y) => new { Ingredients = x, Size = y });
 
             foreach (var pizza in pizzas) {
                 List<Ingredient> ingredients = new List<Ingredient>();
@@ -44,14 +37,11 @@ namespace PizzaStoreAppBack.DataAccess {
                 }
 
                 pizzaData.Pizza.Order = order;
-
-                subTotal += pizzaData.Price;
-                taxTotal += pizzaData.Price * store.SalesTax;
             }
 
             order.SubTotal = subTotal;
             order.Tax = taxTotal;
-            order.Total = subTotal + taxTotal;
+            order.Total = total;
 
             db.Orders.Add(order);
             return db.SaveChanges() > 0;

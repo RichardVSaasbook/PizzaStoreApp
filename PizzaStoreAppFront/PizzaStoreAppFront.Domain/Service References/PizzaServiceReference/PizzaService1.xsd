@@ -4,8 +4,12 @@
   <xs:element name="CreateOrder">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="storeId" type="xs:int" />
         <xs:element minOccurs="0" name="customerId" type="xs:int" />
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" minOccurs="0" name="pizzaDAOs" nillable="true" type="q1:ArrayOfPizzaDAO" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" minOccurs="0" name="pizzasDAOs" nillable="true" type="q1:ArrayOfPizzaDAO" />
+        <xs:element minOccurs="0" name="subTotal" type="xs:decimal" />
+        <xs:element minOccurs="0" name="taxTotal" type="xs:decimal" />
+        <xs:element minOccurs="0" name="total" type="xs:decimal" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -220,10 +220,10 @@ namespace PizzaStoreAppFront.Domain.PizzaServiceReference {
     public interface IPizzaService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaService/CreateOrder", ReplyAction="http://tempuri.org/IPizzaService/CreateOrderResponse")]
-        bool CreateOrder(int customerId, PizzaStoreAppFront.Domain.PizzaServiceReference.PizzaDAO[] pizzaDAOs);
+        bool CreateOrder(int storeId, int customerId, PizzaStoreAppFront.Domain.PizzaServiceReference.PizzaDAO[] pizzasDAOs, decimal subTotal, decimal taxTotal, decimal total);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaService/CreateOrder", ReplyAction="http://tempuri.org/IPizzaService/CreateOrderResponse")]
-        System.Threading.Tasks.Task<bool> CreateOrderAsync(int customerId, PizzaStoreAppFront.Domain.PizzaServiceReference.PizzaDAO[] pizzaDAOs);
+        System.Threading.Tasks.Task<bool> CreateOrderAsync(int storeId, int customerId, PizzaStoreAppFront.Domain.PizzaServiceReference.PizzaDAO[] pizzasDAOs, decimal subTotal, decimal taxTotal, decimal total);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPizzaService/ListPizzasInOrder", ReplyAction="http://tempuri.org/IPizzaService/ListPizzasInOrderResponse")]
         PizzaStoreAppFront.Domain.PizzaServiceReference.PizzaDAO[] ListPizzasInOrder(int orderId);
@@ -259,12 +259,12 @@ namespace PizzaStoreAppFront.Domain.PizzaServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public bool CreateOrder(int customerId, PizzaStoreAppFront.Domain.PizzaServiceReference.PizzaDAO[] pizzaDAOs) {
-            return base.Channel.CreateOrder(customerId, pizzaDAOs);
+        public bool CreateOrder(int storeId, int customerId, PizzaStoreAppFront.Domain.PizzaServiceReference.PizzaDAO[] pizzasDAOs, decimal subTotal, decimal taxTotal, decimal total) {
+            return base.Channel.CreateOrder(storeId, customerId, pizzasDAOs, subTotal, taxTotal, total);
         }
         
-        public System.Threading.Tasks.Task<bool> CreateOrderAsync(int customerId, PizzaStoreAppFront.Domain.PizzaServiceReference.PizzaDAO[] pizzaDAOs) {
-            return base.Channel.CreateOrderAsync(customerId, pizzaDAOs);
+        public System.Threading.Tasks.Task<bool> CreateOrderAsync(int storeId, int customerId, PizzaStoreAppFront.Domain.PizzaServiceReference.PizzaDAO[] pizzasDAOs, decimal subTotal, decimal taxTotal, decimal total) {
+            return base.Channel.CreateOrderAsync(storeId, customerId, pizzasDAOs, subTotal, taxTotal, total);
         }
         
         public PizzaStoreAppFront.Domain.PizzaServiceReference.PizzaDAO[] ListPizzasInOrder(int orderId) {
