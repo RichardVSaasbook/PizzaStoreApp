@@ -150,6 +150,7 @@
     <Content Include="Views\Partials\StoreNavigation.cshtml" />
     <Content Include="Views\Store\Show.cshtml" />
     <Content Include="Views\Order\Success.cshtml" />
+    <None Include="Properties\PublishProfiles\AWS.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

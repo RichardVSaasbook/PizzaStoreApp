@@ -70,15 +70,14 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Service References\PizzaDataServiceReference\PizzaDataService.wsdl" />
-    <None Include="Service References\PizzaDataServiceReference\PizzaDataService.xsd">
+    <None Include="Service References\PizzaDataServiceReference\PizzaDataService1.wsdl" />
+    <None Include="Service References\PizzaDataServiceReference\PizzaDataService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PizzaDataServiceReference\PizzaDataService1.xsd">
+    <None Include="Service References\PizzaDataServiceReference\PizzaDataService31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PizzaDataServiceReference\PizzaDataService2.xsd">
+    <None Include="Service References\PizzaDataServiceReference\PizzaDataService32.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\PizzaDataServiceReference\PizzaStoreAppFront.Domain.PizzaDataServiceReference.AddressDAO.datasource">
@@ -110,9 +109,6 @@
     <WCFMetadataStorage Include="Service References\PizzaDataServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\PizzaDataServiceReference\PizzaDataService.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\PizzaDataServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +119,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PizzaDataServiceReference\PizzaDataService1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

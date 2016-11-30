@@ -242,14 +242,8 @@ ModelManifest.xml
 .fake/
 
 # Config
-App.Config
-App.config
-app.Config
-app.config
-Web.Config
-Web.config
-web.Config
-web.config
-Web.Debug.config
-Web.Release.config
+/PizzaStoreAppBack/PizzaStoreAppBack.Database/
 /PizzaStoreAppBack/PizzaStoreAppBack.Database/PizzaStoreAppBack.Database.jfm
+/PizzaStoreAppFront/PizzaStoreAppFront.Api/Properties/PublishProfiles/AWS.pubxml
+/PizzaStoreAppFront/PizzaStoreAppFront.Client/Properties/PublishProfiles/AWS.pubxml
+/PizzaStoreAppBack/PizzaStoreAppBack.DataClient/Properties/PublishProfiles/AWS.pubxml

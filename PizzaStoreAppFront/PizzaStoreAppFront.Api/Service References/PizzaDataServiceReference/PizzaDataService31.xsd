@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost/pizzastorewcf/PizzaDataService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" />
+  <xs:import schemaLocation="http://ec2-54-221-32-239.compute-1.amazonaws.com/pizzastorewcf/PizzaDataService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PizzaStoreAppBack.DataClient.Models" />
   <xs:element name="GetAddress">
     <xs:complexType>
       <xs:sequence>

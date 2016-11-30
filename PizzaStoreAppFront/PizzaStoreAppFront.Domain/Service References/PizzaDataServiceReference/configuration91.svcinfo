@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="IXlwjy1Ard+FnHdLlvH1ASrTNgs=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="iP894fqFxK4K6BYULVlqIFLu0xo=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IPizzaDataService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IPizzaDataService" contract="PizzaDataServiceReference.IPizzaDataService" bindingType="basicHttpBinding" address="http://localhost/pizzastorewcf/PizzaDataService.svc" bindingConfiguration="BasicHttpBinding_IPizzaDataService">
+    <endpoint name="BasicHttpBinding_IPizzaDataService" contract="PizzaDataServiceReference.IPizzaDataService" bindingType="basicHttpBinding" address="http://ec2-54-221-32-239.compute-1.amazonaws.com/pizzastorewcf/PizzaDataService.svc" bindingConfiguration="BasicHttpBinding_IPizzaDataService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost/pizzastorewcf/PizzaDataService.svc</serializedValue>
+          <serializedValue>http://ec2-54-221-32-239.compute-1.amazonaws.com/pizzastorewcf/PizzaDataService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

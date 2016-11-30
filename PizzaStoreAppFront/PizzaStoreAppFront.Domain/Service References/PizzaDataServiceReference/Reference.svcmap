@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost/pizzastorewcf/PizzaDataService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://ec2-54-221-32-239.compute-1.amazonaws.com/pizzastorewcf/PizzaDataService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PizzaDataService.xsd" MetadataType="Schema" ID="e03ea026-1c04-4370-bd95-de5bf11a4654" SourceId="1" SourceUrl="http://localhost/pizzastorewcf/PizzaDataService.svc?xsd=xsd2" />
-    <MetadataFile FileName="PizzaDataService.disco" MetadataType="Disco" ID="7ddf6139-3df7-4ae8-9179-a62ed89d5ae7" SourceId="1" SourceUrl="http://localhost/pizzastorewcf/PizzaDataService.svc?disco" />
-    <MetadataFile FileName="PizzaDataService1.xsd" MetadataType="Schema" ID="f0c371f5-7f31-460c-907f-933d276383d6" SourceId="1" SourceUrl="http://localhost/pizzastorewcf/PizzaDataService.svc?xsd=xsd1" />
-    <MetadataFile FileName="PizzaDataService2.xsd" MetadataType="Schema" ID="77203368-d9da-42c7-be3a-abce202dc069" SourceId="1" SourceUrl="http://localhost/pizzastorewcf/PizzaDataService.svc?xsd=xsd0" />
-    <MetadataFile FileName="PizzaDataService.wsdl" MetadataType="Wsdl" ID="98a58e5e-560f-4f2e-8ef0-bebcee4dceec" SourceId="1" SourceUrl="http://localhost/pizzastorewcf/PizzaDataService.svc?wsdl" />
+    <MetadataFile FileName="PizzaDataService3.xsd" MetadataType="Schema" ID="bae150f6-cb1a-42f4-bd98-49035a993574" SourceId="1" SourceUrl="http://ec2-54-221-32-239.compute-1.amazonaws.com/pizzastorewcf/PizzaDataService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PizzaDataService31.xsd" MetadataType="Schema" ID="0d510fcf-9730-4220-9616-4f360ab04174" SourceId="1" SourceUrl="http://ec2-54-221-32-239.compute-1.amazonaws.com/pizzastorewcf/PizzaDataService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PizzaDataService1.disco" MetadataType="Disco" ID="ee66d9de-168e-4435-bf8c-0873c70c5cbd" SourceId="1" SourceUrl="http://ec2-54-221-32-239.compute-1.amazonaws.com/pizzastorewcf/PizzaDataService.svc?disco" />
+    <MetadataFile FileName="PizzaDataService1.wsdl" MetadataType="Wsdl" ID="d5623be2-1cb0-4878-afcb-9761a896f9b7" SourceId="1" SourceUrl="http://ec2-54-221-32-239.compute-1.amazonaws.com/pizzastorewcf/PizzaDataService.svc?wsdl" />
+    <MetadataFile FileName="PizzaDataService32.xsd" MetadataType="Schema" ID="473a4799-effb-4157-9ded-37309486a697" SourceId="1" SourceUrl="http://ec2-54-221-32-239.compute-1.amazonaws.com/pizzastorewcf/PizzaDataService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

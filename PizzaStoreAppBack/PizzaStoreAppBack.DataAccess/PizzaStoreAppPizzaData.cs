@@ -26,7 +26,11 @@ namespace PizzaStoreAppBack.DataAccess {
                 Total = total
             };
 
-            int orderId = db.Orders.OrderByDescending(o => o.OrderId).FirstOrDefault().OrderId + 1;
+            int orderId = 1;
+
+            if (db.Orders.ToList().Count > 0) {
+                orderId = db.Orders.OrderByDescending(o => o.OrderId).FirstOrDefault().OrderId + 1;
+            }
 
             db.Orders.Add(order);
             db.SaveChanges();

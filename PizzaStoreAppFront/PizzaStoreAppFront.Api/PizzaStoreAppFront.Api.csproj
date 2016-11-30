@@ -90,24 +90,30 @@
     <Content Include="Properties\DataSources\PizzaStoreAppFront.Domain.PizzaDataServiceReference.PersonDAO.datasource" />
     <Content Include="Properties\DataSources\PizzaStoreAppFront.Domain.PizzaDataServiceReference.PhoneDAO.datasource" />
     <Content Include="Properties\DataSources\PizzaStoreAppFront.Domain.PizzaDataServiceReference.StoreDAO.datasource" />
-    <None Include="Service References\PizzaDataServiceReference\PizzaDataService.disco" />
+    <Content Include="Properties\DataSources\PizzaStoreAppFront.Domain.PizzaDataServiceReference.IngredientDAO.datasource" />
+    <Content Include="Properties\DataSources\PizzaStoreAppFront.Domain.PizzaDataServiceReference.PizzaDAO.datasource" />
+    <Content Include="Properties\DataSources\PizzaStoreAppFront.Domain.PizzaDataServiceReference.SizeDAO.datasource" />
+    <None Include="Properties\PublishProfiles\AWS.pubxml" />
     <None Include="Service References\PizzaDataServiceReference\configuration91.svcinfo" />
     <None Include="Service References\PizzaDataServiceReference\configuration.svcinfo" />
+    <None Include="Service References\PizzaDataServiceReference\PizzaDataService1.wsdl" />
+    <None Include="Service References\PizzaDataServiceReference\PizzaDataService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PizzaDataServiceReference\PizzaDataService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PizzaDataServiceReference\PizzaDataService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\PizzaDataServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\PizzaDataServiceReference\PizzaDataService.wsdl" />
-    <None Include="Service References\PizzaDataServiceReference\PizzaDataService.xsd">
+    <None Include="Service References\PizzaDataServiceReference\PizzaDataService1.disco" />
+    <Content Include="Web.config">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PizzaDataServiceReference\PizzaDataService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PizzaDataServiceReference\PizzaDataService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="Web.config" />
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
