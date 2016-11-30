@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <setParameter name="WCF Service" value="Default Web Site/pizzastorewcf" />
+  <setParameter name="IIS Web Application Name" value="Default Web Site/pizzastorewcf" />
 </parameters>

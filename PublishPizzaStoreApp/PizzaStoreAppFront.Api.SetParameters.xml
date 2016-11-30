@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <setParameter name="Web API Service" value="Default Web Site/pizzastore/api" />
+  <setParameter name="IIS Web Application Name" value="Default Web Site/pizzastore/api" />
 </parameters>
