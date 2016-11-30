@@ -16,7 +16,7 @@ using System.Web.Script.Serialization;
 namespace PizzaStoreAppFront.Domain.Concrete {
     public class PizzaStoreRepository : IPizzaStoreRepository {
         private HttpClient client;
-        private const string BASE_URL = "http://localhost/pizzastore/api/";
+        private const string BASE_URL = "http://localhost/pizzastoreapi/";
 
         public PizzaStoreRepository() {
             client = new HttpClient();
