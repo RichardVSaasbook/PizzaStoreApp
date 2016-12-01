@@ -40,8 +40,6 @@ namespace PizzaStoreAppFront.Client.Helpers {
 
                 columnInnerHtmls[i % totalColumns].Append(element);
 
-                // columns[i % totalColumns].InnerHtml += element;
-
                 i++;
             }
 
@@ -90,8 +88,6 @@ namespace PizzaStoreAppFront.Client.Helpers {
                 );
 
                 columnInnerHtmls[i % totalColumns].Append(element);
-
-                // columns[i % totalColumns].InnerHtml += element;
 
                 i++;
             }

@@ -112,11 +112,11 @@ namespace PizzaStoreAppFront.Domain.Concrete {
 
 
                 for (int p = 0; p < pizzas.Count; p++) {
-                    keyValuePairs.Add(new KeyValuePair<string, string>("pizzas[" + p + "].Size.SizeId", pizzas[p].Size.SizeId.ToString()));
-                    keyValuePairs.Add(new KeyValuePair<string, string>("pizzas[" + p + "].Price", pizzas[p].Price.ToString()));
+                    keyValuePairs.Add(new KeyValuePair<string, string>("pizzas[" + p + "].Size.SizeId", pizzas[p].Size.SizeId.ToString(CultureInfo.InvariantCulture)));
+                    keyValuePairs.Add(new KeyValuePair<string, string>("pizzas[" + p + "].Price", pizzas[p].Price.ToString(CultureInfo.InvariantCulture)));
 
                     for (int i = 0; i < pizzas[p].Ingredients.Count; i++) {
-                        keyValuePairs.Add(new KeyValuePair<string, string>("pizzas[" + p + "].Ingredients[" + i + "].IngredientId", pizzas[p].Ingredients[i].IngredientId.ToString()));
+                        keyValuePairs.Add(new KeyValuePair<string, string>("pizzas[" + p + "].Ingredients[" + i + "].IngredientId", pizzas[p].Ingredients[i].IngredientId.ToString(CultureInfo.InvariantCulture)));
                     }
                 }
 

@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaStoreAppFront.Client", "PizzaStoreAppFront.Client\PizzaStoreAppFront.Client.csproj", "{FACD85DF-71B6-4836-BBB5-8F1C75FC98FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaStoreAppFront.Api", "PizzaStoreAppFront.Api\PizzaStoreAppFront.Api.csproj", "{F5BAE173-0150-4457-9AFE-8052B89E3158}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaStoreAppFront.ApiClient", "PizzaStoreAppFront.Api\PizzaStoreAppFront.ApiClient.csproj", "{F5BAE173-0150-4457-9AFE-8052B89E3158}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaStoreAppFront.Domain", "PizzaStoreAppFront.Domain\PizzaStoreAppFront.Domain.csproj", "{84D2EE2A-EED4-4501-9922-E60B103C09EB}"
 EndProject
