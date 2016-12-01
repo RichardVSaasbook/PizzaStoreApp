@@ -12,10 +12,11 @@ using PizzaStoreAppFront.Domain.PizzaDataServiceReference;
 using System.Web.Configuration;
 using System.IO;
 using System.Web.Script.Serialization;
+using System.Globalization;
 
 namespace PizzaStoreAppFront.Domain.Concrete {
     public class PizzaStoreRepository : IPizzaStoreRepository {
-        private HttpClient client;
+        private readonly HttpClient client;
         private const string BASE_URL = "http://localhost/pizzastoreapi/";
 
         public PizzaStoreRepository() {
@@ -102,19 +103,19 @@ namespace PizzaStoreAppFront.Domain.Concrete {
         public bool SubmitOrder(int customerId, int storeId, List<Pizza> pizzas, decimal subTotal, decimal taxTotal, decimal total) {
             if (pizzas.Count > 0) {
                 List<KeyValuePair<string, string>> keyValuePairs = new List<KeyValuePair<string, string>> {
-                    new KeyValuePair<string, string>("customerId", customerId.ToString()),
-                    new KeyValuePair<string, string>("storeId", storeId.ToString()),
-                    new KeyValuePair<string, string>("subTotal", subTotal.ToString()),
-                    new KeyValuePair<string, string>("taxTotal", taxTotal.ToString()),
-                    new KeyValuePair<string, string>("total", total.ToString())
+                    new KeyValuePair<string, string>("customerId", customerId.ToString(CultureInfo.InvariantCulture)),
+                    new KeyValuePair<string, string>("storeId", storeId.ToString(CultureInfo.InvariantCulture)),
+                    new KeyValuePair<string, string>("subTotal", subTotal.ToString(CultureInfo.InvariantCulture)),
+                    new KeyValuePair<string, string>("taxTotal", taxTotal.ToString(CultureInfo.InvariantCulture)),
+                    new KeyValuePair<string, string>("total", total.ToString(CultureInfo.InvariantCulture))
                 };
 
 
-                for (int p = 0; p < pizzas.Count(); p++) {
+                for (int p = 0; p < pizzas.Count; p++) {
                     keyValuePairs.Add(new KeyValuePair<string, string>("pizzas[" + p + "].Size.SizeId", pizzas[p].Size.SizeId.ToString()));
                     keyValuePairs.Add(new KeyValuePair<string, string>("pizzas[" + p + "].Price", pizzas[p].Price.ToString()));
 
-                    for (int i = 0; i < pizzas[p].Ingredients.Count(); i++) {
+                    for (int i = 0; i < pizzas[p].Ingredients.Count; i++) {
                         keyValuePairs.Add(new KeyValuePair<string, string>("pizzas[" + p + "].Ingredients[" + i + "].IngredientId", pizzas[p].Ingredients[i].IngredientId.ToString()));
                     }
                 }

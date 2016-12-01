@@ -11,7 +11,7 @@ namespace PizzaStoreAppFront.Client.Controllers
 {
     public class StoreController : Controller
     {
-        private IPizzaStoreRepository repository;
+        private readonly IPizzaStoreRepository repository;
 
         public StoreController(IPizzaStoreRepository repository) {
             this.repository = repository;

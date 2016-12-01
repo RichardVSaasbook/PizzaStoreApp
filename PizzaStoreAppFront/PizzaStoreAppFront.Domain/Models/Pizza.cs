@@ -12,12 +12,6 @@ namespace PizzaStoreAppFront.Domain.Models {
         public decimal Price { get; set; }
 
         public static Pizza FromDAO(PizzaDAO pizzaDAO) {
-            //List<Ingredient> ingredients = new List<Ingredient>();
-
-            //foreach (IngredientDAO ingredientDAO in pizzaDAO.Ingredients) {
-            //    ingredients.Add(Ingredient.FromDAO(ingredientDAO));
-            //}
-
             return new Pizza {
                 Ingredients = new List<Ingredient>(),
                 Size = Size.FromDAO(pizzaDAO.Size)

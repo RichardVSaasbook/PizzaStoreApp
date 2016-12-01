@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace PizzaStoreAppFront.Client.Controllers {
     public class PersonController : Controller {
-        private IPizzaStoreRepository repository;
+        private readonly IPizzaStoreRepository repository;
 
         public PersonController(IPizzaStoreRepository repository) {
             this.repository = repository;

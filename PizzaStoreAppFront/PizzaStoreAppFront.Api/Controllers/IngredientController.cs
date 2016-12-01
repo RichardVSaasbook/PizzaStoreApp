@@ -11,7 +11,7 @@ namespace PizzaStoreAppFront.Api.Controllers
 {
     public class IngredientController : ApiController
     {
-        private PizzaDataServiceClient pizzaDataService;
+        private readonly PizzaDataServiceClient pizzaDataService;
 
         public IngredientController() : base() {
             pizzaDataService = new PizzaDataServiceClient();

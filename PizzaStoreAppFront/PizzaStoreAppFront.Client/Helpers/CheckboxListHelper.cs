@@ -1,6 +1,7 @@
 ﻿using PizzaStoreAppFront.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -19,10 +20,13 @@ namespace PizzaStoreAppFront.Client.Helpers {
             StringBuilder builder = new StringBuilder(@"<div class=""row"">");
 
             List<TagBuilder> columns = new List<TagBuilder>();
+            List<StringBuilder> columnInnerHtmls = new List<StringBuilder>();
             for (int c = 0; c < totalColumns; c++) {
                 TagBuilder column = new TagBuilder("div");
                 column.AddCssClass("col-md-" + (12 / totalColumns));
                 columns.Add(column);
+
+                columnInnerHtmls.Add(new StringBuilder());
             }
 
             int i = 0;
@@ -34,13 +38,19 @@ namespace PizzaStoreAppFront.Client.Helpers {
                     item.Text
                 );
 
-                columns[i % totalColumns].InnerHtml += element;
+                columnInnerHtmls[i % totalColumns].Append(element);
+
+                // columns[i % totalColumns].InnerHtml += element;
 
                 i++;
             }
 
+            i = 0;
+
             foreach (TagBuilder column in columns) {
+                column.InnerHtml = columnInnerHtmls[i].ToString();
                 builder.Append(column.ToString());
+                i++;
             }
 
             builder.Append("</div>");
@@ -52,10 +62,13 @@ namespace PizzaStoreAppFront.Client.Helpers {
             StringBuilder builder = new StringBuilder(@"<div class=""row"">");
 
             List<TagBuilder> columns = new List<TagBuilder>();
+            List<StringBuilder> columnInnerHtmls = new List<StringBuilder>();
             for (int c = 0; c < totalColumns; c++) {
                 TagBuilder column = new TagBuilder("div");
                 column.AddCssClass("col-md-" + (12 / totalColumns));
                 columns.Add(column);
+
+                columnInnerHtmls.Add(new StringBuilder());
             }
 
             int i = 0;
@@ -76,13 +89,19 @@ namespace PizzaStoreAppFront.Client.Helpers {
                     ingredientList.ToString()
                 );
 
-                columns[i % totalColumns].InnerHtml += element;
+                columnInnerHtmls[i % totalColumns].Append(element);
+
+                // columns[i % totalColumns].InnerHtml += element;
 
                 i++;
             }
 
+            i = 0;
+
             foreach (TagBuilder column in columns) {
+                column.InnerHtml = columnInnerHtmls[i].ToString();
                 builder.Append(column.ToString());
+                i++;
             }
 
             builder.Append("</div>");

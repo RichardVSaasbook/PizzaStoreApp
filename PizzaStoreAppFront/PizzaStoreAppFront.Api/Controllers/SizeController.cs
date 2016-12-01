@@ -10,7 +10,7 @@ using System.Web.Http;
 namespace PizzaStoreAppFront.Api.Controllers
 {
     public class SizeController : ApiController {
-        private PizzaDataServiceClient pizzaDataService;
+        private readonly PizzaDataServiceClient pizzaDataService;
 
         public SizeController() : base() {
             pizzaDataService = new PizzaDataServiceClient();

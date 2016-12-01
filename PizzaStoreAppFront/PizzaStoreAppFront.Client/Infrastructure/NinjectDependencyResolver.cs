@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace PizzaStoreAppFront.Client.Infrastructure {
     public class NinjectDependencyResolver : IDependencyResolver {
-        private IKernel kernel;
+        private readonly IKernel kernel;
 
         public NinjectDependencyResolver(IKernel kernel) {
             this.kernel = kernel;

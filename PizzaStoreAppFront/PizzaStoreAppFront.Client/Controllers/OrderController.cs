@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace PizzaStoreAppFront.Client.Controllers {
     public class OrderController : Controller {
-        private IPizzaStoreRepository repository;
+        private readonly IPizzaStoreRepository repository;
 
         public OrderController(IPizzaStoreRepository repository) {
             this.repository = repository;

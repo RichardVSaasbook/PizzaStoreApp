@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace PizzaStoreAppFront.Api.Controllers {
     public class PeopleController : ApiController {
-        private PizzaDataServiceClient pizzaDataService;
+        private readonly PizzaDataServiceClient pizzaDataService;
 
         public PeopleController() {
             pizzaDataService = new PizzaDataServiceClient();

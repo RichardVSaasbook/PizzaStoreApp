@@ -17,13 +17,10 @@ namespace PizzaStoreAppFront.Domain.Models {
         public Person Customer { get; set; }
 
         public static Order FromDAO(OrderDAO orderDAO) {
-            PizzaStoreRepository repository = new PizzaStoreRepository();
-            
             return new Order {
                 Customer = Person.FromDAO(orderDAO.Customer),
                 OrderId = orderDAO.OrderId,
                 OrderDate = orderDAO.CreatedDate,
-                //Pizzas = repository.ListPizzasInOrder(orderDAO.OrderId),
                 Pizzas = new List<Pizza>(),
                 SubTotal = orderDAO.SubTotal,
                 TaxTotal = orderDAO.Tax,
