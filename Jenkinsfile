@@ -66,7 +66,7 @@ def dotnetPackage(toolMsBuild, extension) {
   def path = ""
 
   for (file in files.toList()) {
-      if (file.name ==~ "[Cc]lient") {
+      if (file.name.indexOf"Client" > -1) {
         path = file.path.replace(file.name, "")
     
         dir("${path}") {
@@ -81,11 +81,13 @@ def dotnetTest(toolXunitTest, extension) {
     def path = ""
 
     for (file in files.toList()) {
-        if (file.name ==~ "[Tt]est") {
+        if (file.name.indexOf("Test") > -1) {
           path = file.path.replace(file.name, "")
 
-          dir("${path}") {
-            bat "${toolXunitTest} ${file.name} -xml ${xunitOutput}"
+          if (path.indexOf("bin") > -1) {
+              dir("${path}") {
+                bat "${toolXunitTest} ${file.name} -xml ${xunitOutput}"
+              }
           }
         }
     }
