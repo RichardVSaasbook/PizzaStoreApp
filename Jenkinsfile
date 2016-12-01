@@ -8,6 +8,7 @@ def projectKey = "psa"
 def slackChannel = "#1610-oct17-msmq"
 def toolMsBuild = "\"C:\\Program Files (x86)\\MSBuild\\14.0\\Bin\\MSBuild.exe\""
 def toolXunit = "\"C:\\Program Files (x86)\\xUnit\\xunit.runner.console.2.1.0\\tools\\xunit.console\""
+def xunitOutput = "\"C:\\Program Files (x86)\\xUnit\\output.xml\""
 
 def dotnetAnalyze(projectKey) {
   def analysisReport = ""
@@ -84,7 +85,7 @@ def dotnetTest(toolXunitTest, extension) {
           path = file.path.replace(file.name, "")
 
           dir("${path}") {
-            bat "${toolXunitTest} ${file.name}"
+            bat "${toolXunitTest} ${file.name} -xml ${xunitOutput}"
           }
         }
     }
