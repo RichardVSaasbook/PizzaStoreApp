@@ -137,7 +137,7 @@ stage("ANALYZE") {
 stage("TEST") {
   node() {
     try {
-      dotnetTest(toolXunit, ".dll")
+      dotnetTest(toolXunit, "*.dll")
       slackNotify(slackChannel, buildColor.green, "TEST", buildFlag.passing)
     } catch(error) {
       slackNotify(slackChannel, buildColor.red, "TEST", buildFlag.failing)
