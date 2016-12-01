@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 
-namespace PizzaStoreAppFront.Api
+namespace PizzaStoreAppFront.ApiClient
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="PizzaStoreAppFront.Api.WebApiApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="PizzaStoreAppFront.ApiClient.WebApiApplication" Language="C#" %>

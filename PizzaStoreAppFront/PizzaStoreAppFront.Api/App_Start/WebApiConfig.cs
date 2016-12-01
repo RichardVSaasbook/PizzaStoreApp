@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace PizzaStoreAppFront.Api {
+namespace PizzaStoreAppFront.ApiClient {
     public static class WebApiConfig {
         public static void Register(HttpConfiguration config) {
             // Web API configuration and services

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PizzaStoreAppFront.Api.PizzaDataServiceReference {
+namespace PizzaStoreAppFront.ApiClient.PizzaDataServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -113,12 +113,12 @@ namespace PizzaStoreAppFront.Api.PizzaDataServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IPizzaDataServiceChannel : PizzaStoreAppFront.Api.PizzaDataServiceReference.IPizzaDataService, System.ServiceModel.IClientChannel {
+    public interface IPizzaDataServiceChannel : PizzaStoreAppFront.ApiClient.PizzaDataServiceReference.IPizzaDataService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class PizzaDataServiceClient : System.ServiceModel.ClientBase<PizzaStoreAppFront.Api.PizzaDataServiceReference.IPizzaDataService>, PizzaStoreAppFront.Api.PizzaDataServiceReference.IPizzaDataService {
+    public partial class PizzaDataServiceClient : System.ServiceModel.ClientBase<PizzaStoreAppFront.ApiClient.PizzaDataServiceReference.IPizzaDataService>, PizzaStoreAppFront.ApiClient.PizzaDataServiceReference.IPizzaDataService {
         
         public PizzaDataServiceClient() {
         }

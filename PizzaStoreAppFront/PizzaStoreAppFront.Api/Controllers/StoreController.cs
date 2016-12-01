@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace PizzaStoreAppFront.Api.Controllers {
+namespace PizzaStoreAppFront.ApiClient.Controllers {
     public class StoreController : ApiController {
         private readonly PizzaDataServiceClient pizzaDataService;
 
