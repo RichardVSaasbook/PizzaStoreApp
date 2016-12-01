@@ -66,7 +66,7 @@ def dotnetPackage(toolMsBuild, extension) {
   def path = ""
 
   for (file in files.toList()) {
-      if (file.name.indexOf"Client" > -1) {
+      if (file.name.indexOf("Client") > -1) {
         path = file.path.replace(file.name, "")
     
         dir("${path}") {
