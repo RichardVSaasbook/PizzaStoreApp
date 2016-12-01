@@ -76,7 +76,7 @@ def dotnetPackage(toolMsBuild, extension) {
   }
 }
 
-def dotnetTest(toolXunitTest, extension) {
+def dotnetTest(toolXunitTest, extension, xunitOutput) {
     def files = findFiles glob: "**/${extension}"
     def path = ""
 
@@ -137,7 +137,7 @@ stage("ANALYZE") {
 stage("TEST") {
   node() {
     try {
-      dotnetTest(toolXunit, "*.dll")
+      dotnetTest(toolXunit, "*.dll", xunitOutput)
       slackNotify(slackChannel, buildColor.green, "TEST", buildFlag.passing)
     } catch(error) {
       slackNotify(slackChannel, buildColor.red, "TEST", buildFlag.failing)
